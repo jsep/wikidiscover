@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3000"
+    environment:
+      - WIKIPEDIA_API_URL=https://api.wikimedia.org/wiki/Feed_API/Reference/Featured_content
+      - LIBRETRANSLATE_API_URL=http://libretranslate:5000
+    depends_on:
+      - libretranslate
+
+  libretranslate:
+    build: ./libretranslate
+    ports:
+      - "5050:5000"
