@@ -1,0 +1,16 @@
+{
+  "name": "wikidiscover",
+  "version": "1.0.0",
+  "engines": {
+    "node": "18.20.3"
+  },
+  "description": "",
+  "scripts": {
+    "dev": "docker-compose up --build",
+    "test:frontend": "echo 'not yet'",
+    "test:backend": "echo 'not yet'"
+  },
+  "dependencies": {
+    "prettier": "3.3.2"
+  }
+}
