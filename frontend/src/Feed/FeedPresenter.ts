@@ -1,20 +1,23 @@
-// import { ApiGateway } from "../ApiGateway";
-import { IsoDateString } from '../utils';
+import { dateToFriendly } from '../utils.ts';
 import { feedRepository } from './FeedRepository.ts';
-import { action, observable } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 
 export interface ArticuleVM {
   title: string;
-  url: string;
+  description: string;
+  url: {
+    desktop: string;
+    mobile: string;
+  };
   thumbnailUrl: string;
   formattedDate: string;
   views: number | null;
   badges: string[];
 }
 export interface FeedVm {
-  date: IsoDateString;
+  date: Date;
   lang: string;
-  tfa: ArticuleVM;
+  tfa: Omit<ArticuleVM, 'views'>;
   articules: ArticuleVM[];
 }
 
@@ -23,8 +26,39 @@ export default class FeedPresenter {
   @observable selectedLanguage: string;
 
   constructor() {
+    makeObservable(this);
     this.selectedDate = new Date();
     this.selectedLanguage = 'en';
+  }
+
+  @computed
+  get isLoading() {
+    return !feedRepository.feedPm;
+  }
+
+  @computed
+  get feedVm(): FeedVm | null {
+    let feedPm = feedRepository.feedPm;
+    if (!feedPm) {
+      return null;
+    }
+    let tfa = feedPm.tfa;
+    return {
+      date: this.selectedDate,
+      lang: this.selectedLanguage,
+      tfa: {
+        title: tfa.title,
+        url: {
+          desktop: tfa.url.desktop,
+          mobile: tfa.url.mobile,
+        },
+        formattedDate: dateToFriendly(tfa.date, this.selectedLanguage),
+        badges: ['Featured'],
+        description: tfa.description,
+        thumbnailUrl: tfa.thumbnailUrl,
+      },
+      articules: [],
+    };
   }
 
   @action
@@ -37,23 +71,7 @@ export default class FeedPresenter {
     this.selectedLanguage = language;
   }
 
-  async load(): Promise<FeedVm> {
-    const feedPm = await feedRepository.getFeed(
-      this.selectedDate,
-      this.selectedLanguage,
-    );
-    return {
-      date: '2024-06-01',
-      lang: 'en',
-      tfa: {
-        title: 'The Financial Advisor',
-        url: 'https://www.thefinancialadvisor.com',
-        thumbnailUrl: 'https://www.thefinancialadvisor.com/thumbnail.jpg',
-        formattedDate: '2024-06-01',
-        views: 1000,
-        badges: ['Featured'],
-      },
-      articules: [],
-    };
+  async load() {
+    await feedRepository.getFeed(this.selectedDate, this.selectedLanguage);
   }
 }

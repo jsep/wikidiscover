@@ -1,5 +1,5 @@
 import { ApiGateway } from '../ApiGateway';
-import { IsoDateString, dateToIso } from '../utils';
+import { action, makeObservable, observable } from 'mobx';
 
 export interface ArticulePM {
   title: string;
@@ -8,26 +8,34 @@ export interface ArticulePM {
     mobile: string;
   };
   thumbnailUrl: string;
-  formattedDate: string;
+  date: Date;
   views: number | null;
-  badges: string[];
+  description: string;
 }
 
 export interface FeedPm {
-  date: IsoDateString;
+  date: Date;
   lang: string;
-  tfa: ArticulePM;
+  tfa: Omit<ArticulePM, 'views'>;
   articles: ArticulePM[];
 }
 
 class FeedRepository {
   apiGateway: ApiGateway;
 
+  @observable feedPm: FeedPm | null = null;
+
   constructor() {
     this.apiGateway = new ApiGateway();
+    makeObservable(this);
   }
 
-  async getFeed(date: Date, lang: string): Promise<FeedPm> {
+  @action
+  setPm(feedPm: FeedPm) {
+    this.feedPm = feedPm;
+  }
+
+  async getFeed(date: Date, lang: string) {
     const result = await this.apiGateway.getFeed(date, lang);
     if (result.error || !result.value) {
       // TODO handle error
@@ -35,8 +43,8 @@ class FeedRepository {
     }
     const feedDto = result.value;
 
-    return {
-      date: dateToIso(new Date(feedDto.date)),
+    this.setPm({
+      date: new Date(feedDto.date),
       lang: feedDto.lang,
       tfa: {
         title: feedDto.tfa.title,
@@ -45,12 +53,11 @@ class FeedRepository {
           mobile: feedDto.tfa.content_urls.mobile,
         },
         thumbnailUrl: feedDto.tfa.thumbnail.source,
-        formattedDate: dateToIso(new Date(feedDto.tfa.timestamp)),
-        views: null,
-        badges: ['Featured'],
+        date: new Date(feedDto.tfa.timestamp),
+        description: feedDto.tfa.extract,
       },
       articles: [],
-    };
+    });
   }
 }
 

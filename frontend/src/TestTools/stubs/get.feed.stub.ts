@@ -11,7 +11,7 @@ export function GetFeedStub(
       date: dateToIso(date),
       lang: lang,
       tfa: {
-        title: 'Statue_of_Liberty',
+        title: 'Statue of Liberty',
         thumbnail: {
           source:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg/640px-Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg',

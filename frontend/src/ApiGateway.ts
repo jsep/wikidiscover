@@ -1,3 +1,4 @@
+import { GetFeedStub } from './TestTools/stubs/get.feed.stub';
 import { dateToIso, IsoDateString } from './utils';
 
 export type Result<Value, Error> = {
@@ -104,6 +105,9 @@ export class ApiGateway {
     date: Date,
     lang: string,
   ): Promise<Result<FeedDto, ApiError>> {
+    if (import.meta.env.VITE_FAKE_API) {
+      return this.fakeGetFeed(date, lang);
+    }
     const formattedDate = dateToIso(date).split('-').join('-');
     const path = `/feed/${lang}/${formattedDate}`;
     const { error, value } = await this.get<FeedDto>(path);
@@ -113,5 +117,16 @@ export class ApiGateway {
       return err(new ApiError('Unsuccessful response from server', value));
     }
     return ok(value);
+  }
+
+  private fakeGetFeed(
+    date: Date,
+    lang: string,
+  ): Promise<Result<FeedDto, ApiError>> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(GetFeedStub(date, lang));
+      }, 1000);
+    });
   }
 }
