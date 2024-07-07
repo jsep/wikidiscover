@@ -12,7 +12,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest --run",
-    "deploy": "fly deploy"
+    "deploy": "flyctl deploy"
   },
   "dependencies": {
     "react": "18.3.1",
