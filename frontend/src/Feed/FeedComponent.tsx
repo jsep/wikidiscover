@@ -2,6 +2,30 @@ import { useEffect, useRef } from 'react';
 import FeedPresenter from './FeedPresenter';
 import { observer } from 'mobx-react-lite';
 
+export const FeedComponent = observer(() => {
+  const { current: booksPresenter } = useRef(new FeedPresenter());
+
+  useEffect(() => {
+    booksPresenter.load();
+  }, [booksPresenter]);
+
+  // TODO handle not loading data with error screen
+  return (
+    <div>
+      <div>
+        <input
+          type="date"
+          // value={booksPresenter.selectedDate}
+          onChange={(event) =>
+            booksPresenter.onDateSelected(new Date(event.target.value))
+          }
+        />
+      </div>
+      <TodaysFeaturedArticle presenter={booksPresenter} />
+    </div>
+  );
+});
+
 const TodaysFeaturedArticle = observer(
   ({ presenter }: { presenter: FeedPresenter }) => {
     if (presenter.isLoading) {
@@ -47,21 +71,6 @@ const TodaysFeaturedArticle = observer(
     );
   },
 );
-
-export const FeedComponent = observer(() => {
-  const { current: booksPresenter } = useRef(new FeedPresenter());
-
-  useEffect(() => {
-    booksPresenter.load();
-  }, [booksPresenter]);
-
-  // TODO handle not loading data with loading screen
-  return (
-    <div>
-      <TodaysFeaturedArticle presenter={booksPresenter} />
-    </div>
-  );
-});
 
 function TodaysFeaturedArticleSkeleten() {
   return (

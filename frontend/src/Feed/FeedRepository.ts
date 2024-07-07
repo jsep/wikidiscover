@@ -24,6 +24,7 @@ class FeedRepository {
   apiGateway: ApiGateway;
 
   @observable feedPm: FeedPm | null = null;
+  @observable loading = true;
 
   constructor() {
     this.apiGateway = new ApiGateway();
@@ -35,12 +36,20 @@ class FeedRepository {
     this.feedPm = feedPm;
   }
 
+  @action
+  setLoading(value: boolean) {
+    this.loading = value;
+  }
+
   async getFeed(date: Date, lang: string) {
+    this.setLoading(true);
     const result = await this.apiGateway.getFeed(date, lang);
+    this.setLoading(false);
     if (result.error || !result.value) {
       // TODO handle error
       throw new Error(result.error?.message ?? 'Unknown error');
     }
+
     const feedDto = result.value;
 
     this.setPm({

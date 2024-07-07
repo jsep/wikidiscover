@@ -33,7 +33,13 @@ export default class FeedPresenter {
 
   @computed
   get isLoading() {
-    return !feedRepository.feedPm;
+    return feedRepository.loading;
+  }
+
+  async onDateSelected(newDate: Date) {
+    console.log('date', newDate);
+    this.selectedDate = newDate;
+    await this.load();
   }
 
   @computed

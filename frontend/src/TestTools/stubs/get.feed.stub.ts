@@ -11,7 +11,10 @@ export function GetFeedStub(
       date: dateToIso(date),
       lang: lang,
       tfa: {
-        title: 'Statue of Liberty',
+        title:
+          (lang == 'es' ? 'Estatua de la Libertad' : 'Statue of Liberty') +
+          ' ' +
+          dateToIso(date),
         thumbnail: {
           source:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg/640px-Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg',
@@ -20,7 +23,7 @@ export function GetFeedStub(
         },
         lang: 'en',
         dir: 'ltr',
-        timestamp: '2024-07-06T13:34:26Z',
+        timestamp: date.toUTCString(),
         description: 'Colossal sculpture in New York Harbor',
         content_urls: {
           desktop: 'https://en.wikipedia.org/wiki/Statue_of_Liberty',
