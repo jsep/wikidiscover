@@ -54,7 +54,7 @@ class FeedRepository {
         },
         thumbnailUrl: feedDto.tfa.thumbnail.source,
         date: new Date(feedDto.tfa.timestamp),
-        description: feedDto.tfa.extract,
+        description: feedDto.tfa.description,
       },
       articles: [],
     });

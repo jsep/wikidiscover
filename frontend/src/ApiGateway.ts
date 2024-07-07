@@ -108,15 +108,20 @@ export class ApiGateway {
     if (import.meta.env.VITE_FAKE_API) {
       return this.fakeGetFeed(date, lang);
     }
-    const formattedDate = dateToIso(date).split('-').join('-');
-    const path = `/feed/${lang}/${formattedDate}`;
-    const { error, value } = await this.get<FeedDto>(path);
+    const formattedDate = dateToIso(date).split('-').join('/');
+    const path = `/feed/${lang}/featured/${formattedDate}`;
+    const { error, value } = await this.get<{
+      error: any;
+      data: { value: FeedDto };
+    }>(path);
+
+    console.log(value);
     if (error) {
       return err(error);
-    } else if (!value) {
+    } else if (!value || value.error) {
       return err(new ApiError('Unsuccessful response from server', value));
     }
-    return ok(value);
+    return ok(value.data.value);
   }
 
   private fakeGetFeed(

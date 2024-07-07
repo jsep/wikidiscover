@@ -17,7 +17,7 @@ export class AppController {
     @Param('year') year: string,
     @Param('month') month: string,
     @Param('day') day: string,
-  ): Promise<{ error: string | null; data: string | null }> {
+  ): Promise<{ error: string | null; data: any }> {
     try {
       const data = await this.appService.getFeed({ lang, year, month, day });
       return { error: null, data };
