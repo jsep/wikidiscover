@@ -26,15 +26,27 @@ jobs:
 
       - name: Run frontend tests
         run: npm run test:frontend
+        env:
+          NODE_ENV: test
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_FAKE_API: ${{ secrets.VITE_FAKE_API }}
 
       - name: Run backend tests
         run: npm run test:backend
+        env:
+          NODE_ENV: test
 
       - name: Build frontend
         run: npm run build:frontend
+        env:
+          NODE_ENV: production
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_FAKE_API: ${{ secrets.VITE_FAKE_API }}
 
       - name: Build backend
         run: npm run build:backend
+        env:
+          NODE_ENV: production
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,9 +67,13 @@ jobs:
       - name: Deploy frontend to Fly.io
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          NODE_ENV: production
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_FAKE_API: ${{ secrets.VITE_FAKE_API }}
         run: npm run deploy:frontend
 
       - name: Deploy backend to Fly.io
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          NODE_ENV: production
         run: npm run deploy:backend
