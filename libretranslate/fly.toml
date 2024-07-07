@@ -1,16 +1,18 @@
-# fly.toml app configuration file generated for wikidiscover on 2024-07-07T09:38:09-04:00
+# fly.toml app configuration file generated for libretranslate-wikidiscover on 2024-07-07T09:50:25-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'wikidiscover'
+app = 'libretranslate-wikidiscover'
 primary_region = 'mia'
 
 [build]
-  dockerfile = "./Dockerfile"
+
+[env]
+  LT_LOAD_ONLY = 'en,es,zh,fi,he,ru'
 
 [http_service]
-  internal_port = 3000
+  internal_port = 5000
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
