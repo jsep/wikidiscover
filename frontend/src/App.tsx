@@ -176,7 +176,7 @@ function TodaysFeaturedArticle() {
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
           <div className="text-white">
             <h2 className="text-left text-2xl md:text-3xl font-bold mb-2">
-              {todaysFeatureArticule.title}
+              {todaysFeatureArticule.title} - New deploy
             </h2>
             <p className="text-left text-sm md:text-base mb-4 text-ellipsis overflow-hidden">
               {todaysFeatureArticule.description}
