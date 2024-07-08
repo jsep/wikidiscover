@@ -18,11 +18,10 @@ export class AppController {
     @Param('month') month: string,
     @Param('day') day: string,
   ): Promise<{ error: string | null; data: any }> {
-    try {
-      const data = await this.appService.getFeed({ lang, year, month, day });
-      return { error: null, data };
-    } catch (error) {
-      return { error: error.message, data: null };
-    }
+    const result = await this.appService.getFeed({ lang, year, month, day });
+    return {
+      error: result.error ? result.error.message : null,
+      data: result.value,
+    };
   }
 }

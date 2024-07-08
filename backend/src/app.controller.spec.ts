@@ -15,11 +15,14 @@ describe('AppController', () => {
 
     appController = app.get<AppController>(AppController);
     appService = app.get<AppService>(AppService);
+    fetchMock.resetMocks();
 
-    jest.spyOn(appService, 'wikipediaRequest').mockResolvedValue({
-      error: null,
-      value: GetFeatured(),
-    });
+    fetchMock.mockResponse(JSON.stringify(GetFeatured()));
+
+    // jest.spyOn(appService, 'wikipediaRequest').mockResolvedValue({
+    //   error: null,
+    //   value: GetFeatured(),
+    // });
   });
 
   it('should validate date', async () => {
@@ -64,6 +67,31 @@ describe('AppController', () => {
       expect.objectContaining({
         error: expect.stringContaining('Unsupported language'),
         data: null,
+      }),
+    );
+  });
+
+  it('should load tfa', async () => {
+    const result = await appController.getFeed('en', '2024', '01', '01');
+    expect(result).toEqual(expect.objectContaining({ error: null }));
+
+    expect(result.data.tfa).toBeDefined();
+    expect(result.data.tfa).toEqual(
+      expect.objectContaining({
+        urls: expect.objectContaining({
+          desktop: expect.stringMatching(/en\.wikipedia\.org/),
+          mobile: expect.stringMatching(/en\.m\.wikipedia\.org/),
+        }),
+        description: 'Colossal sculpture in New York Harbor',
+        dir: 'ltr',
+        lang: 'en',
+        thumbnail: expect.objectContaining({
+          height: expect.any(Number),
+          source: expect.stringMatching(/upload\.wikimedia\.org/),
+          width: expect.any(Number),
+        }),
+        timestamp: expect.stringMatching('2024-07-06'),
+        title: 'Statue of Liberty',
       }),
     );
   });
