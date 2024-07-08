@@ -20,6 +20,19 @@ export const FeedComponent = observer(() => {
             booksPresenter.onDateSelected(new Date(event.target.value))
           }
         />
+
+        <select
+          value={booksPresenter.selectedLanguage}
+          onChange={(event) =>
+            booksPresenter.onLangSelected(event.target.value)
+          }
+        >
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          {/* Add more languages as needed */}
+        </select>
       </div>
       <TodaysFeaturedArticle presenter={booksPresenter} />
     </div>

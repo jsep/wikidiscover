@@ -91,4 +91,30 @@ describe('FeedPresenter', () => {
     expect(feedVm.tfa.title).toBe('Statue of Liberty 2024-02-01');
     expect(feedVm.tfa.formattedDate).toBe('February 1, 2024');
   });
+
+  it('should load tfa when lang is selected', async () => {
+    const lang = 'en';
+    const march = new Date(2024, 2, 1);
+    const feedPresenter = await feedTestHarness.init(march, lang);
+    const newLang = 'es';
+
+    // pivot
+    vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
+      GetFeedStub(march, newLang),
+    );
+
+    //  action
+    await feedPresenter.onLangSelected(newLang);
+
+    expect(feedPresenter.selectedLanguage).toBe(newLang);
+    expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
+      march,
+      newLang,
+    );
+
+    expect(feedPresenter.feedVm).toBeDefined();
+    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedVm.tfa.title).toBe('Estatua de la Libertad 2024-03-01');
+    expect(feedVm.tfa.formattedDate).toBe('1 de marzo de 2024');
+  });
 });

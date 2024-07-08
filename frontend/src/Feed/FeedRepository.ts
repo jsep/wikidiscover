@@ -45,6 +45,7 @@ class FeedRepository {
     this.setLoading(true);
     const result = await this.apiGateway.getFeed(date, lang);
     this.setLoading(false);
+    // TODO handle cancel last request
     if (result.error || !result.value) {
       // TODO handle error
       throw new Error(result.error?.message ?? 'Unknown error');

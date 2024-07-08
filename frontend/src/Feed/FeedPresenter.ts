@@ -38,7 +38,12 @@ export default class FeedPresenter {
 
   async onDateSelected(newDate: Date) {
     console.log('date', newDate);
-    this.selectedDate = newDate;
+    this.setDate(newDate);
+    await this.load();
+  }
+
+  async onLangSelected(lang: string) {
+    this.setLanguage(lang);
     await this.load();
   }
 
