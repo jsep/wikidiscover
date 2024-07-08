@@ -25,7 +25,9 @@ jobs:
           npm run install:backend
 
       - name: Run frontend tests
-        run: npm run test:frontend
+        run: |
+          printenv | cut -d= -f1
+          npm run test:frontend
         env:
           NODE_ENV: test
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
