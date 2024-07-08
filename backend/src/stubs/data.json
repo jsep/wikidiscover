@@ -3,7 +3,10 @@
     "type": "standard",
     "title": "Statue_of_Liberty",
     "displaytitle": "<span class=\"mw-page-title-main\">Statue of Liberty</span>",
-    "namespace": { "id": 0, "text": "" },
+    "namespace": {
+      "id": 0,
+      "text": ""
+    },
     "wikibase_item": "Q9202",
     "titles": {
       "canonical": "Statue_of_Liberty",
@@ -25,10 +28,13 @@
     "dir": "ltr",
     "revision": "1232946141",
     "tid": "7673b3f5-3b9c-11ef-b7b8-748123c7fa1c",
-    "timestamp": "2024-07-06T13:34:26Z",
+    "timestamp": "2024-07-06T00:00:00.000Z",
     "description": "Colossal sculpture in New York Harbor",
     "description_source": "local",
-    "coordinates": { "lat": 40.68916667, "lon": -74.04444444 },
+    "coordinates": {
+      "lat": 40.68916667,
+      "lon": -74.04444444
+    },
     "content_urls": {
       "desktop": {
         "page": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
@@ -54,16 +60,34 @@
         "views": 442626,
         "rank": 4,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 162238 },
-          { "date": "2024-06-30Z", "views": 140018 },
-          { "date": "2024-07-01Z", "views": 238994 },
-          { "date": "2024-07-02Z", "views": 311291 },
-          { "date": "2024-07-03Z", "views": 442626 }
+          {
+            "date": "2024-06-29Z",
+            "views": 162238
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 140018
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 238994
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 311291
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 442626
+          }
         ],
         "type": "standard",
         "title": "Project_2025",
         "displaytitle": "<span class=\"mw-page-title-main\">Project 2025</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q122382481",
         "titles": {
           "canonical": "Project_2025",
@@ -85,7 +109,7 @@
         "dir": "ltr",
         "revision": "1233188643",
         "tid": "802cff81-3c95-11ef-8487-f50a70671b86",
-        "timestamp": "2024-07-07T19:17:07Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Proposed plan to consolidate executive power in a Republican president",
         "description_source": "local",
         "content_urls": {
@@ -110,16 +134,34 @@
         "views": 437394,
         "rank": 5,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 627564 },
-          { "date": "2024-06-30Z", "views": 591850 },
-          { "date": "2024-07-01Z", "views": 524355 },
-          { "date": "2024-07-02Z", "views": 443992 },
-          { "date": "2024-07-03Z", "views": 437394 }
+          {
+            "date": "2024-06-29Z",
+            "views": 627564
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 591850
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 524355
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 443992
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 437394
+          }
         ],
         "type": "standard",
         "title": "Kalki_2898_AD",
         "displaytitle": "<i>Kalki 2898 AD</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q112430183",
         "titles": {
           "canonical": "Kalki_2898_AD",
@@ -141,7 +183,7 @@
         "dir": "ltr",
         "revision": "1233131756",
         "tid": "6ec801df-3c5d-11ef-9983-7c1d5d70ddba",
-        "timestamp": "2024-07-07T12:35:46Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2024 Indian sci-fi film directed by Nag Ashwin",
         "description_source": "local",
         "content_urls": {
@@ -166,16 +208,34 @@
         "views": 197079,
         "rank": 7,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 296337 },
-          { "date": "2024-06-30Z", "views": 419039 },
-          { "date": "2024-07-01Z", "views": 367854 },
-          { "date": "2024-07-02Z", "views": 349434 },
-          { "date": "2024-07-03Z", "views": 197079 }
+          {
+            "date": "2024-06-29Z",
+            "views": 296337
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 419039
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 367854
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 349434
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 197079
+          }
         ],
         "type": "standard",
         "title": "UEFA_Euro_2024",
         "displaytitle": "<span class=\"mw-page-title-main\">UEFA Euro 2024</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q15098367",
         "titles": {
           "canonical": "UEFA_Euro_2024",
@@ -197,7 +257,7 @@
         "dir": "ltr",
         "revision": "1233150666",
         "tid": "a42a2621-3c70-11ef-99b2-053b3156cc0a",
-        "timestamp": "2024-07-07T14:53:16Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "17th edition of the UEFA European Football Championship",
         "description_source": "local",
         "content_urls": {
@@ -222,16 +282,34 @@
         "views": 165276,
         "rank": 8,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 5099 },
-          { "date": "2024-06-30Z", "views": 5977 },
-          { "date": "2024-07-01Z", "views": 41622 },
-          { "date": "2024-07-02Z", "views": 17865 },
-          { "date": "2024-07-03Z", "views": 165276 }
+          {
+            "date": "2024-06-29Z",
+            "views": 5099
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 5977
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 41622
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 17865
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 165276
+          }
         ],
         "type": "standard",
         "title": "Jannik_Sinner",
         "displaytitle": "<span class=\"mw-page-title-main\">Jannik Sinner</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q54812588",
         "titles": {
           "canonical": "Jannik_Sinner",
@@ -253,7 +331,7 @@
         "dir": "ltr",
         "revision": "1233103231",
         "tid": "85f500dd-3c39-11ef-94a0-365fb930d2e1",
-        "timestamp": "2024-07-07T08:18:43Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Italian tennis player (born 2001)",
         "description_source": "local",
         "content_urls": {
@@ -278,16 +356,34 @@
         "views": 150675,
         "rank": 9,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 6847 },
-          { "date": "2024-06-30Z", "views": 6938 },
-          { "date": "2024-07-01Z", "views": 96984 },
-          { "date": "2024-07-02Z", "views": 29278 },
-          { "date": "2024-07-03Z", "views": 150675 }
+          {
+            "date": "2024-06-29Z",
+            "views": 6847
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 6938
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 96984
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 29278
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 150675
+          }
         ],
         "type": "standard",
         "title": "Emma_Raducanu",
         "displaytitle": "<span class=\"mw-page-title-main\">Emma Raducanu</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q64849968",
         "titles": {
           "canonical": "Emma_Raducanu",
@@ -309,7 +405,7 @@
         "dir": "ltr",
         "revision": "1233190243",
         "tid": "07c755b9-3c97-11ef-92ee-130d6f78cd22",
-        "timestamp": "2024-07-07T19:28:04Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "British tennis player (born 2002)",
         "description_source": "local",
         "content_urls": {
@@ -334,16 +430,34 @@
         "views": 149926,
         "rank": 10,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 106037 },
-          { "date": "2024-06-30Z", "views": 143132 },
-          { "date": "2024-07-01Z", "views": 132126 },
-          { "date": "2024-07-02Z", "views": 152788 },
-          { "date": "2024-07-03Z", "views": 149926 }
+          {
+            "date": "2024-06-29Z",
+            "views": 106037
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 143132
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 132126
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 152788
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 149926
+          }
         ],
         "type": "standard",
         "title": "2024_Copa_América",
         "displaytitle": "<span class=\"mw-page-title-main\">2024 Copa América</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q16481624",
         "titles": {
           "canonical": "2024_Copa_América",
@@ -365,7 +479,7 @@
         "dir": "ltr",
         "revision": "1233118515",
         "tid": "b6468e54-3c4d-11ef-9720-9f467392cdb7",
-        "timestamp": "2024-07-07T10:43:14Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "48th edition of the Copa América",
         "description_source": "local",
         "content_urls": {
@@ -390,16 +504,34 @@
         "views": 132082,
         "rank": 12,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 235533 },
-          { "date": "2024-06-30Z", "views": 236617 },
-          { "date": "2024-07-01Z", "views": 175674 },
-          { "date": "2024-07-02Z", "views": 146195 },
-          { "date": "2024-07-03Z", "views": 132082 }
+          {
+            "date": "2024-06-29Z",
+            "views": 235533
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 236617
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 175674
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 146195
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 132082
+          }
         ],
         "type": "standard",
         "title": "A_Quiet_Place:_Day_One",
         "displaytitle": "<i>A Quiet Place: Day One</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q112183404",
         "titles": {
           "canonical": "A_Quiet_Place:_Day_One",
@@ -421,7 +553,7 @@
         "dir": "ltr",
         "revision": "1233157406",
         "tid": "ebb3a4e9-3c76-11ef-b55b-903a7c13ca33",
-        "timestamp": "2024-07-07T15:38:13Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2024 film by Michael Sarnoski",
         "description_source": "local",
         "content_urls": {
@@ -446,16 +578,34 @@
         "views": 131585,
         "rank": 13,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 133219 },
-          { "date": "2024-06-30Z", "views": 126540 },
-          { "date": "2024-07-01Z", "views": 133947 },
-          { "date": "2024-07-02Z", "views": 129927 },
-          { "date": "2024-07-03Z", "views": 131585 }
+          {
+            "date": "2024-06-29Z",
+            "views": 133219
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 126540
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 133947
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 129927
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 131585
+          }
         ],
         "type": "standard",
         "title": "Deaths_in_2024",
         "displaytitle": "<span class=\"mw-page-title-main\">Deaths in 2024</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q123489953",
         "titles": {
           "canonical": "Deaths_in_2024",
@@ -467,7 +617,7 @@
         "dir": "ltr",
         "revision": "1233172383",
         "tid": "92537c2e-3c86-11ef-a2bd-ee2f4892ff62",
-        "timestamp": "2024-07-07T17:30:15Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "List of notable deaths in a year",
         "description_source": "local",
         "content_urls": {
@@ -492,16 +642,34 @@
         "views": 128888,
         "rank": 14,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 512 },
-          { "date": "2024-06-30Z", "views": 438 },
-          { "date": "2024-07-01Z", "views": 13488 },
-          { "date": "2024-07-02Z", "views": 26744 },
-          { "date": "2024-07-03Z", "views": 128888 }
+          {
+            "date": "2024-06-29Z",
+            "views": 512
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 438
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 13488
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 26744
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 128888
+          }
         ],
         "type": "standard",
         "title": "Sonay_Kartal",
         "displaytitle": "<span class=\"mw-page-title-main\">Sonay Kartal</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q110904224",
         "titles": {
           "canonical": "Sonay_Kartal",
@@ -523,7 +691,7 @@
         "dir": "ltr",
         "revision": "1233064583",
         "tid": "c25c407c-3c08-11ef-a1ef-10aaad10250e",
-        "timestamp": "2024-07-07T02:29:39Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "British tennis player (born 2001)",
         "description_source": "local",
         "content_urls": {
@@ -548,16 +716,34 @@
         "views": 120733,
         "rank": 15,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 69476 },
-          { "date": "2024-06-30Z", "views": 66204 },
-          { "date": "2024-07-01Z", "views": 86560 },
-          { "date": "2024-07-02Z", "views": 100988 },
-          { "date": "2024-07-03Z", "views": 120733 }
+          {
+            "date": "2024-06-29Z",
+            "views": 69476
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 66204
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 86560
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 100988
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 120733
+          }
         ],
         "type": "standard",
         "title": "Opinion_polling_for_the_2024_United_Kingdom_general_election",
         "displaytitle": "<span class=\"mw-page-title-main\">Opinion polling for the 2024 United Kingdom general election</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q85791055",
         "titles": {
           "canonical": "Opinion_polling_for_the_2024_United_Kingdom_general_election",
@@ -569,7 +755,7 @@
         "dir": "ltr",
         "revision": "1233041304",
         "tid": "84074d50-3bf1-11ef-8c30-b454d5a426b1",
-        "timestamp": "2024-07-06T23:43:16Z",
+        "timestamp": "2024-07-06T00:00:00.000Z",
         "content_urls": {
           "desktop": {
             "page": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2024_United_Kingdom_general_election",
@@ -592,16 +778,34 @@
         "views": 113712,
         "rank": 16,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 14538 },
-          { "date": "2024-06-30Z", "views": 16431 },
-          { "date": "2024-07-01Z", "views": 16321 },
-          { "date": "2024-07-02Z", "views": 22398 },
-          { "date": "2024-07-03Z", "views": 113712 }
+          {
+            "date": "2024-06-29Z",
+            "views": 14538
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 16431
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 16321
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 22398
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 113712
+          }
         ],
         "type": "standard",
         "title": "Beverly_Hills_Cop:_Axel_F",
         "displaytitle": "<i>Beverly Hills Cop: Axel F</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q113650759",
         "titles": {
           "canonical": "Beverly_Hills_Cop:_Axel_F",
@@ -623,7 +827,7 @@
         "dir": "ltr",
         "revision": "1233171621",
         "tid": "cda18788-3c85-11ef-bcce-56ecb1db4924",
-        "timestamp": "2024-07-07T17:24:45Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2024 American film by Mark Molloy",
         "description_source": "local",
         "content_urls": {
@@ -648,16 +852,34 @@
         "views": 106118,
         "rank": 17,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 16099 },
-          { "date": "2024-06-30Z", "views": 11003 },
-          { "date": "2024-07-01Z", "views": 9948 },
-          { "date": "2024-07-02Z", "views": 5420 },
-          { "date": "2024-07-03Z", "views": 106118 }
+          {
+            "date": "2024-06-29Z",
+            "views": 16099
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 11003
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 9948
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 5420
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 106118
+          }
         ],
         "type": "standard",
         "title": "Mark_Cavendish",
         "displaytitle": "<span class=\"mw-page-title-main\">Mark Cavendish</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q207713",
         "titles": {
           "canonical": "Mark_Cavendish",
@@ -679,7 +901,7 @@
         "dir": "ltr",
         "revision": "1233150015",
         "tid": "ffa7d6df-3c6f-11ef-83be-937cdb75b909",
-        "timestamp": "2024-07-07T14:48:40Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Road and track cyclist (born 1985)",
         "description_source": "local",
         "content_urls": {
@@ -704,16 +926,34 @@
         "views": 104359,
         "rank": 18,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 973 },
-          { "date": "2024-06-30Z", "views": 961 },
-          { "date": "2024-07-01Z", "views": 4811 },
-          { "date": "2024-07-02Z", "views": 4056 },
-          { "date": "2024-07-03Z", "views": 104359 }
+          {
+            "date": "2024-06-29Z",
+            "views": 973
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 961
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 4811
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 4056
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 104359
+          }
         ],
         "type": "standard",
         "title": "Matteo_Berrettini",
         "displaytitle": "<span class=\"mw-page-title-main\">Matteo Berrettini</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q29918446",
         "titles": {
           "canonical": "Matteo_Berrettini",
@@ -735,7 +975,7 @@
         "dir": "ltr",
         "revision": "1232471823",
         "tid": "e231f286-3989-11ef-9a6e-ba23f1c8648a",
-        "timestamp": "2024-07-03T22:16:24Z",
+        "timestamp": "2024-07-03T00:00:00.000Z",
         "description": "Italian tennis player (born 1996)",
         "description_source": "local",
         "content_urls": {
@@ -760,16 +1000,34 @@
         "views": 99972,
         "rank": 19,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 33979 },
-          { "date": "2024-06-30Z", "views": 40666 },
-          { "date": "2024-07-01Z", "views": 49803 },
-          { "date": "2024-07-02Z", "views": 56885 },
-          { "date": "2024-07-03Z", "views": 99972 }
+          {
+            "date": "2024-06-29Z",
+            "views": 33979
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 40666
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 49803
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 56885
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 99972
+          }
         ],
         "type": "standard",
         "title": "2024_United_Kingdom_general_election",
         "displaytitle": "<span class=\"mw-page-title-main\">2024 United Kingdom general election</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q78851988",
         "titles": {
           "canonical": "2024_United_Kingdom_general_election",
@@ -791,7 +1049,7 @@
         "dir": "ltr",
         "revision": "1233189621",
         "tid": "735ceb13-3c96-11ef-bf93-4603c7c0bb36",
-        "timestamp": "2024-07-07T19:23:55Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "content_urls": {
           "desktop": {
             "page": "https://en.wikipedia.org/wiki/2024_United_Kingdom_general_election",
@@ -814,16 +1072,34 @@
         "views": 92823,
         "rank": 20,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 160895 },
-          { "date": "2024-06-30Z", "views": 118601 },
-          { "date": "2024-07-01Z", "views": 89413 },
-          { "date": "2024-07-02Z", "views": 80833 },
-          { "date": "2024-07-03Z", "views": 92823 }
+          {
+            "date": "2024-06-29Z",
+            "views": 160895
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 118601
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 89413
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 80833
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 92823
+          }
         ],
         "type": "standard",
         "title": "Joe_Biden",
         "displaytitle": "<span class=\"mw-page-title-main\">Joe Biden</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q6279",
         "titles": {
           "canonical": "Joe_Biden",
@@ -845,7 +1121,7 @@
         "dir": "ltr",
         "revision": "1233088098",
         "tid": "ffcfbbff-3c26-11ef-aafe-af587044433e",
-        "timestamp": "2024-07-07T06:06:07Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "President of the United States since 2021",
         "description_source": "local",
         "content_urls": {
@@ -870,16 +1146,34 @@
         "views": 92399,
         "rank": 21,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 40017 },
-          { "date": "2024-06-30Z", "views": 36121 },
-          { "date": "2024-07-01Z", "views": 31599 },
-          { "date": "2024-07-02Z", "views": 40357 },
-          { "date": "2024-07-03Z", "views": 92399 }
+          {
+            "date": "2024-06-29Z",
+            "views": 40017
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 36121
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 31599
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 40357
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 92399
+          }
         ],
         "type": "standard",
         "title": "The_Acolyte_(TV_series)",
         "displaytitle": "<i>The Acolyte</i> (TV series)",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q104161310",
         "titles": {
           "canonical": "The_Acolyte_(TV_series)",
@@ -891,7 +1185,7 @@
         "dir": "ltr",
         "revision": "1233162423",
         "tid": "050b30a8-3c7c-11ef-8c3a-9af4e71378a4",
-        "timestamp": "2024-07-07T16:14:43Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "American television series",
         "description_source": "local",
         "content_urls": {
@@ -916,16 +1210,34 @@
         "views": 91761,
         "rank": 22,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 68721 },
-          { "date": "2024-06-30Z", "views": 85821 },
-          { "date": "2024-07-01Z", "views": 200277 },
-          { "date": "2024-07-02Z", "views": 119477 },
-          { "date": "2024-07-03Z", "views": 91761 }
+          {
+            "date": "2024-06-29Z",
+            "views": 68721
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 85821
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 200277
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 119477
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 91761
+          }
         ],
         "type": "standard",
         "title": "House_of_the_Dragon",
         "displaytitle": "<i>House of the Dragon</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q72930269",
         "titles": {
           "canonical": "House_of_the_Dragon",
@@ -937,7 +1249,7 @@
         "dir": "ltr",
         "revision": "1233127165",
         "tid": "075b9876-3c58-11ef-b578-56446085d75c",
-        "timestamp": "2024-07-07T11:57:05Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "American fantasy TV series",
         "description_source": "local",
         "content_urls": {
@@ -962,16 +1274,34 @@
         "views": 89780,
         "rank": 24,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 19655 },
-          { "date": "2024-06-30Z", "views": 7508 },
-          { "date": "2024-07-01Z", "views": 6704 },
-          { "date": "2024-07-02Z", "views": 7630 },
-          { "date": "2024-07-03Z", "views": 89780 }
+          {
+            "date": "2024-06-29Z",
+            "views": 19655
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 7508
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 6704
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 7630
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 89780
+          }
         ],
         "type": "standard",
         "title": "James_Rodríguez",
         "displaytitle": "<span class=\"mw-page-title-main\">James Rodríguez</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q368441",
         "titles": {
           "canonical": "James_Rodríguez",
@@ -993,7 +1323,7 @@
         "dir": "ltr",
         "revision": "1233050938",
         "tid": "34c6148d-3bfb-11ef-80bf-9ac20d1fe8a2",
-        "timestamp": "2024-07-07T00:52:38Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Colombian footballer (born 1991)",
         "description_source": "local",
         "content_urls": {
@@ -1018,16 +1348,34 @@
         "views": 88683,
         "rank": 25,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 54188 },
-          { "date": "2024-06-30Z", "views": 57543 },
-          { "date": "2024-07-01Z", "views": 56104 },
-          { "date": "2024-07-02Z", "views": 59500 },
-          { "date": "2024-07-03Z", "views": 88683 }
+          {
+            "date": "2024-06-29Z",
+            "views": 54188
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 57543
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 56104
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 59500
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 88683
+          }
         ],
         "type": "standard",
         "title": "Despicable_Me_4",
         "displaytitle": "<i>Despicable Me 4</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q113373276",
         "titles": {
           "canonical": "Despicable_Me_4",
@@ -1049,7 +1397,7 @@
         "dir": "ltr",
         "revision": "1233181999",
         "tid": "ac4584b3-3c8f-11ef-8aec-e58b24b4d41b",
-        "timestamp": "2024-07-07T18:35:24Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2024 Illumination film",
         "description_source": "local",
         "content_urls": {
@@ -1074,16 +1422,34 @@
         "views": 84157,
         "rank": 26,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 923 },
-          { "date": "2024-06-30Z", "views": 819 },
-          { "date": "2024-07-01Z", "views": 817 },
-          { "date": "2024-07-02Z", "views": 2964 },
-          { "date": "2024-07-03Z", "views": 84157 }
+          {
+            "date": "2024-06-29Z",
+            "views": 923
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 819
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 817
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 2964
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 84157
+          }
         ],
         "type": "standard",
         "title": "Grey_Wolves_(organization)",
         "displaytitle": "<span class=\"mw-page-title-main\">Grey Wolves (organization)</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q1142831",
         "titles": {
           "canonical": "Grey_Wolves_(organization)",
@@ -1105,7 +1471,7 @@
         "dir": "ltr",
         "revision": "1233174745",
         "tid": "fd9e5b42-3c88-11ef-ab32-76198f0e27ae",
-        "timestamp": "2024-07-07T17:47:34Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Turkish ultra-nationalist political organization",
         "description_source": "local",
         "content_urls": {
@@ -1130,16 +1496,34 @@
         "views": 82018,
         "rank": 27,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 41503 },
-          { "date": "2024-06-30Z", "views": 32301 },
-          { "date": "2024-07-01Z", "views": 30660 },
-          { "date": "2024-07-02Z", "views": 36024 },
-          { "date": "2024-07-03Z", "views": 82018 }
+          {
+            "date": "2024-06-29Z",
+            "views": 41503
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 32301
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 30660
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 36024
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 82018
+          }
         ],
         "type": "standard",
         "title": "Kamala_Harris",
         "displaytitle": "<span class=\"mw-page-title-main\">Kamala Harris</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q10853588",
         "titles": {
           "canonical": "Kamala_Harris",
@@ -1161,7 +1545,7 @@
         "dir": "ltr",
         "revision": "1232859143",
         "tid": "6c668df6-3b2d-11ef-b91c-e3097d1db2dc",
-        "timestamp": "2024-07-06T00:19:35Z",
+        "timestamp": "2024-07-06T00:00:00.000Z",
         "description": "Vice president of the United States since 2021",
         "description_source": "local",
         "content_urls": {
@@ -1186,16 +1570,34 @@
         "views": 79703,
         "rank": 28,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 118320 },
-          { "date": "2024-06-30Z", "views": 115421 },
-          { "date": "2024-07-01Z", "views": 93450 },
-          { "date": "2024-07-02Z", "views": 85448 },
-          { "date": "2024-07-03Z", "views": 79703 }
+          {
+            "date": "2024-06-29Z",
+            "views": 118320
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 115421
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 93450
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 85448
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 79703
+          }
         ],
         "type": "standard",
         "title": "The_Bear_(TV_series)",
         "displaytitle": "<i>The Bear</i> (TV series)",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q112761982",
         "titles": {
           "canonical": "The_Bear_(TV_series)",
@@ -1217,7 +1619,7 @@
         "dir": "ltr",
         "revision": "1233184339",
         "tid": "bd8f9173-3c91-11ef-a9a1-ba81a853eb96",
-        "timestamp": "2024-07-07T18:50:12Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2022 American comedy-drama television series",
         "description_source": "local",
         "content_urls": {
@@ -1242,16 +1644,34 @@
         "views": 78769,
         "rank": 29,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 20941 },
-          { "date": "2024-06-30Z", "views": 22921 },
-          { "date": "2024-07-01Z", "views": 29201 },
-          { "date": "2024-07-02Z", "views": 55582 },
-          { "date": "2024-07-03Z", "views": 78769 }
+          {
+            "date": "2024-06-29Z",
+            "views": 20941
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 22921
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 29201
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 55582
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 78769
+          }
         ],
         "type": "standard",
         "title": "Keir_Starmer",
         "displaytitle": "<span class=\"mw-page-title-main\">Keir Starmer</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q6383803",
         "titles": {
           "canonical": "Keir_Starmer",
@@ -1273,7 +1693,7 @@
         "dir": "ltr",
         "revision": "1233183047",
         "tid": "997f82fc-3c90-11ef-aaff-70360c584f1f",
-        "timestamp": "2024-07-07T18:42:02Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Prime Minister of the United Kingdom since 2024",
         "description_source": "local",
         "content_urls": {
@@ -1298,16 +1718,34 @@
         "views": 77995,
         "rank": 30,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 6210 },
-          { "date": "2024-06-30Z", "views": 1260 },
-          { "date": "2024-07-01Z", "views": 83703 },
-          { "date": "2024-07-02Z", "views": 109260 },
-          { "date": "2024-07-03Z", "views": 77995 }
+          {
+            "date": "2024-06-29Z",
+            "views": 6210
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 1260
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 83703
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 109260
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 77995
+          }
         ],
         "type": "standard",
         "title": "Nikki_Hiltz",
         "displaytitle": "<span class=\"mw-page-title-main\">Nikki Hiltz</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q56728410",
         "titles": {
           "canonical": "Nikki_Hiltz",
@@ -1329,7 +1767,7 @@
         "dir": "ltr",
         "revision": "1232786320",
         "tid": "2ab2f300-3ae7-11ef-863c-9c0c9f2b7564",
-        "timestamp": "2024-07-05T15:56:40Z",
+        "timestamp": "2024-07-05T00:00:00.000Z",
         "description": "American middle-distance runner (born 1994)",
         "description_source": "local",
         "content_urls": {
@@ -1354,16 +1792,34 @@
         "views": 72961,
         "rank": 31,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 101167 },
-          { "date": "2024-06-30Z", "views": 120892 },
-          { "date": "2024-07-01Z", "views": 83974 },
-          { "date": "2024-07-02Z", "views": 72558 },
-          { "date": "2024-07-03Z", "views": 72961 }
+          {
+            "date": "2024-06-29Z",
+            "views": 101167
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 120892
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 83974
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 72558
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 72961
+          }
         ],
         "type": "standard",
         "title": "Bad_Boys:_Ride_or_Die",
         "displaytitle": "<i>Bad Boys: Ride or Die</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q31271357",
         "titles": {
           "canonical": "Bad_Boys:_Ride_or_Die",
@@ -1385,7 +1841,7 @@
         "dir": "ltr",
         "revision": "1233168290",
         "tid": "4f8f9de0-3c82-11ef-bca7-f6f1890e9e2b",
-        "timestamp": "2024-07-07T16:59:45Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2024 film directed by Adil & Bilall",
         "description_source": "local",
         "content_urls": {
@@ -1410,16 +1866,34 @@
         "views": 72377,
         "rank": 32,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 42905 },
-          { "date": "2024-06-30Z", "views": 52725 },
-          { "date": "2024-07-01Z", "views": 66260 },
-          { "date": "2024-07-02Z", "views": 60889 },
-          { "date": "2024-07-03Z", "views": 72377 }
+          {
+            "date": "2024-06-29Z",
+            "views": 42905
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 52725
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 66260
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 60889
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 72377
+          }
         ],
         "type": "standard",
         "title": "List_of_highest-grossing_Indian_films",
         "displaytitle": "<span class=\"mw-page-title-main\">List of highest-grossing Indian films</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q6622409",
         "titles": {
           "canonical": "List_of_highest-grossing_Indian_films",
@@ -1431,7 +1905,7 @@
         "dir": "ltr",
         "revision": "1233167238",
         "tid": "215da05e-3c81-11ef-9bab-1e1dbcbfa997",
-        "timestamp": "2024-07-07T16:51:18Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "content_urls": {
           "desktop": {
             "page": "https://en.wikipedia.org/wiki/List_of_highest-grossing_Indian_films",
@@ -1454,16 +1928,34 @@
         "views": 71434,
         "rank": 33,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 6710 },
-          { "date": "2024-06-30Z", "views": 7797 },
-          { "date": "2024-07-01Z", "views": 11341 },
-          { "date": "2024-07-02Z", "views": 32343 },
-          { "date": "2024-07-03Z", "views": 71434 }
+          {
+            "date": "2024-06-29Z",
+            "views": 6710
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 7797
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 11341
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 32343
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 71434
+          }
         ],
         "type": "standard",
         "title": "2024_FIBA_Men's_Olympic_Qualifying_Tournaments",
         "displaytitle": "<span class=\"mw-page-title-main\">2024 FIBA Men&#039;s Olympic Qualifying Tournaments</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q123572116",
         "titles": {
           "canonical": "2024_FIBA_Men's_Olympic_Qualifying_Tournaments",
@@ -1475,7 +1967,7 @@
         "dir": "ltr",
         "revision": "1232949836",
         "tid": "1a127f4b-3ba0-11ef-8b5e-4c78ed9e2279",
-        "timestamp": "2024-07-06T14:00:29Z",
+        "timestamp": "2024-07-06T00:00:00.000Z",
         "description": "International basketball competition",
         "description_source": "local",
         "content_urls": {
@@ -1500,16 +1992,34 @@
         "views": 68398,
         "rank": 34,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 8242 },
-          { "date": "2024-06-30Z", "views": 11305 },
-          { "date": "2024-07-01Z", "views": 24605 },
-          { "date": "2024-07-02Z", "views": 28857 },
-          { "date": "2024-07-03Z", "views": 68398 }
+          {
+            "date": "2024-06-29Z",
+            "views": 8242
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 11305
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 24605
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 28857
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 68398
+          }
         ],
         "type": "standard",
         "title": "Independence_Day_(United_States)",
         "displaytitle": "<span class=\"mw-page-title-main\">Independence Day (United States)</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q86591",
         "titles": {
           "canonical": "Independence_Day_(United_States)",
@@ -1531,7 +2041,7 @@
         "dir": "ltr",
         "revision": "1232789552",
         "tid": "baf24f7d-3ae9-11ef-93fe-2cbd7079c0c1",
-        "timestamp": "2024-07-05T16:15:01Z",
+        "timestamp": "2024-07-05T00:00:00.000Z",
         "description": "Public holiday celebrated on July 4",
         "description_source": "local",
         "content_urls": {
@@ -1556,16 +2066,34 @@
         "views": 65059,
         "rank": 35,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 115283 },
-          { "date": "2024-06-30Z", "views": 121500 },
-          { "date": "2024-07-01Z", "views": 86211 },
-          { "date": "2024-07-02Z", "views": 74807 },
-          { "date": "2024-07-03Z", "views": 65059 }
+          {
+            "date": "2024-06-29Z",
+            "views": 115283
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 121500
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 86211
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 74807
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 65059
+          }
         ],
         "type": "standard",
         "title": "Zac_Efron",
         "displaytitle": "<span class=\"mw-page-title-main\">Zac Efron</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q45229",
         "titles": {
           "canonical": "Zac_Efron",
@@ -1587,7 +2115,7 @@
         "dir": "ltr",
         "revision": "1231784030",
         "tid": "1a4ae95c-36b1-11ef-b70f-081311bcf904",
-        "timestamp": "2024-06-30T07:19:35Z",
+        "timestamp": "2024-06-30T00:00:00.000Z",
         "description": "American actor (born 1987)",
         "description_source": "local",
         "content_urls": {
@@ -1612,16 +2140,34 @@
         "views": 63796,
         "rank": 36,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 80931 },
-          { "date": "2024-06-30Z", "views": 100224 },
-          { "date": "2024-07-01Z", "views": 96901 },
-          { "date": "2024-07-02Z", "views": 71167 },
-          { "date": "2024-07-03Z", "views": 63796 }
+          {
+            "date": "2024-06-29Z",
+            "views": 80931
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 100224
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 96901
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 71167
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 63796
+          }
         ],
         "type": "standard",
         "title": "Inside_Out_2",
         "displaytitle": "<i>Inside Out 2</i>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q113877606",
         "titles": {
           "canonical": "Inside_Out_2",
@@ -1643,7 +2189,7 @@
         "dir": "ltr",
         "revision": "1233170609",
         "tid": "c0d052e4-3c84-11ef-95ed-1e46b4ca8478",
-        "timestamp": "2024-07-07T17:17:14Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2024 Pixar film",
         "description_source": "local",
         "content_urls": {
@@ -1668,16 +2214,34 @@
         "views": 63226,
         "rank": 37,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 58620 },
-          { "date": "2024-06-30Z", "views": 77159 },
-          { "date": "2024-07-01Z", "views": 65619 },
-          { "date": "2024-07-02Z", "views": 85729 },
-          { "date": "2024-07-03Z", "views": 63226 }
+          {
+            "date": "2024-06-29Z",
+            "views": 58620
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 77159
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 65619
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 85729
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 63226
+          }
         ],
         "type": "standard",
         "title": "Copa_América",
         "displaytitle": "<span class=\"mw-page-title-main\">Copa América</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q178750",
         "titles": {
           "canonical": "Copa_América",
@@ -1689,7 +2253,7 @@
         "dir": "ltr",
         "revision": "1233059662",
         "tid": "1e708219-3c04-11ef-af50-6b510d9bd4e8",
-        "timestamp": "2024-07-07T01:56:26Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "South American association football tournament",
         "description_source": "local",
         "content_urls": {
@@ -1714,16 +2278,34 @@
         "views": 59815,
         "rank": 38,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 92469 },
-          { "date": "2024-06-30Z", "views": 69884 },
-          { "date": "2024-07-01Z", "views": 57585 },
-          { "date": "2024-07-02Z", "views": 58220 },
-          { "date": "2024-07-03Z", "views": 59815 }
+          {
+            "date": "2024-06-29Z",
+            "views": 92469
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 69884
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 57585
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 58220
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 59815
+          }
         ],
         "type": "standard",
         "title": "Donald_Trump",
         "displaytitle": "<span class=\"mw-page-title-main\">Donald Trump</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q22686",
         "titles": {
           "canonical": "Donald_Trump",
@@ -1745,7 +2327,7 @@
         "dir": "ltr",
         "revision": "1233140488",
         "tid": "ad15f4ef-3c66-11ef-bff9-71be50fce2ec",
-        "timestamp": "2024-07-07T13:41:56Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "President of the United States from 2017 to 2021",
         "description_source": "local",
         "content_urls": {
@@ -1770,16 +2352,34 @@
         "views": 58034,
         "rank": 39,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 61060 },
-          { "date": "2024-06-30Z", "views": 59387 },
-          { "date": "2024-07-01Z", "views": 58034 },
-          { "date": "2024-07-02Z", "views": 54776 },
-          { "date": "2024-07-03Z", "views": 58034 }
+          {
+            "date": "2024-06-29Z",
+            "views": 61060
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 59387
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 58034
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 54776
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 58034
+          }
         ],
         "type": "standard",
         "title": "The_Boys_(TV_series)",
         "displaytitle": "<i>The Boys</i> (TV series)",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q48796994",
         "titles": {
           "canonical": "The_Boys_(TV_series)",
@@ -1801,7 +2401,7 @@
         "dir": "ltr",
         "revision": "1233185752",
         "tid": "dfd5f51b-3c92-11ef-9e25-32a276ed9ab7",
-        "timestamp": "2024-07-07T18:58:19Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "2019 American superhero television series",
         "description_source": "local",
         "content_urls": {
@@ -1826,16 +2426,34 @@
         "views": 56140,
         "rank": 40,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 264 },
-          { "date": "2024-06-30Z", "views": 289 },
-          { "date": "2024-07-01Z", "views": 5318 },
-          { "date": "2024-07-02Z", "views": 3760 },
-          { "date": "2024-07-03Z", "views": 56140 }
+          {
+            "date": "2024-06-29Z",
+            "views": 264
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 289
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 5318
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 3760
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 56140
+          }
         ],
         "type": "standard",
         "title": "Elise_Mertens",
         "displaytitle": "<span class=\"mw-page-title-main\">Elise Mertens</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q17381675",
         "titles": {
           "canonical": "Elise_Mertens",
@@ -1857,7 +2475,7 @@
         "dir": "ltr",
         "revision": "1232515511",
         "tid": "d4e02b28-39b8-11ef-937a-6d36d80f5a08",
-        "timestamp": "2024-07-04T03:52:28Z",
+        "timestamp": "2024-07-04T00:00:00.000Z",
         "description": "Belgian tennis player (born 1995)",
         "description_source": "local",
         "content_urls": {
@@ -1882,16 +2500,34 @@
         "views": 56115,
         "rank": 41,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 67786 },
-          { "date": "2024-06-30Z", "views": 48803 },
-          { "date": "2024-07-01Z", "views": 38957 },
-          { "date": "2024-07-02Z", "views": 45083 },
-          { "date": "2024-07-03Z", "views": 56115 }
+          {
+            "date": "2024-06-29Z",
+            "views": 67786
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 48803
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 38957
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 45083
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 56115
+          }
         ],
         "type": "standard",
         "title": "Robert_F._Kennedy_Jr.",
         "displaytitle": "<span class=\"mw-page-title-main\">Robert F. Kennedy Jr.</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q1352872",
         "titles": {
           "canonical": "Robert_F._Kennedy_Jr.",
@@ -1913,7 +2549,7 @@
         "dir": "ltr",
         "revision": "1232829470",
         "tid": "7842521d-3b0d-11ef-9587-8ab95ddcfa6f",
-        "timestamp": "2024-07-05T20:30:51Z",
+        "timestamp": "2024-07-05T00:00:00.000Z",
         "description": "American attorney and anti-vaccine activist (born 1954)",
         "description_source": "local",
         "content_urls": {
@@ -1938,16 +2574,34 @@
         "views": 55438,
         "rank": 42,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 121903 },
-          { "date": "2024-06-30Z", "views": 132722 },
-          { "date": "2024-07-01Z", "views": 120179 },
-          { "date": "2024-07-02Z", "views": 100706 },
-          { "date": "2024-07-03Z", "views": 55438 }
+          {
+            "date": "2024-06-29Z",
+            "views": 121903
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 132722
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 120179
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 100706
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 55438
+          }
         ],
         "type": "standard",
         "title": "UEFA_European_Championship",
         "displaytitle": "<span class=\"mw-page-title-main\">UEFA European Championship</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q260858",
         "titles": {
           "canonical": "UEFA_European_Championship",
@@ -1969,7 +2623,7 @@
         "dir": "ltr",
         "revision": "1233153909",
         "tid": "b9ed0ff2-3c73-11ef-98c8-2b1c76d1dcc8",
-        "timestamp": "2024-07-07T15:15:21Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Association football tournament",
         "description_source": "local",
         "content_urls": {
@@ -1994,16 +2648,34 @@
         "views": 55085,
         "rank": 44,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 41101 },
-          { "date": "2024-06-30Z", "views": 46266 },
-          { "date": "2024-07-01Z", "views": 186493 },
-          { "date": "2024-07-02Z", "views": 97856 },
-          { "date": "2024-07-03Z", "views": 55085 }
+          {
+            "date": "2024-06-29Z",
+            "views": 41101
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 46266
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 186493
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 97856
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 55085
+          }
         ],
         "type": "standard",
         "title": "Cristiano_Ronaldo",
         "displaytitle": "<span class=\"mw-page-title-main\">Cristiano Ronaldo</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q11571",
         "titles": {
           "canonical": "Cristiano_Ronaldo",
@@ -2025,7 +2697,7 @@
         "dir": "ltr",
         "revision": "1232957243",
         "tid": "45e53991-3ba7-11ef-a5db-62139b3ee067",
-        "timestamp": "2024-07-06T14:51:49Z",
+        "timestamp": "2024-07-06T00:00:00.000Z",
         "description": "Portuguese footballer (born 1985)",
         "description_source": "local",
         "content_urls": {
@@ -2050,16 +2722,34 @@
         "views": 54861,
         "rank": 45,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 18824 },
-          { "date": "2024-06-30Z", "views": 21885 },
-          { "date": "2024-07-01Z", "views": 15927 },
-          { "date": "2024-07-02Z", "views": 19796 },
-          { "date": "2024-07-03Z", "views": 54861 }
+          {
+            "date": "2024-06-29Z",
+            "views": 18824
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 21885
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 15927
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 19796
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 54861
+          }
         ],
         "type": "standard",
         "title": "Eddie_Murphy",
         "displaytitle": "<span class=\"mw-page-title-main\">Eddie Murphy</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q43874",
         "titles": {
           "canonical": "Eddie_Murphy",
@@ -2081,7 +2771,7 @@
         "dir": "ltr",
         "revision": "1233089352",
         "tid": "293d0e5c-3c28-11ef-a5d6-67b9472583dd",
-        "timestamp": "2024-07-07T06:14:26Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "American actor and comedian (born 1961)",
         "description_source": "local",
         "content_urls": {
@@ -2106,16 +2796,34 @@
         "views": 54159,
         "rank": 47,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 77345 },
-          { "date": "2024-06-30Z", "views": 240080 },
-          { "date": "2024-07-01Z", "views": 135320 },
-          { "date": "2024-07-02Z", "views": 62815 },
-          { "date": "2024-07-03Z", "views": 54159 }
+          {
+            "date": "2024-06-29Z",
+            "views": 77345
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 240080
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 135320
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 62815
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 54159
+          }
         ],
         "type": "standard",
         "title": "2025_ICC_Champions_Trophy",
         "displaytitle": "<span class=\"mw-page-title-main\">2025 ICC Champions Trophy</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q110321987",
         "titles": {
           "canonical": "2025_ICC_Champions_Trophy",
@@ -2127,7 +2835,7 @@
         "dir": "ltr",
         "revision": "1232727973",
         "tid": "1fd98ca8-3aa9-11ef-90d8-8925ac282411",
-        "timestamp": "2024-07-05T08:32:33Z",
+        "timestamp": "2024-07-05T00:00:00.000Z",
         "description": "Cricket tournament",
         "description_source": "local",
         "content_urls": {
@@ -2152,16 +2860,34 @@
         "views": 53526,
         "rank": 48,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 87736 },
-          { "date": "2024-06-30Z", "views": 176824 },
-          { "date": "2024-07-01Z", "views": 111913 },
-          { "date": "2024-07-02Z", "views": 63167 },
-          { "date": "2024-07-03Z", "views": 53526 }
+          {
+            "date": "2024-06-29Z",
+            "views": 87736
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 176824
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 111913
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 63167
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 53526
+          }
         ],
         "type": "standard",
         "title": "ICC_Champions_Trophy",
         "displaytitle": "<span class=\"mw-page-title-main\">ICC Champions Trophy</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q971637",
         "titles": {
           "canonical": "ICC_Champions_Trophy",
@@ -2183,7 +2909,7 @@
         "dir": "ltr",
         "revision": "1233112603",
         "tid": "716b2a38-3c46-11ef-afe1-696bf93257ec",
-        "timestamp": "2024-07-07T09:51:12Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "International cricket tournament",
         "description_source": "local",
         "content_urls": {
@@ -2208,16 +2934,34 @@
         "views": 53083,
         "rank": 49,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 118835 },
-          { "date": "2024-06-30Z", "views": 112252 },
-          { "date": "2024-07-01Z", "views": 82036 },
-          { "date": "2024-07-02Z", "views": 60203 },
-          { "date": "2024-07-03Z", "views": 53083 }
+          {
+            "date": "2024-06-29Z",
+            "views": 118835
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 112252
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 82036
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 60203
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 53083
+          }
         ],
         "type": "standard",
         "title": "Celine_Dion",
         "displaytitle": "<span class=\"mw-page-title-main\">Celine Dion</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q5105",
         "titles": {
           "canonical": "Celine_Dion",
@@ -2239,7 +2983,7 @@
         "dir": "ltr",
         "revision": "1233163043",
         "tid": "a5f9e8b0-3c7c-11ef-97f2-dd57cb84f894",
-        "timestamp": "2024-07-07T16:19:13Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "Canadian singer (born 1968)",
         "description_source": "local",
         "content_urls": {
@@ -2264,16 +3008,34 @@
         "views": 52891,
         "rank": 50,
         "view_history": [
-          { "date": "2024-06-29Z", "views": 69868 },
-          { "date": "2024-06-30Z", "views": 51372 },
-          { "date": "2024-07-01Z", "views": 50759 },
-          { "date": "2024-07-02Z", "views": 49036 },
-          { "date": "2024-07-03Z", "views": 52891 }
+          {
+            "date": "2024-06-29Z",
+            "views": 69868
+          },
+          {
+            "date": "2024-06-30Z",
+            "views": 51372
+          },
+          {
+            "date": "2024-07-01Z",
+            "views": 50759
+          },
+          {
+            "date": "2024-07-02Z",
+            "views": 49036
+          },
+          {
+            "date": "2024-07-03Z",
+            "views": 52891
+          }
         ],
         "type": "standard",
         "title": "2024_United_States_presidential_election",
         "displaytitle": "<span class=\"mw-page-title-main\">2024 United States presidential election</span>",
-        "namespace": { "id": 0, "text": "" },
+        "namespace": {
+          "id": 0,
+          "text": ""
+        },
         "wikibase_item": "Q101110072",
         "titles": {
           "canonical": "2024_United_States_presidential_election",
@@ -2295,7 +3057,7 @@
         "dir": "ltr",
         "revision": "1233073125",
         "tid": "7ca56ff8-3c14-11ef-8cd4-d8100184331b",
-        "timestamp": "2024-07-07T03:53:36Z",
+        "timestamp": "2024-07-07T00:00:00.000Z",
         "description": "60th quadrennial U.S. presidential election",
         "description_source": "local",
         "content_urls": {
@@ -2339,14 +3101,19 @@
       "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "text": "Own work"
     },
-    "license": { "type": "FAL", "url": "http://artlibre.org/licence/lal/en" },
+    "license": {
+      "type": "FAL",
+      "url": "http://artlibre.org/licence/lal/en"
+    },
     "description": {
       "html": "The Seven Lakes' valley of <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Yedigöller%20National%20Park\" title=\"w:Yedigöller National Park\" class=\"extiw\">Yedigöller National Park</a>, <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Turkey\" title=\"w:Turkey\" class=\"extiw\">Turkey</a>. Photo shows Büyükgöl (Big Lake)",
       "text": "The Seven Lakes' valley of Yedigöller National Park, Turkey. Photo shows Büyükgöl (Big Lake)",
       "lang": "en"
     },
     "wb_entity_id": "M114092958",
-    "structured": { "captions": {} }
+    "structured": {
+      "captions": {}
+    }
   },
   "onthisday": [
     {
@@ -2356,7 +3123,10 @@
           "type": "standard",
           "title": "NASA",
           "displaytitle": "<span class=\"mw-page-title-main\">NASA</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q23548",
           "titles": {
             "canonical": "NASA",
@@ -2378,7 +3148,7 @@
           "dir": "ltr",
           "revision": "1232345806",
           "tid": "8a58aa24-3913-11ef-b9ed-c461dfaec3fd",
-          "timestamp": "2024-07-03T08:09:16Z",
+          "timestamp": "2024-07-03T00:00:00.000Z",
           "description": "American space and aeronautics agency",
           "description_source": "local",
           "content_urls": {
@@ -2403,7 +3173,10 @@
           "type": "standard",
           "title": "Deep_Impact_(spacecraft)",
           "displaytitle": "<i>Deep Impact</i> (spacecraft)",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q208231",
           "titles": {
             "canonical": "Deep_Impact_(spacecraft)",
@@ -2425,7 +3198,7 @@
           "dir": "ltr",
           "revision": "1232845912",
           "tid": "10e0f02b-3b1e-11ef-8e3c-8053df59fbb2",
-          "timestamp": "2024-07-05T22:29:39Z",
+          "timestamp": "2024-07-05T00:00:00.000Z",
           "description": "NASA space probe launched in 2005",
           "description_source": "local",
           "content_urls": {
@@ -2450,7 +3223,10 @@
           "type": "standard",
           "title": "Tempel_1",
           "displaytitle": "<span class=\"mw-page-title-main\">Tempel 1</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q334755",
           "titles": {
             "canonical": "Tempel_1",
@@ -2472,7 +3248,7 @@
           "dir": "ltr",
           "revision": "1223450070",
           "tid": "780279ce-1026-11ef-a108-e4143bad2de0",
-          "timestamp": "2024-05-12T06:11:28Z",
+          "timestamp": "2024-05-12T00:00:00.000Z",
           "description": "Jupiter-family comet",
           "description_source": "local",
           "content_urls": {
@@ -2503,7 +3279,10 @@
           "type": "standard",
           "title": "Kylie_Minogue",
           "displaytitle": "<span class=\"mw-page-title-main\">Kylie Minogue</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q11998",
           "titles": {
             "canonical": "Kylie_Minogue",
@@ -2525,7 +3304,7 @@
           "dir": "ltr",
           "revision": "1233156015",
           "tid": "8e6b3b6d-3c75-11ef-89f2-bcde30208433",
-          "timestamp": "2024-07-07T15:28:27Z",
+          "timestamp": "2024-07-07T00:00:00.000Z",
           "description": "Australian singer and actress (born 1968)",
           "description_source": "local",
           "content_urls": {
@@ -2550,7 +3329,10 @@
           "type": "standard",
           "title": "Kylie_(album)",
           "displaytitle": "<i>Kylie</i> (album)",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q58761",
           "titles": {
             "canonical": "Kylie_(album)",
@@ -2572,7 +3354,7 @@
           "dir": "ltr",
           "revision": "1231215965",
           "tid": "748b3a9c-3434-11ef-8038-58a7df6b3495",
-          "timestamp": "2024-06-27T03:22:17Z",
+          "timestamp": "2024-06-27T00:00:00.000Z",
           "description": "1988 studio album by Kylie Minogue",
           "description_source": "local",
           "content_urls": {
@@ -2603,7 +3385,10 @@
           "type": "standard",
           "title": "1982_kidnapping_of_Iranian_diplomats",
           "displaytitle": "<span class=\"mw-page-title-main\">1982 kidnapping of Iranian diplomats</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2778149",
           "titles": {
             "canonical": "1982_kidnapping_of_Iranian_diplomats",
@@ -2615,7 +3400,7 @@
           "dir": "ltr",
           "revision": "1232639764",
           "tid": "6f3890b7-3a42-11ef-9b56-bcb11ac19287",
-          "timestamp": "2024-07-04T20:17:28Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "Unsolved kidnapping incident during the Lebanese Civil War",
           "description_source": "local",
           "content_urls": {
@@ -2640,7 +3425,10 @@
           "type": "standard",
           "title": "Kataeb_Party",
           "displaytitle": "<span class=\"mw-page-title-main\">Kataeb Party</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q502276",
           "titles": {
             "canonical": "Kataeb_Party",
@@ -2662,7 +3450,7 @@
           "dir": "ltr",
           "revision": "1218808790",
           "tid": "551693ad-f9f2-11ee-b652-78542868d624",
-          "timestamp": "2024-04-14T00:02:50Z",
+          "timestamp": "2024-04-14T00:00:00.000Z",
           "description": "Lebanese Christian democratic political party",
           "description_source": "local",
           "content_urls": {
@@ -2693,7 +3481,10 @@
           "type": "standard",
           "title": "Israel_Defense_Forces",
           "displaytitle": "<span class=\"mw-page-title-main\">Israel Defense Forces</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q58967",
           "titles": {
             "canonical": "Israel_Defense_Forces",
@@ -2715,7 +3506,7 @@
           "dir": "ltr",
           "revision": "1231656143",
           "tid": "73b80325-3622-11ef-bcef-4c7c6098e229",
-          "timestamp": "2024-06-29T14:18:27Z",
+          "timestamp": "2024-06-29T00:00:00.000Z",
           "description": "Combined military forces of Israel",
           "description_source": "local",
           "content_urls": {
@@ -2740,7 +3531,10 @@
           "type": "standard",
           "title": "Entebbe_raid",
           "displaytitle": "<span class=\"mw-page-title-main\">Entebbe raid</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q33933",
           "titles": {
             "canonical": "Entebbe_raid",
@@ -2762,10 +3556,13 @@
           "dir": "ltr",
           "revision": "1232572200",
           "tid": "b05c81d3-3a01-11ef-9b97-c6ee3d0e9af5",
-          "timestamp": "2024-07-04T12:34:00Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "1976 Israeli counter-terrorist operation",
           "description_source": "local",
-          "coordinates": { "lat": 0.04527778, "lon": 32.45361111 },
+          "coordinates": {
+            "lat": 0.04527778,
+            "lon": 32.45361111
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Entebbe_raid",
@@ -2788,7 +3585,10 @@
           "type": "standard",
           "title": "Entebbe_International_Airport",
           "displaytitle": "<span class=\"mw-page-title-main\">Entebbe International Airport</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q586065",
           "titles": {
             "canonical": "Entebbe_International_Airport",
@@ -2810,10 +3610,13 @@
           "dir": "ltr",
           "revision": "1232416544",
           "tid": "9ae03bda-395a-11ef-93b0-234c7dd486cd",
-          "timestamp": "2024-07-03T16:37:58Z",
+          "timestamp": "2024-07-03T00:00:00.000Z",
           "description": "International airport in Uganda",
           "description_source": "local",
-          "coordinates": { "lat": 0.04472222, "lon": 32.44305556 },
+          "coordinates": {
+            "lat": 0.04472222,
+            "lon": 32.44305556
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Entebbe_International_Airport",
@@ -2842,7 +3645,10 @@
           "type": "standard",
           "title": "Annual_Reminder",
           "displaytitle": "<span class=\"mw-page-title-main\">Annual Reminder</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q4769666",
           "titles": {
             "canonical": "Annual_Reminder",
@@ -2854,7 +3660,7 @@
           "dir": "ltr",
           "revision": "1231723441",
           "tid": "0f1d946e-3664-11ef-8c0b-0f18c2c1beea",
-          "timestamp": "2024-06-29T22:08:05Z",
+          "timestamp": "2024-06-29T00:00:00.000Z",
           "description": "LGBT demonstrations in Philadelphia, United States",
           "description_source": "local",
           "content_urls": {
@@ -2879,7 +3685,10 @@
           "type": "standard",
           "title": "Picketing",
           "displaytitle": "<span class=\"mw-page-title-main\">Picketing</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1480879",
           "titles": {
             "canonical": "Picketing",
@@ -2901,7 +3710,7 @@
           "dir": "ltr",
           "revision": "1216091539",
           "tid": "59d7fba7-ed61-11ee-b107-bfbc018e02a7",
-          "timestamp": "2024-03-29T00:14:47Z",
+          "timestamp": "2024-03-29T00:00:00.000Z",
           "description": "Form of protest, usually labor action",
           "description_source": "local",
           "content_urls": {
@@ -2926,7 +3735,10 @@
           "type": "standard",
           "title": "List_of_LGBT_actions_in_the_United_States_prior_to_the_Stonewall_riots",
           "displaytitle": "<span class=\"mw-page-title-main\">List of LGBT actions in the United States prior to the Stonewall riots</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q4817570",
           "titles": {
             "canonical": "List_of_LGBT_actions_in_the_United_States_prior_to_the_Stonewall_riots",
@@ -2938,7 +3750,7 @@
           "dir": "ltr",
           "revision": "1231649652",
           "tid": "effb1fc5-361b-11ef-be92-86c9ee78d59c",
-          "timestamp": "2024-06-29T13:31:49Z",
+          "timestamp": "2024-06-29T00:00:00.000Z",
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/List_of_LGBT_actions_in_the_United_States_prior_to_the_Stonewall_riots",
@@ -2961,7 +3773,10 @@
           "type": "standard",
           "title": "Independence_Hall",
           "displaytitle": "<span class=\"mw-page-title-main\">Independence Hall</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q390028",
           "titles": {
             "canonical": "Independence_Hall",
@@ -2983,10 +3798,13 @@
           "dir": "ltr",
           "revision": "1232000187",
           "tid": "93287f36-379f-11ef-932d-d8d02a9a1bb8",
-          "timestamp": "2024-07-01T11:46:38Z",
+          "timestamp": "2024-07-01T00:00:00.000Z",
           "description": "Historic building in Philadelphia, Pennsylvania",
           "description_source": "local",
-          "coordinates": { "lat": 39.94888889, "lon": -75.15 },
+          "coordinates": {
+            "lat": 39.94888889,
+            "lon": -75.15
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Independence_Hall",
@@ -3015,7 +3833,10 @@
           "type": "standard",
           "title": "1954_FIFA_World_Cup_final",
           "displaytitle": "<span class=\"mw-page-title-main\">1954 FIFA World Cup final</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q665946",
           "titles": {
             "canonical": "1954_FIFA_World_Cup_final",
@@ -3037,7 +3858,7 @@
           "dir": "ltr",
           "revision": "1232618908",
           "tid": "b23c4225-3a2d-11ef-80a8-d3b66c00ea5f",
-          "timestamp": "2024-07-04T17:49:01Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "World Cup final, held in Switzerland",
           "description_source": "local",
           "content_urls": {
@@ -3062,7 +3883,10 @@
           "type": "standard",
           "title": "Germany_national_football_team",
           "displaytitle": "<span class=\"mw-page-title-main\">Germany national football team</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q43310",
           "titles": {
             "canonical": "Germany_national_football_team",
@@ -3084,7 +3908,7 @@
           "dir": "ltr",
           "revision": "1232955013",
           "tid": "146b6647-3ba5-11ef-909b-06959ff60e37",
-          "timestamp": "2024-07-06T14:36:07Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "Men's association football team",
           "description_source": "local",
           "content_urls": {
@@ -3109,7 +3933,10 @@
           "type": "standard",
           "title": "Hungary_national_football_team",
           "displaytitle": "<span class=\"mw-page-title-main\">Hungary national football team</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q170561",
           "titles": {
             "canonical": "Hungary_national_football_team",
@@ -3131,7 +3958,7 @@
           "dir": "ltr",
           "revision": "1232887188",
           "tid": "7e0c5918-3b4e-11ef-85ab-8fdf47ff2cfd",
-          "timestamp": "2024-07-06T04:16:18Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "Men's association football team",
           "description_source": "local",
           "content_urls": {
@@ -3156,7 +3983,10 @@
           "type": "standard",
           "title": "1954_FIFA_World_Cup",
           "displaytitle": "<span class=\"mw-page-title-main\">1954 FIFA World Cup</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q131075",
           "titles": {
             "canonical": "1954_FIFA_World_Cup",
@@ -3178,7 +4008,7 @@
           "dir": "ltr",
           "revision": "1232159527",
           "tid": "f8d14633-3849-11ef-89d6-ddcee397ea1b",
-          "timestamp": "2024-07-02T08:06:23Z",
+          "timestamp": "2024-07-02T00:00:00.000Z",
           "description": "Association football tournament in Switzerland",
           "description_source": "local",
           "content_urls": {
@@ -3209,7 +4039,10 @@
           "type": "standard",
           "title": "Central_Intelligence_Agency",
           "displaytitle": "<span class=\"mw-page-title-main\">Central Intelligence Agency</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q37230",
           "titles": {
             "canonical": "Central_Intelligence_Agency",
@@ -3231,10 +4064,13 @@
           "dir": "ltr",
           "revision": "1233035031",
           "tid": "7e5a2ee3-3bea-11ef-8a12-031de875b66e",
-          "timestamp": "2024-07-06T22:53:00Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "National intelligence agency of the United States",
           "description_source": "local",
-          "coordinates": { "lat": 38.95194444, "lon": -77.14611111 },
+          "coordinates": {
+            "lat": 38.95194444,
+            "lon": -77.14611111
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Central_Intelligence_Agency",
@@ -3257,7 +4093,10 @@
           "type": "standard",
           "title": "Guatemala_City",
           "displaytitle": "<span class=\"mw-page-title-main\">Guatemala City</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1555",
           "titles": {
             "canonical": "Guatemala_City",
@@ -3279,10 +4118,13 @@
           "dir": "ltr",
           "revision": "1232048667",
           "tid": "57f26813-37d0-11ef-8c28-69e08f376912",
-          "timestamp": "2024-07-01T17:35:44Z",
+          "timestamp": "2024-07-01T00:00:00.000Z",
           "description": "Capital and the largest city of Guatemala",
           "description_source": "local",
-          "coordinates": { "lat": 14.61333333, "lon": -90.53527778 },
+          "coordinates": {
+            "lat": 14.61333333,
+            "lon": -90.53527778
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Guatemala_City",
@@ -3305,7 +4147,10 @@
           "type": "standard",
           "title": "Operation_PBHistory",
           "displaytitle": "<span class=\"mw-page-title-main\">Operation PBHistory</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q7118412",
           "titles": {
             "canonical": "Operation_PBHistory",
@@ -3317,7 +4162,7 @@
           "dir": "ltr",
           "revision": "1232514091",
           "tid": "cee94647-39b6-11ef-a05a-2ce1f3f15851",
-          "timestamp": "2024-07-04T03:37:59Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "1954 CIA operation in Guatemala",
           "description_source": "local",
           "content_urls": {
@@ -3342,7 +4187,10 @@
           "type": "standard",
           "title": "1954_Guatemalan_coup_d'état",
           "displaytitle": "<span class=\"mw-page-title-main\">1954 Guatemalan coup d&#039;état</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q976887",
           "titles": {
             "canonical": "1954_Guatemalan_coup_d'état",
@@ -3364,7 +4212,7 @@
           "dir": "ltr",
           "revision": "1232375944",
           "tid": "21842a6b-3939-11ef-a3b3-6bf48258ee4c",
-          "timestamp": "2024-07-03T12:38:21Z",
+          "timestamp": "2024-07-03T00:00:00.000Z",
           "description": "CIA-backed deposition of Jacobo Árbenz",
           "description_source": "local",
           "content_urls": {
@@ -3389,7 +4237,10 @@
           "type": "standard",
           "title": "Jacobo_Árbenz",
           "displaytitle": "<span class=\"mw-page-title-main\">Jacobo Árbenz</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q216943",
           "titles": {
             "canonical": "Jacobo_Árbenz",
@@ -3411,7 +4262,7 @@
           "dir": "ltr",
           "revision": "1232287823",
           "tid": "f6fc82d8-38cc-11ef-a07c-10208c780cd2",
-          "timestamp": "2024-07-02T23:44:04Z",
+          "timestamp": "2024-07-02T00:00:00.000Z",
           "description": "President of Guatemala from 1951 to 1954",
           "description_source": "local",
           "content_urls": {
@@ -3442,7 +4293,10 @@
           "type": "standard",
           "title": "William_Shockley",
           "displaytitle": "<span class=\"mw-page-title-main\">William Shockley</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q163415",
           "titles": {
             "canonical": "William_Shockley",
@@ -3464,7 +4318,7 @@
           "dir": "ltr",
           "revision": "1231426560",
           "tid": "ed170c8d-3517-11ef-91b9-d7e68e97e85a",
-          "timestamp": "2024-06-28T06:30:35Z",
+          "timestamp": "2024-06-28T00:00:00.000Z",
           "description": "American physicist, inventor, and eugenicist (1910–1989)",
           "description_source": "local",
           "content_urls": {
@@ -3489,7 +4343,10 @@
           "type": "standard",
           "title": "Bipolar_junction_transistor",
           "displaytitle": "<span class=\"mw-page-title-main\">Bipolar junction transistor</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q188946",
           "titles": {
             "canonical": "Bipolar_junction_transistor",
@@ -3511,7 +4368,7 @@
           "dir": "ltr",
           "revision": "1231751293",
           "tid": "64b6840f-3685-11ef-9748-23c8ce9d6c98",
-          "timestamp": "2024-06-30T02:06:42Z",
+          "timestamp": "2024-06-30T00:00:00.000Z",
           "description": "Transistor that uses both electrons and holes as charge carriers",
           "description_source": "local",
           "content_urls": {
@@ -3536,7 +4393,10 @@
           "type": "standard",
           "title": "John_Bardeen",
           "displaytitle": "<span class=\"mw-page-title-main\">John Bardeen</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q949",
           "titles": {
             "canonical": "John_Bardeen",
@@ -3558,7 +4418,7 @@
           "dir": "ltr",
           "revision": "1230006729",
           "tid": "0d076550-2ea0-11ef-be45-ec8837b51c3d",
-          "timestamp": "2024-06-20T00:57:22Z",
+          "timestamp": "2024-06-20T00:00:00.000Z",
           "description": "American physicist and engineer (1908–1991)",
           "description_source": "local",
           "content_urls": {
@@ -3583,7 +4443,10 @@
           "type": "standard",
           "title": "Walter_Houser_Brattain",
           "displaytitle": "<span class=\"mw-page-title-main\">Walter Houser Brattain</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q184577",
           "titles": {
             "canonical": "Walter_Houser_Brattain",
@@ -3605,7 +4468,7 @@
           "dir": "ltr",
           "revision": "1227951903",
           "tid": "d09144ad-25bd-11ef-b287-305e4000881f",
-          "timestamp": "2024-06-08T17:37:45Z",
+          "timestamp": "2024-06-08T00:00:00.000Z",
           "description": "American physicist (1902–1987)",
           "description_source": "local",
           "content_urls": {
@@ -3630,7 +4493,10 @@
           "type": "standard",
           "title": "Nobel_Prize_in_Physics",
           "displaytitle": "<span class=\"mw-page-title-main\">Nobel Prize in Physics</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q38104",
           "titles": {
             "canonical": "Nobel_Prize_in_Physics",
@@ -3652,7 +4518,7 @@
           "dir": "ltr",
           "revision": "1231446084",
           "tid": "463f5b06-3531-11ef-aac5-785526fb4300",
-          "timestamp": "2024-06-28T09:32:02Z",
+          "timestamp": "2024-06-28T00:00:00.000Z",
           "description": "One of the five Nobel Prizes established in 1895 by Alfred Nobel",
           "description_source": "local",
           "content_urls": {
@@ -3683,7 +4549,10 @@
           "type": "standard",
           "title": "Anti-communism",
           "displaytitle": "<span class=\"mw-page-title-main\">Anti-communism</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q182121",
           "titles": {
             "canonical": "Anti-communism",
@@ -3705,7 +4574,7 @@
           "dir": "ltr",
           "revision": "1233023910",
           "tid": "99c05667-3be0-11ef-a7e1-2edbdb608768",
-          "timestamp": "2024-07-06T21:42:11Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "Opposition to communism",
           "description_source": "local",
           "content_urls": {
@@ -3730,7 +4599,10 @@
           "type": "standard",
           "title": "Radio_Free_Europe/Radio_Liberty",
           "displaytitle": "<span class=\"mw-page-title-main\">Radio Free Europe/Radio Liberty</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q485500",
           "titles": {
             "canonical": "Radio_Free_Europe/Radio_Liberty",
@@ -3752,10 +4624,13 @@
           "dir": "ltr",
           "revision": "1232427005",
           "tid": "852343d0-3963-11ef-91d0-031120f04f54",
-          "timestamp": "2024-07-03T17:41:47Z",
+          "timestamp": "2024-07-03T00:00:00.000Z",
           "description": "US-funded international media outlet",
           "description_source": "local",
-          "coordinates": { "lat": 50.07888889, "lon": 14.47861111 },
+          "coordinates": {
+            "lat": 50.07888889,
+            "lon": 14.47861111
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Radio_Free_Europe%2FRadio_Liberty",
@@ -3784,7 +4659,10 @@
           "type": "standard",
           "title": "Brazilian_cruiser_Bahia",
           "displaytitle": "Brazilian cruiser <i>Bahia</i>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2712202",
           "titles": {
             "canonical": "Brazilian_cruiser_Bahia",
@@ -3806,7 +4684,7 @@
           "dir": "ltr",
           "revision": "1232041158",
           "tid": "2034008a-37c9-11ef-b1ed-916dbf160fc4",
-          "timestamp": "2024-07-01T16:44:04Z",
+          "timestamp": "2024-07-01T00:00:00.000Z",
           "description": "Brazilian scout cruiser",
           "description_source": "local",
           "content_urls": {
@@ -3837,7 +4715,10 @@
           "type": "standard",
           "title": "Władysław_Sikorski",
           "displaytitle": "<span class=\"mw-page-title-main\">Władysław Sikorski</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q153132",
           "titles": {
             "canonical": "Władysław_Sikorski",
@@ -3859,7 +4740,7 @@
           "dir": "ltr",
           "revision": "1220996814",
           "tid": "c7a84fe2-045b-11ef-95c0-95157e147afc",
-          "timestamp": "2024-04-27T06:02:51Z",
+          "timestamp": "2024-04-27T00:00:00.000Z",
           "description": "Polish military and political leader (1881–1941)",
           "description_source": "local",
           "content_urls": {
@@ -3884,7 +4765,10 @@
           "type": "standard",
           "title": "Polish_government-in-exile",
           "displaytitle": "<span class=\"mw-page-title-main\">Polish government-in-exile</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q210846",
           "titles": {
             "canonical": "Polish_government-in-exile",
@@ -3906,7 +4790,7 @@
           "dir": "ltr",
           "revision": "1229146272",
           "tid": "1e301868-2aca-11ef-9929-a4f3937fc210",
-          "timestamp": "2024-06-15T03:48:25Z",
+          "timestamp": "2024-06-15T00:00:00.000Z",
           "description": "Government of Poland in exile (1939–1990)",
           "description_source": "local",
           "content_urls": {
@@ -3931,7 +4815,10 @@
           "type": "standard",
           "title": "1943_Gibraltar_Liberator_AL523_crash",
           "displaytitle": "<span class=\"mw-page-title-main\">1943 Gibraltar Liberator AL523 crash</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1434045",
           "titles": {
             "canonical": "1943_Gibraltar_Liberator_AL523_crash",
@@ -3953,10 +4840,13 @@
           "dir": "ltr",
           "revision": "1223590017",
           "tid": "c07c625a-10dc-11ef-947d-1bd760fdc0d9",
-          "timestamp": "2024-05-13T03:56:18Z",
+          "timestamp": "2024-05-13T00:00:00.000Z",
           "description": "Crash that killed General Władysław Sikorski",
           "description_source": "local",
-          "coordinates": { "lat": 36.1525, "lon": -5.33 },
+          "coordinates": {
+            "lat": 36.1525,
+            "lon": -5.33
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/1943_Gibraltar_Liberator_AL523_crash",
@@ -3979,7 +4869,10 @@
           "type": "standard",
           "title": "Władysław_Sikorski's_death_controversy",
           "displaytitle": "<span class=\"mw-page-title-main\">Władysław Sikorski&#039;s death controversy</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q7513867",
           "titles": {
             "canonical": "Władysław_Sikorski's_death_controversy",
@@ -4001,7 +4894,7 @@
           "dir": "ltr",
           "revision": "1232165750",
           "tid": "0094ee8f-3852-11ef-bf71-bb2db99e7133",
-          "timestamp": "2024-07-02T09:03:52Z",
+          "timestamp": "2024-07-02T00:00:00.000Z",
           "description": "Conspiracy theories",
           "description_source": "local",
           "content_urls": {
@@ -4032,7 +4925,10 @@
           "type": "standard",
           "title": "German_AB-Aktion_in_Poland",
           "displaytitle": "German <i>AB-Aktion</i> in Poland",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q286474",
           "titles": {
             "canonical": "German_AB-Aktion_in_Poland",
@@ -4054,7 +4950,7 @@
           "dir": "ltr",
           "revision": "1213956610",
           "tid": "577bb322-e346-11ee-ac78-5f2c3cb3e058",
-          "timestamp": "2024-03-16T03:36:15Z",
+          "timestamp": "2024-03-16T00:00:00.000Z",
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/German_AB-Aktion_in_Poland",
@@ -4077,7 +4973,10 @@
           "type": "standard",
           "title": "Lviv",
           "displaytitle": "<span class=\"mw-page-title-main\">Lviv</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q36036",
           "titles": {
             "canonical": "Lviv",
@@ -4099,10 +4998,13 @@
           "dir": "ltr",
           "revision": "1233005246",
           "tid": "857456cb-3bd0-11ef-9a6b-8a20cd5c7ce7",
-          "timestamp": "2024-07-06T19:47:05Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "City in Lviv Oblast, Ukraine",
           "description_source": "local",
-          "coordinates": { "lat": 49.8425, "lon": 24.03222222 },
+          "coordinates": {
+            "lat": 49.8425,
+            "lon": 24.03222222
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Lviv",
@@ -4125,7 +5027,10 @@
           "type": "standard",
           "title": "Massacre_of_Lwów_professors",
           "displaytitle": "<span class=\"mw-page-title-main\">Massacre of Lwów professors</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q697763",
           "titles": {
             "canonical": "Massacre_of_Lwów_professors",
@@ -4147,10 +5052,13 @@
           "dir": "ltr",
           "revision": "1225263729",
           "tid": "b84dd09b-18f3-11ef-b97c-cd705b23c0ff",
-          "timestamp": "2024-05-23T11:00:52Z",
+          "timestamp": "2024-05-23T00:00:00.000Z",
           "description": "1941 mass murder of Polish academics by Nazi forces in present-day Lviv, Ukraine",
           "description_source": "local",
-          "coordinates": { "lat": 49.8285, "lon": 24.0135 },
+          "coordinates": {
+            "lat": 49.8285,
+            "lon": 24.0135
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Massacre_of_Lw%C3%B3w_professors",
@@ -4173,7 +5081,10 @@
           "type": "standard",
           "title": "University_of_Lviv",
           "displaytitle": "<span class=\"mw-page-title-main\">University of Lviv</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q80207",
           "titles": {
             "canonical": "University_of_Lviv",
@@ -4195,10 +5106,13 @@
           "dir": "ltr",
           "revision": "1231246484",
           "tid": "c47f01b8-345e-11ef-bd08-51478dd0307b",
-          "timestamp": "2024-06-27T08:25:10Z",
+          "timestamp": "2024-06-27T00:00:00.000Z",
           "description": "Public university in Lviv, Ukraine",
           "description_source": "local",
-          "coordinates": { "lat": 49.84055556, "lon": 24.02222222 },
+          "coordinates": {
+            "lat": 49.84055556,
+            "lon": 24.02222222
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/University_of_Lviv",
@@ -4227,7 +5141,10 @@
           "type": "standard",
           "title": "The_Holocaust",
           "displaytitle": "<span class=\"mw-page-title-main\">The Holocaust</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2763",
           "titles": {
             "canonical": "The_Holocaust",
@@ -4249,7 +5166,7 @@
           "dir": "ltr",
           "revision": "1231880550",
           "tid": "663182f8-3719-11ef-adde-bfb38de6c7b2",
-          "timestamp": "2024-06-30T19:46:10Z",
+          "timestamp": "2024-06-30T00:00:00.000Z",
           "description": "Genocide of European Jews by Nazi Germany",
           "description_source": "local",
           "content_urls": {
@@ -4274,7 +5191,10 @@
           "type": "standard",
           "title": "German_occupation_of_Latvia_during_World_War_II",
           "displaytitle": "<span class=\"mw-page-title-main\">German occupation of Latvia during World War II</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q4348117",
           "titles": {
             "canonical": "German_occupation_of_Latvia_during_World_War_II",
@@ -4296,7 +5216,7 @@
           "dir": "ltr",
           "revision": "1232799762",
           "tid": "3952e3b0-3af2-11ef-b7a7-266e14359756",
-          "timestamp": "2024-07-05T17:15:49Z",
+          "timestamp": "2024-07-05T00:00:00.000Z",
           "description": "Part of the occupation of the Baltic states",
           "description_source": "local",
           "content_urls": {
@@ -4321,7 +5241,10 @@
           "type": "standard",
           "title": "Burning_of_the_Riga_synagogues",
           "displaytitle": "<span class=\"mw-page-title-main\">Burning of the Riga synagogues</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q3495770",
           "titles": {
             "canonical": "Burning_of_the_Riga_synagogues",
@@ -4343,7 +5266,7 @@
           "dir": "ltr",
           "revision": "1222862488",
           "tid": "12af2fad-0d2b-11ef-8079-b8386d477fb5",
-          "timestamp": "2024-05-08T11:06:52Z",
+          "timestamp": "2024-05-08T00:00:00.000Z",
           "description": "1941 burning of synagogues by Nazi forces during the German occuption of Riga, Latvia",
           "description_source": "local",
           "content_urls": {
@@ -4374,7 +5297,10 @@
           "type": "standard",
           "title": "World_War_I",
           "displaytitle": "<span class=\"mw-page-title-main\">World War I</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q361",
           "titles": {
             "canonical": "World_War_I",
@@ -4396,7 +5322,7 @@
           "dir": "ltr",
           "revision": "1232282120",
           "tid": "193ed147-38c6-11ef-b20b-8550eec7d14b",
-          "timestamp": "2024-07-02T22:54:55Z",
+          "timestamp": "2024-07-02T00:00:00.000Z",
           "description": "1914–1918 global conflict",
           "description_source": "local",
           "content_urls": {
@@ -4421,7 +5347,10 @@
           "type": "standard",
           "title": "Allies_of_World_War_I",
           "displaytitle": "<span class=\"mw-page-title-main\">Allies of World War I</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q215669",
           "titles": {
             "canonical": "Allies_of_World_War_I",
@@ -4443,7 +5372,7 @@
           "dir": "ltr",
           "revision": "1232957548",
           "tid": "9f4d6d02-3ba7-11ef-87d0-b4e779c9b77a",
-          "timestamp": "2024-07-06T14:54:19Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "Opposing side to the Central Powers",
           "description_source": "local",
           "content_urls": {
@@ -4468,7 +5397,10 @@
           "type": "standard",
           "title": "John_Monash",
           "displaytitle": "<span class=\"mw-page-title-main\">John Monash</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2731333",
           "titles": {
             "canonical": "John_Monash",
@@ -4490,7 +5422,7 @@
           "dir": "ltr",
           "revision": "1230600046",
           "tid": "7e861c97-3182-11ef-83c2-9a31a304102d",
-          "timestamp": "2024-06-23T17:03:21Z",
+          "timestamp": "2024-06-23T00:00:00.000Z",
           "description": "Australian Army officer (1865–1931)",
           "description_source": "local",
           "content_urls": {
@@ -4515,7 +5447,10 @@
           "type": "standard",
           "title": "Battle_of_Hamel",
           "displaytitle": "<span class=\"mw-page-title-main\">Battle of Hamel</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2890781",
           "titles": {
             "canonical": "Battle_of_Hamel",
@@ -4537,10 +5472,13 @@
           "dir": "ltr",
           "revision": "1214280442",
           "tid": "e1e733f7-e4be-11ee-af42-c813f81775d5",
-          "timestamp": "2024-03-18T00:31:38Z",
+          "timestamp": "2024-03-18T00:00:00.000Z",
           "description": "Battle of World War I",
           "description_source": "local",
-          "coordinates": { "lat": 49.89888889, "lon": 2.57055556 },
+          "coordinates": {
+            "lat": 49.89888889,
+            "lon": 2.57055556
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Battle_of_Hamel",
@@ -4563,7 +5501,10 @@
           "type": "standard",
           "title": "Combined_arms",
           "displaytitle": "<span class=\"mw-page-title-main\">Combined arms</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1418029",
           "titles": {
             "canonical": "Combined_arms",
@@ -4585,7 +5526,7 @@
           "dir": "ltr",
           "revision": "1228830352",
           "tid": "6d1d5bf0-297f-11ef-b06a-3a011009b6aa",
-          "timestamp": "2024-06-13T12:21:14Z",
+          "timestamp": "2024-06-13T00:00:00.000Z",
           "description": "Approach to warfare",
           "description_source": "local",
           "content_urls": {
@@ -4610,7 +5551,10 @@
           "type": "standard",
           "title": "Trench_warfare",
           "displaytitle": "<span class=\"mw-page-title-main\">Trench warfare</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q241059",
           "titles": {
             "canonical": "Trench_warfare",
@@ -4632,7 +5576,7 @@
           "dir": "ltr",
           "revision": "1228661736",
           "tid": "a1c9e8d6-28bf-11ef-9828-ed8e2f551276",
-          "timestamp": "2024-06-12T13:28:19Z",
+          "timestamp": "2024-06-12T00:00:00.000Z",
           "description": "Land warfare involving static fortification of lines",
           "description_source": "local",
           "content_urls": {
@@ -4663,7 +5607,10 @@
           "type": "standard",
           "title": "American_Civil_War",
           "displaytitle": "<span class=\"mw-page-title-main\">American Civil War</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q8676",
           "titles": {
             "canonical": "American_Civil_War",
@@ -4685,7 +5632,7 @@
           "dir": "ltr",
           "revision": "1233051360",
           "tid": "c170e039-3bfb-11ef-8f1d-7fbd286cd0dd",
-          "timestamp": "2024-07-07T00:56:34Z",
+          "timestamp": "2024-07-07T00:00:00.000Z",
           "description": "1861–1865 conflict in the United States",
           "description_source": "local",
           "content_urls": {
@@ -4710,7 +5657,10 @@
           "type": "standard",
           "title": "Confederate_States_Army",
           "displaytitle": "<span class=\"mw-page-title-main\">Confederate States Army</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1125021",
           "titles": {
             "canonical": "Confederate_States_Army",
@@ -4732,7 +5682,7 @@
           "dir": "ltr",
           "revision": "1229297905",
           "tid": "63f9f499-2b7d-11ef-9686-86793891acdf",
-          "timestamp": "2024-06-16T01:11:42Z",
+          "timestamp": "2024-06-16T00:00:00.000Z",
           "description": "Southern army in the American Civil War",
           "description_source": "local",
           "content_urls": {
@@ -4757,7 +5707,10 @@
           "type": "standard",
           "title": "Battle_of_Helena",
           "displaytitle": "<span class=\"mw-page-title-main\">Battle of Helena</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2282207",
           "titles": {
             "canonical": "Battle_of_Helena",
@@ -4769,10 +5722,13 @@
           "dir": "ltr",
           "revision": "1227059426",
           "tid": "3342bfa2-21a8-11ef-808d-9773c7cfd116",
-          "timestamp": "2024-06-03T12:52:57Z",
+          "timestamp": "2024-06-03T00:00:00.000Z",
           "description": "1863 battle of the American Civil War",
           "description_source": "local",
-          "coordinates": { "lat": 34.52611111, "lon": -90.59694444 },
+          "coordinates": {
+            "lat": 34.52611111,
+            "lon": -90.59694444
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Battle_of_Helena",
@@ -4795,7 +5751,10 @@
           "type": "standard",
           "title": "Union_Army",
           "displaytitle": "<span class=\"mw-page-title-main\">Union Army</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1752901",
           "titles": {
             "canonical": "Union_Army",
@@ -4817,7 +5776,7 @@
           "dir": "ltr",
           "revision": "1231653658",
           "tid": "3488bfa5-3620-11ef-bcea-e2271be733c9",
-          "timestamp": "2024-06-29T14:02:22Z",
+          "timestamp": "2024-06-29T00:00:00.000Z",
           "description": "Land force that fought for the Union (the North) during the American Civil War",
           "description_source": "local",
           "content_urls": {
@@ -4842,7 +5801,10 @@
           "type": "standard",
           "title": "Helena,_Arkansas",
           "displaytitle": "<span class=\"mw-page-title-main\">Helena, Arkansas</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q679084",
           "titles": {
             "canonical": "Helena,_Arkansas",
@@ -4864,10 +5826,13 @@
           "dir": "ltr",
           "revision": "1231867963",
           "tid": "c372fbbb-370c-11ef-b54a-26a5172856dd",
-          "timestamp": "2024-06-30T18:15:43Z",
+          "timestamp": "2024-06-30T00:00:00.000Z",
           "description": "City in Arkansas",
           "description_source": "local",
-          "coordinates": { "lat": 34.52916667, "lon": -90.58611111 },
+          "coordinates": {
+            "lat": 34.52916667,
+            "lon": -90.58611111
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Helena%2C_Arkansas",
@@ -4896,7 +5861,10 @@
           "type": "standard",
           "title": "River_Thames",
           "displaytitle": "<span class=\"mw-page-title-main\">River Thames</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q19686",
           "titles": {
             "canonical": "River_Thames",
@@ -4918,10 +5886,13 @@
           "dir": "ltr",
           "revision": "1233148471",
           "tid": "bb68145f-3c6e-11ef-b672-58dcfbad7137",
-          "timestamp": "2024-07-07T14:39:36Z",
+          "timestamp": "2024-07-07T00:00:00.000Z",
           "description": "River in southern England",
           "description_source": "local",
-          "coordinates": { "lat": 51.5, "lon": 0.61 },
+          "coordinates": {
+            "lat": 51.5,
+            "lon": 0.61
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/River_Thames",
@@ -4944,7 +5915,10 @@
           "type": "standard",
           "title": "Oxford",
           "displaytitle": "<span class=\"mw-page-title-main\">Oxford</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q34217",
           "titles": {
             "canonical": "Oxford",
@@ -4966,10 +5940,13 @@
           "dir": "ltr",
           "revision": "1232741367",
           "tid": "cc2449ea-3abb-11ef-95ce-b4b388bd3dea",
-          "timestamp": "2024-07-05T10:46:13Z",
+          "timestamp": "2024-07-05T00:00:00.000Z",
           "description": "City and district in Oxfordshire, England",
           "description_source": "local",
-          "coordinates": { "lat": 51.75194444, "lon": -1.25777778 },
+          "coordinates": {
+            "lat": 51.75194444,
+            "lon": -1.25777778
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Oxford",
@@ -4992,7 +5969,10 @@
           "type": "standard",
           "title": "Godstow",
           "displaytitle": "<span class=\"mw-page-title-main\">Godstow</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q550373",
           "titles": {
             "canonical": "Godstow",
@@ -5014,10 +5994,13 @@
           "dir": "ltr",
           "revision": "1217944838",
           "tid": "1e52efb3-f5e9-11ee-bafa-ff43ed1060f0",
-          "timestamp": "2024-04-08T20:46:48Z",
+          "timestamp": "2024-04-08T00:00:00.000Z",
           "description": "Hamlet in Oxfordshire, UK",
           "description_source": "local",
-          "coordinates": { "lat": 51.7784, "lon": -1.2997 },
+          "coordinates": {
+            "lat": 51.7784,
+            "lon": -1.2997
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Godstow",
@@ -5040,7 +6023,10 @@
           "type": "standard",
           "title": "Lewis_Carroll",
           "displaytitle": "<span class=\"mw-page-title-main\">Lewis Carroll</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q38082",
           "titles": {
             "canonical": "Lewis_Carroll",
@@ -5062,7 +6048,7 @@
           "dir": "ltr",
           "revision": "1232549462",
           "tid": "c825f8fc-39e5-11ef-beca-75c2a0968249",
-          "timestamp": "2024-07-04T09:14:14Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "British author and scholar (1832–1898)",
           "description_source": "local",
           "content_urls": {
@@ -5087,7 +6073,10 @@
           "type": "standard",
           "title": "Alice_Liddell",
           "displaytitle": "<span class=\"mw-page-title-main\">Alice Liddell</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q234185",
           "titles": {
             "canonical": "Alice_Liddell",
@@ -5109,7 +6098,7 @@
           "dir": "ltr",
           "revision": "1230804053",
           "tid": "b405309a-3268-11ef-b174-bb7a5e1da05d",
-          "timestamp": "2024-06-24T20:31:15Z",
+          "timestamp": "2024-06-24T00:00:00.000Z",
           "description": "Basis of the character in \"Alice in Wonderland\"",
           "description_source": "local",
           "content_urls": {
@@ -5134,7 +6123,10 @@
           "type": "standard",
           "title": "Alice's_Adventures_in_Wonderland",
           "displaytitle": "<i>Alice's Adventures in Wonderland</i>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q92640",
           "titles": {
             "canonical": "Alice's_Adventures_in_Wonderland",
@@ -5156,7 +6148,7 @@
           "dir": "ltr",
           "revision": "1230403600",
           "tid": "3cd284f2-30a3-11ef-aca4-b63202a620ca",
-          "timestamp": "2024-06-22T14:25:13Z",
+          "timestamp": "2024-06-22T00:00:00.000Z",
           "description": "1865 children's novel by Lewis Carroll",
           "description_source": "local",
           "content_urls": {
@@ -5187,7 +6179,10 @@
           "type": "standard",
           "title": "Walt_Whitman",
           "displaytitle": "<span class=\"mw-page-title-main\">Walt Whitman</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q81438",
           "titles": {
             "canonical": "Walt_Whitman",
@@ -5209,7 +6204,7 @@
           "dir": "ltr",
           "revision": "1232686070",
           "tid": "4d5700fb-3a72-11ef-9a78-0e5b7cc6ee4d",
-          "timestamp": "2024-07-05T02:00:07Z",
+          "timestamp": "2024-07-05T00:00:00.000Z",
           "description": "American poet, essayist and journalist (1819–1892)",
           "description_source": "local",
           "content_urls": {
@@ -5234,7 +6229,10 @@
           "type": "standard",
           "title": "Leaves_of_Grass",
           "displaytitle": "<i>Leaves of Grass</i>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q132042",
           "titles": {
             "canonical": "Leaves_of_Grass",
@@ -5256,7 +6254,7 @@
           "dir": "ltr",
           "revision": "1218318461",
           "tid": "1dfa598c-f79b-11ee-a43a-ef3b28349349",
-          "timestamp": "2024-04-11T00:33:29Z",
+          "timestamp": "2024-04-11T00:00:00.000Z",
           "description": "Expansive Walt Whitman poetry collection",
           "description_source": "local",
           "content_urls": {
@@ -5281,7 +6279,10 @@
           "type": "standard",
           "title": "American_poetry",
           "displaytitle": "<span class=\"mw-page-title-main\">American poetry</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q3099146",
           "titles": {
             "canonical": "American_poetry",
@@ -5303,7 +6304,7 @@
           "dir": "ltr",
           "revision": "1226174113",
           "tid": "47268104-1d52-11ef-bf60-f1a1226e953b",
-          "timestamp": "2024-05-29T00:27:49Z",
+          "timestamp": "2024-05-29T00:00:00.000Z",
           "description": "Poetry from the United States of America",
           "description_source": "local",
           "content_urls": {
@@ -5334,7 +6335,10 @@
           "type": "standard",
           "title": "Grand_Junction_Railway",
           "displaytitle": "<span class=\"mw-page-title-main\">Grand Junction Railway</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q690220",
           "titles": {
             "canonical": "Grand_Junction_Railway",
@@ -5356,7 +6360,7 @@
           "dir": "ltr",
           "revision": "1221673605",
           "tid": "85546a47-079b-11ef-af8a-59a47f975ca1",
-          "timestamp": "2024-05-01T09:16:41Z",
+          "timestamp": "2024-05-01T00:00:00.000Z",
           "description": "Former railway company in England",
           "description_source": "local",
           "content_urls": {
@@ -5381,7 +6385,10 @@
           "type": "standard",
           "title": "Traction_engine",
           "displaytitle": "<span class=\"mw-page-title-main\">Traction engine</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q63531700",
           "titles": {
             "canonical": "Traction_engine",
@@ -5403,7 +6410,7 @@
           "dir": "ltr",
           "revision": "1226239830",
           "tid": "9cde3aae-1db1-11ef-b0aa-a39a1686310d",
-          "timestamp": "2024-05-29T11:50:15Z",
+          "timestamp": "2024-05-29T00:00:00.000Z",
           "description": "Steam-powered haulage engine",
           "description_source": "local",
           "content_urls": {
@@ -5428,7 +6435,10 @@
           "type": "standard",
           "title": "Birmingham",
           "displaytitle": "<span class=\"mw-page-title-main\">Birmingham</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2256",
           "titles": {
             "canonical": "Birmingham",
@@ -5450,10 +6460,13 @@
           "dir": "ltr",
           "revision": "1232885034",
           "tid": "844d0caf-3b4b-11ef-a727-c4dd565a5c0a",
-          "timestamp": "2024-07-06T03:55:00Z",
+          "timestamp": "2024-07-06T00:00:00.000Z",
           "description": "City in West Midlands, England",
           "description_source": "local",
-          "coordinates": { "lat": 52.4793, "lon": -1.9029 },
+          "coordinates": {
+            "lat": 52.4793,
+            "lon": -1.9029
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Birmingham",
@@ -5476,7 +6489,10 @@
           "type": "standard",
           "title": "Earlestown_railway_station",
           "displaytitle": "<span class=\"mw-page-title-main\">Earlestown railway station</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q2752285",
           "titles": {
             "canonical": "Earlestown_railway_station",
@@ -5498,10 +6514,13 @@
           "dir": "ltr",
           "revision": "1218886258",
           "tid": "85dfca9a-fa5d-11ee-9f93-a9329b04d8eb",
-          "timestamp": "2024-04-14T12:50:08Z",
+          "timestamp": "2024-04-14T00:00:00.000Z",
           "description": "Railway station in Merseyside, England",
           "description_source": "local",
-          "coordinates": { "lat": 53.451, "lon": -2.638 },
+          "coordinates": {
+            "lat": 53.451,
+            "lon": -2.638
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Earlestown_railway_station",
@@ -5530,7 +6549,10 @@
           "type": "standard",
           "title": "Second_Continental_Congress",
           "displaytitle": "<span class=\"mw-page-title-main\">Second Continental Congress</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1983034",
           "titles": {
             "canonical": "Second_Continental_Congress",
@@ -5552,7 +6574,7 @@
           "dir": "ltr",
           "revision": "1223808581",
           "tid": "b3a25e7d-11fb-11ef-8da1-9475ac39d749",
-          "timestamp": "2024-05-14T14:10:22Z",
+          "timestamp": "2024-05-14T00:00:00.000Z",
           "description": "1775–1781 convention of the Thirteen Colonies",
           "description_source": "local",
           "content_urls": {
@@ -5577,7 +6599,10 @@
           "type": "standard",
           "title": "United_States_Declaration_of_Independence",
           "displaytitle": "<span class=\"mw-page-title-main\">United States Declaration of Independence</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q127912",
           "titles": {
             "canonical": "United_States_Declaration_of_Independence",
@@ -5599,7 +6624,7 @@
           "dir": "ltr",
           "revision": "1232740538",
           "tid": "c1b58b38-3aba-11ef-af84-d6cd1e5a4a4c",
-          "timestamp": "2024-07-05T10:38:46Z",
+          "timestamp": "2024-07-05T00:00:00.000Z",
           "description": "1776 American national founding document",
           "description_source": "local",
           "content_urls": {
@@ -5624,7 +6649,10 @@
           "type": "standard",
           "title": "Thirteen_Colonies",
           "displaytitle": "<span class=\"mw-page-title-main\">Thirteen Colonies</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q179997",
           "titles": {
             "canonical": "Thirteen_Colonies",
@@ -5646,7 +6674,7 @@
           "dir": "ltr",
           "revision": "1232067532",
           "tid": "6269385b-37e1-11ef-9942-1f84002c3b60",
-          "timestamp": "2024-07-01T19:37:43Z",
+          "timestamp": "2024-07-01T00:00:00.000Z",
           "description": "British colonies forming the United States",
           "description_source": "local",
           "content_urls": {
@@ -5671,7 +6699,10 @@
           "type": "standard",
           "title": "British_Empire",
           "displaytitle": "<span class=\"mw-page-title-main\">British Empire</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q8680",
           "titles": {
             "canonical": "British_Empire",
@@ -5693,7 +6724,7 @@
           "dir": "ltr",
           "revision": "1232077451",
           "tid": "7bc2a5b0-37ea-11ef-86e9-d3222c9352c3",
-          "timestamp": "2024-07-01T20:42:51Z",
+          "timestamp": "2024-07-01T00:00:00.000Z",
           "description": "Territory ruled by the United Kingdom",
           "description_source": "local",
           "content_urls": {
@@ -5724,7 +6755,10 @@
           "type": "standard",
           "title": "First_English_Civil_War",
           "displaytitle": "<span class=\"mw-page-title-main\">First English Civil War</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q3142505",
           "titles": {
             "canonical": "First_English_Civil_War",
@@ -5746,7 +6780,7 @@
           "dir": "ltr",
           "revision": "1229084905",
           "tid": "f74feb04-2a85-11ef-a5c7-64d0c63b9823",
-          "timestamp": "2024-06-14T19:40:34Z",
+          "timestamp": "2024-06-14T00:00:00.000Z",
           "description": "Part of the Wars of the Three Kingdoms (1642–1646)",
           "description_source": "local",
           "content_urls": {
@@ -5771,7 +6805,10 @@
           "type": "standard",
           "title": "Battle_of_Burton_Bridge_(1643)",
           "displaytitle": "<span class=\"mw-page-title-main\">Battle of Burton Bridge (1643)</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q4870598",
           "titles": {
             "canonical": "Battle_of_Burton_Bridge_(1643)",
@@ -5793,10 +6830,13 @@
           "dir": "ltr",
           "revision": "1169944049",
           "tid": "dc07d50d-38ec-11ee-9fbc-01f7b4361341",
-          "timestamp": "2023-08-12T08:47:25Z",
+          "timestamp": "2023-08-12T00:00:00.000Z",
           "description": "Battle during the First English Civil War",
           "description_source": "local",
-          "coordinates": { "lat": 52.8067, "lon": -1.6238 },
+          "coordinates": {
+            "lat": 52.8067,
+            "lon": -1.6238
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/Battle_of_Burton_Bridge_(1643)",
@@ -5819,7 +6859,10 @@
           "type": "standard",
           "title": "River_Trent",
           "displaytitle": "<span class=\"mw-page-title-main\">River Trent</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q19714",
           "titles": {
             "canonical": "River_Trent",
@@ -5841,10 +6884,13 @@
           "dir": "ltr",
           "revision": "1227123061",
           "tid": "d407903f-21ed-11ef-a34b-01a564a4f625",
-          "timestamp": "2024-06-03T21:11:22Z",
+          "timestamp": "2024-06-03T00:00:00.000Z",
           "description": "River in England – third-longest in the UK",
           "description_source": "local",
-          "coordinates": { "lat": 53.70083333, "lon": -0.69111111 },
+          "coordinates": {
+            "lat": 53.70083333,
+            "lon": -0.69111111
+          },
           "content_urls": {
             "desktop": {
               "page": "https://en.wikipedia.org/wiki/River_Trent",
@@ -5867,7 +6913,10 @@
           "type": "standard",
           "title": "Henrietta_Maria_of_France",
           "displaytitle": "<span class=\"mw-page-title-main\">Henrietta Maria of France</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q848615",
           "titles": {
             "canonical": "Henrietta_Maria_of_France",
@@ -5889,7 +6938,7 @@
           "dir": "ltr",
           "revision": "1229665014",
           "tid": "cdacf909-2d15-11ef-8833-02e5c75408a7",
-          "timestamp": "2024-06-18T01:55:14Z",
+          "timestamp": "2024-06-18T00:00:00.000Z",
           "description": "Queen of England, Scotland and Ireland from 1625 to 1649",
           "description_source": "local",
           "content_urls": {
@@ -5920,7 +6969,10 @@
           "type": "standard",
           "title": "Chinese_astronomy",
           "displaytitle": "<span class=\"mw-page-title-main\">Chinese astronomy</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1268276",
           "titles": {
             "canonical": "Chinese_astronomy",
@@ -5942,7 +6994,7 @@
           "dir": "ltr",
           "revision": "1225256922",
           "tid": "a2d2aa7d-18e7-11ef-a2b4-06b7350005d7",
-          "timestamp": "2024-05-23T09:34:22Z",
+          "timestamp": "2024-05-23T00:00:00.000Z",
           "description": "Aspect of science history",
           "description_source": "local",
           "content_urls": {
@@ -5967,7 +7019,10 @@
           "type": "standard",
           "title": "Guest_star_(astronomy)",
           "displaytitle": "<span class=\"mw-page-title-main\">Guest star (astronomy)</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q31759",
           "titles": {
             "canonical": "Guest_star_(astronomy)",
@@ -5989,7 +7044,7 @@
           "dir": "ltr",
           "revision": "1226910023",
           "tid": "1e094468-20ee-11ef-967e-1c7b4bb3fa3f",
-          "timestamp": "2024-06-02T14:40:55Z",
+          "timestamp": "2024-06-02T00:00:00.000Z",
           "description": "Ancient Chinese name for cataclysmic variable stars",
           "description_source": "local",
           "content_urls": {
@@ -6014,7 +7069,10 @@
           "type": "standard",
           "title": "SN_1054",
           "displaytitle": "<span class=\"mw-page-title-main\">SN 1054</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q32037",
           "titles": {
             "canonical": "SN_1054",
@@ -6036,7 +7094,7 @@
           "dir": "ltr",
           "revision": "1230966533",
           "tid": "9f36a13e-331d-11ef-ad3f-fb194473738c",
-          "timestamp": "2024-06-25T18:06:19Z",
+          "timestamp": "2024-06-25T00:00:00.000Z",
           "description": "Supernova in the constellation Taurus; visible from 1054 to 1056",
           "description_source": "local",
           "content_urls": {
@@ -6061,7 +7119,10 @@
           "type": "standard",
           "title": "Crab_Nebula",
           "displaytitle": "<span class=\"mw-page-title-main\">Crab Nebula</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q10934",
           "titles": {
             "canonical": "Crab_Nebula",
@@ -6083,7 +7144,7 @@
           "dir": "ltr",
           "revision": "1232610081",
           "tid": "9fbdf1aa-3a25-11ef-88a4-3952df2664c2",
-          "timestamp": "2024-07-04T16:51:14Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "Supernova remnant in the constellation Taurus",
           "description_source": "local",
           "content_urls": {
@@ -6114,7 +7175,10 @@
           "type": "standard",
           "title": "Chinese_astronomy",
           "displaytitle": "<span class=\"mw-page-title-main\">Chinese astronomy</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1268276",
           "titles": {
             "canonical": "Chinese_astronomy",
@@ -6136,7 +7200,7 @@
           "dir": "ltr",
           "revision": "1225256922",
           "tid": "a2d2aa7d-18e7-11ef-a2b4-06b7350005d7",
-          "timestamp": "2024-05-23T09:34:22Z",
+          "timestamp": "2024-05-23T00:00:00.000Z",
           "description": "Aspect of science history",
           "description_source": "local",
           "content_urls": {
@@ -6161,7 +7225,10 @@
           "type": "standard",
           "title": "Guest_star_(astronomy)",
           "displaytitle": "<span class=\"mw-page-title-main\">Guest star (astronomy)</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q31759",
           "titles": {
             "canonical": "Guest_star_(astronomy)",
@@ -6183,7 +7250,7 @@
           "dir": "ltr",
           "revision": "1226910023",
           "tid": "1e094468-20ee-11ef-967e-1c7b4bb3fa3f",
-          "timestamp": "2024-06-02T14:40:55Z",
+          "timestamp": "2024-06-02T00:00:00.000Z",
           "description": "Ancient Chinese name for cataclysmic variable stars",
           "description_source": "local",
           "content_urls": {
@@ -6208,7 +7275,10 @@
           "type": "standard",
           "title": "SN_1054",
           "displaytitle": "<span class=\"mw-page-title-main\">SN 1054</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q32037",
           "titles": {
             "canonical": "SN_1054",
@@ -6230,7 +7300,7 @@
           "dir": "ltr",
           "revision": "1230966533",
           "tid": "9f36a13e-331d-11ef-ad3f-fb194473738c",
-          "timestamp": "2024-06-25T18:06:19Z",
+          "timestamp": "2024-06-25T00:00:00.000Z",
           "description": "Supernova in the constellation Taurus; visible from 1054 to 1056",
           "description_source": "local",
           "content_urls": {
@@ -6255,7 +7325,10 @@
           "type": "standard",
           "title": "Crab_Nebula",
           "displaytitle": "<span class=\"mw-page-title-main\">Crab Nebula</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q10934",
           "titles": {
             "canonical": "Crab_Nebula",
@@ -6277,7 +7350,7 @@
           "dir": "ltr",
           "revision": "1232610081",
           "tid": "9fbdf1aa-3a25-11ef-88a4-3952df2664c2",
-          "timestamp": "2024-07-04T16:51:14Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "Supernova remnant in the constellation Taurus",
           "description_source": "local",
           "content_urls": {
@@ -6308,7 +7381,10 @@
           "type": "standard",
           "title": "Theodosius_II",
           "displaytitle": "<span class=\"mw-page-title-main\">Theodosius II</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q160353",
           "titles": {
             "canonical": "Theodosius_II",
@@ -6330,7 +7406,7 @@
           "dir": "ltr",
           "revision": "1232531515",
           "tid": "36aba06f-39cf-11ef-a6af-3b91c7362d66",
-          "timestamp": "2024-07-04T06:32:41Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "Eastern Roman emperor from 402 to 450",
           "description_source": "local",
           "content_urls": {
@@ -6355,7 +7431,10 @@
           "type": "standard",
           "title": "Pulcheria",
           "displaytitle": "<span class=\"mw-page-title-main\">Pulcheria</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q231919",
           "titles": {
             "canonical": "Pulcheria",
@@ -6377,7 +7456,7 @@
           "dir": "ltr",
           "revision": "1232607184",
           "tid": "d0505b5d-3a22-11ef-a9ac-efb2895c8db0",
-          "timestamp": "2024-07-04T16:31:07Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "Byzantine empress (398/399 – 453)",
           "description_source": "local",
           "content_urls": {
@@ -6402,7 +7481,10 @@
           "type": "standard",
           "title": "List_of_Augustae",
           "displaytitle": "<span class=\"mw-page-title-main\">List of Augustae</span>",
-          "namespace": { "id": 0, "text": "" },
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
           "wikibase_item": "Q1282711",
           "titles": {
             "canonical": "List_of_Augustae",
@@ -6414,7 +7496,7 @@
           "dir": "ltr",
           "revision": "1232515769",
           "tid": "2983c30c-39b9-11ef-b4f6-d180c8bf6e45",
-          "timestamp": "2024-07-04T03:54:50Z",
+          "timestamp": "2024-07-04T00:00:00.000Z",
           "description": "Roman imperial honorific title given to empresses",
           "description_source": "local",
           "content_urls": {
