@@ -1,4 +1,4 @@
-import { dateToFriendly } from '../utils.ts';
+import { dateToFriendly, dateToIso } from '../utils.ts';
 import { feedRepository } from './FeedRepository.ts';
 import { action, computed, makeObservable, observable } from 'mobx';
 
@@ -32,12 +32,16 @@ export default class FeedPresenter {
   }
 
   @computed
+  get selectedDateString() {
+    return dateToIso(this.selectedDate);
+  }
+
+  @computed
   get isLoading() {
     return feedRepository.loading;
   }
 
   async onDateSelected(newDate: Date) {
-    console.log('date', newDate);
     this.setDate(newDate);
     await this.load();
   }

@@ -47,17 +47,17 @@ export class AppService {
     month: string,
     day: string,
   ): Promise<{ error: any; value: WikipediaResponse }> {
-    //api.wikimedia.org/feed/v1/wikipedia/en/featured/2024/07/04
+    //    api.wikimedia.org/feed/v1/wikipedia/en/featured/2024/07/04
     const url = `https://api.wikimedia.org/feed/v1/wikipedia/${lang}/featured/${year}/${month}/${day}`;
     const reponse = await fetch(url);
     return {
       error: null,
       value: (await reponse.json()) as WikipediaResponse,
     };
-    // return {
-    //   error: null,
-    //   value: GetFeatured(),
-    // };
+    return {
+      error: null,
+      value: GetFeatured(),
+    };
   }
 
   async getFeed({
@@ -86,8 +86,6 @@ export class AppService {
       // TODO handle wikipedia errors
       return null;
     }
-
-    console.log(result);
 
     const response = result.value;
     return {

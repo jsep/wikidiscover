@@ -15,7 +15,7 @@ export const FeedComponent = observer(() => {
       <div>
         <input
           type="date"
-          // value={booksPresenter.selectedDate}
+          value={booksPresenter.selectedDateString}
           onChange={(event) =>
             booksPresenter.onDateSelected(new Date(event.target.value))
           }
