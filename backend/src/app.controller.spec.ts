@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GetFeatured } from './stubs/get.featured';
+import { url } from 'inspector';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -137,6 +138,57 @@ describe('AppController', () => {
       expect.objectContaining({
         error: null,
         data: expect.objectContaining({ image: null }),
+      }),
+    );
+  });
+  it('should load most read articles', async () => {
+    const result = await appController.getFeed('en', '2024', '01', '01');
+    expect(result).toEqual(expect.objectContaining({ error: null }));
+    expect(result.data.mostReadArticles).toBeDefined();
+    expect(result.data.mostReadArticles).toHaveLength(42);
+    expect(result.data.mostReadArticles[0]).toEqual(
+      expect.objectContaining({
+        title: expect.stringMatching(/Project 2025/),
+        description: expect.any(String),
+        views: 442626,
+        rank: 4,
+        urls: expect.objectContaining({
+          desktop: expect.stringMatching(/en\.wikipedia\.org/),
+          mobile: expect.stringMatching(/en\.m\.wikipedia\.org/),
+        }),
+        thumbnail: expect.objectContaining({
+          height: expect.any(Number),
+          source: expect.stringMatching(/upload\.wikimedia\.org/),
+          width: expect.any(Number),
+        }),
+      }),
+    );
+  });
+  it("should not load most read articles if they're missing", async () => {
+    fetchMock.mockResponse(JSON.stringify({ mostread: { articles: [] } }));
+    const result = await appController.getFeed('en', '2024', '01', '01');
+    expect(result).toEqual(expect.objectContaining({ error: null }));
+    expect(result.data.mostReadArticles).toHaveLength(0);
+  });
+  it('should load onthisday', async () => {
+    const result = await appController.getFeed('en', '2024', '01', '01');
+    expect(result).toEqual(expect.objectContaining({ error: null }));
+    expect(result.data.onThisDay).toBeDefined();
+    expect(result.data.onThisDay).toHaveLength(23);
+    expect(result.data.onThisDay[0]).toEqual(
+      expect.objectContaining({
+        title: expect.stringMatching(/NASA/),
+        description: expect.any(String),
+        urls: expect.objectContaining({
+          desktop: expect.stringMatching(/en\.wikipedia\.org/),
+          mobile: expect.stringMatching(/en\.m\.wikipedia\.org/),
+        }),
+        timestamp: expect.stringMatching(/1970-01-01/),
+        thumbnail: expect.objectContaining({
+          height: expect.any(Number),
+          source: expect.stringMatching(/upload\.wikimedia\.org/),
+          width: expect.any(Number),
+        }),
       }),
     );
   });

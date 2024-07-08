@@ -31,7 +31,7 @@ export interface FeedResponse {
   lang: string;
   tfa: TFA | null;
   image: Image | null;
-  mostRead: MostReadArticle[];
+  mostReadArticles: MostReadArticle[];
   onThisDay: OnThisDay[];
 }
 
@@ -59,7 +59,7 @@ export class AppService {
     //    api.wikimedia.org/feed/v1/wikipedia/en/featured/2024/07/04
     const url = `https://api.wikimedia.org/feed/v1/wikipedia/${lang}/featured/${year}/${month}/${day}`;
 
-    let result = await attempt(() => fetch(url));
+    let result = await attemptAsync(() => fetch(url));
     if (result.error) {
       return {
         error: new WikipediaRequestError(
@@ -70,7 +70,7 @@ export class AppService {
     }
 
     //@ts-ignore
-    result = await attempt(async () => await nonNull(result.value).json());
+    result = await attemptAsync(async () => await nonNull(result.value).json());
     if (result.error) {
       return {
         error: new WikipediaRequestError(
@@ -128,6 +128,8 @@ export class AppService {
     const response = result.value;
     const tfa = this.getTFA(response);
     const image = this.getImage(response);
+    const mostReadArticles = this.getMostReadArticles(response);
+    const onThisDay = this.getOnThisDay(response);
     return {
       error: null,
       value: {
@@ -135,8 +137,8 @@ export class AppService {
         lang,
         tfa: tfa.error ? null : tfa.value,
         image: image.error ? null : image.value,
-        mostRead: [],
-        onThisDay: [],
+        mostReadArticles: mostReadArticles.error ? [] : mostReadArticles.value,
+        onThisDay: onThisDay.error ? [] : onThisDay.value,
       },
     };
     // try {
@@ -235,30 +237,31 @@ export class AppService {
         value: null,
       };
     }
-    try {
+    const result = attempt<TFA>(() => {
       return {
-        error: null,
-        value: {
-          title: response.tfa.normalizedtitle,
-          description: response.tfa.description,
-          timestamp: response.tfa.timestamp,
-          urls: {
-            desktop: response.tfa.content_urls.desktop.page,
-            mobile: response.tfa.content_urls.mobile.page,
-          },
-          thumbnail: {
-            height: response.tfa.thumbnail.height,
-            width: response.tfa.thumbnail.width,
-            source: response.tfa.thumbnail.source,
-          },
+        title: response.tfa.normalizedtitle,
+        description: response.tfa.description,
+        timestamp: response.tfa.timestamp,
+        urls: {
+          desktop: response.tfa.content_urls.desktop.page,
+          mobile: response.tfa.content_urls.mobile.page,
+        },
+        thumbnail: {
+          height: response.tfa.thumbnail.height,
+          width: response.tfa.thumbnail.width,
+          source: response.tfa.thumbnail.source,
         },
       };
-    } catch (error) {
+    });
+
+    if (result.error) {
       return {
-        error: new Error('Failed to get TFA. Details: ' + error),
+        error: new Error('Failed to get TFA. Details: ' + result.error),
         value: null,
       };
     }
+
+    return result;
   }
 
   private getImage(response: WikipediaResponse): Result<Image, Error> {
@@ -268,30 +271,130 @@ export class AppService {
         value: null,
       };
     }
-    try {
+
+    const result = attempt<Image>(() => {
       return {
-        error: null,
-        value: {
-          title: response.image.title,
-          description: response.image.description.text,
-          urls: {
-            desktop: response.image.file_page,
-            mobile: response.image.file_page,
-          },
-          timestamp: null,
-          thumbnail: {
-            height: response.image.thumbnail.height,
-            width: response.image.thumbnail.width,
-            source: response.image.thumbnail.source,
-          },
+        title: response.image.title,
+        description: response.image.description.text,
+        urls: {
+          desktop: response.image.file_page,
+          mobile: response.image.file_page,
+        },
+        timestamp: null,
+        thumbnail: {
+          height: response.image.thumbnail.height,
+          width: response.image.thumbnail.width,
+          source: response.image.thumbnail.source,
         },
       };
-    } catch (error) {
+    });
+
+    if (result.error) {
       return {
-        error: new Error('Failed to get image. Details: ' + error),
+        error: new Error('Failed to get image. Details: ' + result.error),
         value: null,
       };
     }
+
+    return result;
+  }
+
+  private getMostReadArticles(
+    response: WikipediaResponse,
+  ): Result<MostReadArticle[], Error> {
+    if (!response.mostread) {
+      return {
+        error: new Error('Missing mostread in response'),
+        value: null,
+      };
+    }
+    const result = attempt<MostReadArticle[]>(() => {
+      return response.mostread.articles
+        .map((article) => {
+          const result = attempt(() => ({
+            title: article.titles.normalized,
+            description: article.description || '',
+            urls: {
+              desktop: article.content_urls.desktop.page,
+              mobile: article.content_urls.mobile.page,
+            },
+            views: article.views,
+            rank: article.rank,
+            timestamp: article.timestamp,
+            thumbnail: {
+              height: article.thumbnail?.height || 0,
+              width: article.thumbnail?.width || 0,
+              source: article.thumbnail?.source || '',
+            },
+          }));
+          if (result.error) {
+            console.error('Failed to get most read article. ', {
+              error: result.error,
+              article,
+            });
+          }
+          return result.value;
+        })
+        .filter((value) => value);
+    });
+
+    if (result.error) {
+      return {
+        error: new Error('Failed to get most read. Details: ' + result.error),
+        value: null,
+      };
+    }
+
+    return result;
+  }
+
+  private getOnThisDay(
+    response: WikipediaResponse,
+  ): Result<OnThisDay[], Error> {
+    if (!response.onthisday) {
+      return {
+        error: new Error('Missing onthisday in response'),
+        value: null,
+      };
+    }
+
+    const result = attempt<OnThisDay[]>(() => {
+      return response.onthisday
+        .map((onThisDay) => {
+          const article = onThisDay.pages[0];
+          const result = attempt(() => ({
+            title: article.titles.normalized,
+            description: onThisDay.text,
+            timestamp: new Date(onThisDay.year).toISOString(),
+            urls: {
+              desktop: article.content_urls.desktop.page,
+              mobile: article.content_urls.mobile.page,
+            },
+            thumbnail: !article.thumbnail
+              ? null
+              : {
+                  height: article.thumbnail.height || 0,
+                  width: article.thumbnail.width || 0,
+                  source: article.thumbnail.source || '',
+                },
+          }));
+          if (result.error) {
+            console.error('Failed to get onthisday.', {
+              error: result.error,
+              article,
+            });
+          }
+          return result.value;
+        })
+        .filter((value) => value);
+    });
+    if (result.error) {
+      return {
+        error: new Error('Failed to get onthisday. Details: ' + result.error),
+        value: null,
+      };
+    }
+    return result;
   }
 }
 
@@ -299,13 +402,27 @@ export type Result<T, Err> =
   | { error: null; value: T }
   | { error: Err; value: null };
 
-async function attempt<T, Err = Error>(
+async function attemptAsync<T, Err = Error>(
   fun: () => Promise<T>,
 ): Promise<Result<T, Err>> {
   try {
     return {
       error: null,
       value: await fun(),
+    };
+  } catch (error) {
+    return {
+      error: error as Err,
+      value: null,
+    };
+  }
+}
+
+function attempt<T, Err = Error>(fun: () => T): Result<T, Err> {
+  try {
+    return {
+      error: null,
+      value: fun(),
     };
   } catch (error) {
     return {
