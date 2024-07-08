@@ -5,6 +5,7 @@ import { GetFeatured } from './stubs/get.featured';
 
 describe('AppController', () => {
   let appController: AppController;
+  let appService: AppService;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
@@ -13,6 +14,12 @@ describe('AppController', () => {
     }).compile();
 
     appController = app.get<AppController>(AppController);
+    appService = app.get<AppService>(AppService);
+
+    jest.spyOn(appService, 'wikipediaRequest').mockResolvedValue({
+      error: null,
+      value: GetFeatured(),
+    });
   });
 
   it('should validate date', async () => {
