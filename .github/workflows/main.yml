@@ -24,10 +24,13 @@ jobs:
           npm run install:frontend
           npm run install:backend
 
-      - name: Run frontend tests
+      - name: Create .env file for frontend
         run: |
-          printenv | cut -d= -f1
-          npm run test:frontend
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
+          echo "VITE_FAKE_API=${{ secrets.VITE_FAKE_API }}" >> frontend/.env
+
+      - name: Run frontend tests
+        run: npm run test:frontend
         env:
           NODE_ENV: test
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
@@ -65,6 +68,11 @@ jobs:
 
       - name: Set up Fly.io CLI
         uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Create .env file for frontend
+        run: |
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
+          echo "VITE_FAKE_API=${{ secrets.VITE_FAKE_API }}" >> frontend/.env
 
       - name: Deploy frontend to Fly.io
         env:
