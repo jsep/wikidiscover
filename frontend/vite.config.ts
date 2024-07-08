@@ -13,6 +13,7 @@ export default defineConfig({
     port: 3000,
     host: true,
     strictPort: true,
+    cors: true,
   },
   test: {
     globals: true,
