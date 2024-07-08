@@ -4,6 +4,28 @@ import { GetFeatured } from './stubs/get.featured';
 import * as fs from 'fs';
 
 /// TODO remove duplicate interfaces
+export interface Article {
+  title: string;
+  description: string;
+  views?: number;
+  rank?: number;
+  thumbnail?: {
+    source: string;
+    width: number;
+    height: number;
+  };
+  urls: {
+    desktop: string;
+    mobile: string;
+  };
+  timestamp?: string;
+}
+
+export interface Image extends Article {}
+export interface MostReadArticle extends Article {}
+export interface OnThisDay extends Article {}
+export interface TFA extends Article {}
+
 export interface FeedResponse {
   date: string;
   lang: string;
@@ -11,71 +33,6 @@ export interface FeedResponse {
   image: Image | null;
   mostRead: MostReadArticle[];
   onThisDay: OnThisDay[];
-}
-
-export interface MostReadArticle {
-  title: string;
-  views: number;
-  rank: number;
-  thumbnail: {
-    source: string;
-    width: number;
-    height: number;
-  };
-  description: string;
-  timestamp: string;
-  lang: string;
-  content_urls: {
-    desktop: string;
-    mobile: string;
-  };
-}
-
-export interface OnThisDay {
-  title: string;
-  year: number;
-  timestamp: string;
-  lang: string;
-  content_urls: {
-    desktop: string;
-    mobile: string;
-  };
-  thumbnail: {
-    source: string;
-    width: number;
-    height: number;
-  };
-  description: string;
-}
-export interface Image {
-  title: string;
-  content_urls: {
-    desktop: string;
-    mobile: string;
-  };
-  thumbnail: {
-    source: string;
-    width: number;
-    height: number;
-  };
-  description: string;
-}
-
-export interface TFA {
-  title: string;
-  thumbnail: {
-    source: string;
-    width: number;
-    height: number;
-  };
-  lang: string;
-  dir: string;
-  timestamp: string;
-  description: string;
-  urls: {
-    desktop: string;
-    mobile: string;
-  };
 }
 
 export type WikipediaResponse = ReturnType<typeof GetFeatured>;
@@ -170,13 +127,14 @@ export class AppService {
 
     const response = result.value;
     const tfa = this.getTFA(response);
+    const image = this.getImage(response);
     return {
       error: null,
       value: {
         date: `${year}-${month}-${day}`,
         lang,
         tfa: tfa.error ? null : tfa.value,
-        image: null,
+        image: image.error ? null : image.value,
         mostRead: [],
         onThisDay: [],
       },
@@ -283,8 +241,6 @@ export class AppService {
         value: {
           title: response.tfa.normalizedtitle,
           description: response.tfa.description,
-          dir: response.tfa.dir,
-          lang: response.tfa.lang,
           timestamp: response.tfa.timestamp,
           urls: {
             desktop: response.tfa.content_urls.desktop.page,
@@ -300,6 +256,39 @@ export class AppService {
     } catch (error) {
       return {
         error: new Error('Failed to get TFA. Details: ' + error),
+        value: null,
+      };
+    }
+  }
+
+  private getImage(response: WikipediaResponse): Result<Image, Error> {
+    if (!response.image) {
+      return {
+        error: new Error('Missing image in response'),
+        value: null,
+      };
+    }
+    try {
+      return {
+        error: null,
+        value: {
+          title: response.image.title,
+          description: response.image.description.text,
+          urls: {
+            desktop: response.image.file_page,
+            mobile: response.image.file_page,
+          },
+          timestamp: null,
+          thumbnail: {
+            height: response.image.thumbnail.height,
+            width: response.image.thumbnail.width,
+            source: response.image.thumbnail.source,
+          },
+        },
+      };
+    } catch (error) {
+      return {
+        error: new Error('Failed to get image. Details: ' + error),
         value: null,
       };
     }

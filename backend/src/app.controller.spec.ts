@@ -83,8 +83,6 @@ describe('AppController', () => {
           mobile: expect.stringMatching(/en\.m\.wikipedia\.org/),
         }),
         description: 'Colossal sculpture in New York Harbor',
-        dir: 'ltr',
-        lang: 'en',
         thumbnail: expect.objectContaining({
           height: expect.any(Number),
           source: expect.stringMatching(/upload\.wikimedia\.org/),
@@ -92,6 +90,53 @@ describe('AppController', () => {
         }),
         timestamp: expect.stringMatching('2024-07-06'),
         title: 'Statue of Liberty',
+      }),
+    );
+  });
+  it("should not return tfa if it's missing", async () => {
+    fetchMock.mockResponse(JSON.stringify({ tfa: null }));
+    const result = await appController.getFeed('en', '2024', '01', '01');
+
+    expect(result).toEqual(
+      expect.objectContaining({
+        error: null,
+        data: expect.objectContaining({ tfa: null }),
+      }),
+    );
+  });
+
+  it('should load image', async () => {
+    const result = await appController.getFeed('en', '2024', '01', '01');
+    expect(result).toEqual(expect.objectContaining({ error: null }));
+
+    expect(result.data.image).toBeDefined();
+    expect(result.data.image).not.toBeNull();
+
+    expect(result.data.image).toEqual(
+      expect.objectContaining({
+        title: expect.stringMatching(/File/),
+        description: expect.any(String),
+        thumbnail: expect.objectContaining({
+          height: expect.any(Number),
+          source: expect.stringMatching(/upload\.wikimedia\.org/),
+          width: expect.any(Number),
+        }),
+        timestamp: null,
+        urls: expect.objectContaining({
+          desktop: expect.stringMatching(/commons\.wikimedia\.org/),
+          mobile: expect.stringMatching(/commons\.wikimedia\.org/),
+        }),
+      }),
+    );
+  });
+
+  it("should not load image if it's missing", async () => {
+    fetchMock.mockResponse(JSON.stringify({ image: null }));
+    const result = await appController.getFeed('en', '2024', '01', '01');
+    expect(result).toEqual(
+      expect.objectContaining({
+        error: null,
+        data: expect.objectContaining({ image: null }),
       }),
     );
   });
