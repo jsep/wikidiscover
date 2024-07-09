@@ -61,10 +61,10 @@ export const Feed = observer(({ presenter }: { presenter: FeedPresenter }) => (
         presenter.feedVm?.articles.map((article, index) => (
           <Article key={index} article={article} />
         ))}
-      {presenter.isLoadingMore && <ArticlesSkeleton />}
       {presenter.moreFeedsArticulesVm?.map((article, index) => (
         <Article key={index} article={article} />
       ))}
+      {presenter.isLoadingMore && <ArticlesSkeleton />}
     </div>
     <div className="mt-8 text-center text-muted-foreground">
       This is the end of featured content.

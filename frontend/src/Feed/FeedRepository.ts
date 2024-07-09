@@ -57,18 +57,18 @@ class FeedRepository {
   }
 
   async getMoreFeed(date: Date, lang: string) {
-    this.setLoadingCurrentFeed(true);
+    this.setLoadingMoreFeed(true);
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     if (error) {
       // TODO handle error loading more
       throw new Error(error.message ?? 'Unknown error');
     }
 
+    // wait 1 second
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const feedPm = this.mapToFeedPm(feedDto);
-
     this.addMoreFeed(feedPm);
-
-    this.setLoadingCurrentFeed(false);
+    this.setLoadingMoreFeed(false);
   }
 
   @action
