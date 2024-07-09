@@ -23,15 +23,18 @@ export interface ArticulePM {
 export interface FeedPm {
   date: Date;
   lang: string;
-  tfa: ArticulePM;
+  tfa: ArticulePM | null;
   articles: ArticulePM[];
 }
 
 class FeedRepository {
   apiGateway: ApiGateway;
 
-  @observable feedPm: FeedPm | null = null;
-  @observable loading = true;
+  @observable currentFeedPm: FeedPm | null = null;
+  @observable loadingCurrentFeed = true;
+  @observable loadingMoreFeed = false;
+
+  @observable morefeedArticles: ArticulePM[] = observable.array([]);
 
   constructor() {
     this.apiGateway = new ApiGateway();
@@ -39,36 +42,65 @@ class FeedRepository {
   }
 
   @action
-  setPm(feedPm: FeedPm) {
-    this.feedPm = feedPm;
+  setCurrentFeedPm(feedPm: FeedPm) {
+    this.currentFeedPm = feedPm;
   }
 
   @action
-  setLoading(value: boolean) {
-    this.loading = value;
+  setLoadingCurrentFeed(value: boolean) {
+    this.loadingCurrentFeed = value;
+  }
+
+  @action
+  setLoadingMoreFeed(value: boolean) {
+    this.loadingMoreFeed = value;
+  }
+
+  async getMoreFeed(date: Date, lang: string) {
+    this.setLoadingMoreFeed(true);
+    const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
+    if (error) {
+      // TODO handle error loading more
+      throw new Error(error.message ?? 'Unknown error');
+    }
+
+    const feedPm = this.mapToFeedPm(feedDto);
+    this.addMoreFeed(feedPm);
+    this.setLoadingMoreFeed(false);
+  }
+
+  @action
+  addMoreFeed(feedPm: FeedPm) {
+    if (feedPm.tfa) {
+      feedPm.articles.unshift(feedPm.tfa);
+      feedPm.tfa = null;
+    }
+
+    this.morefeedArticles.push(...feedPm.articles);
   }
 
   async getFeed(date: Date, lang: string) {
-    this.setLoading(true);
+    this.setLoadingCurrentFeed(true);
+    this.morefeedArticles = [];
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
-    this.setLoading(false);
+    this.setLoadingCurrentFeed(false);
     // TODO cancel last request
     if (error) {
       // TODO handle error
       throw new Error(error.message ?? 'Unknown error');
     }
 
-    const data = feedDto.data;
-    const tfa = this.getTfaArticule(feedDto);
-    const articles = this.getArticlesFromFeed(feedDto);
-
     // TODO fix date issues, make sure to use UTC
-    this.setPm({
-      date: new Date(data.date),
-      lang: data.lang,
-      tfa,
-      articles,
-    });
+    this.setCurrentFeedPm(this.mapToFeedPm(feedDto));
+  }
+
+  mapToFeedPm(feedDto: FeedDto): FeedPm {
+    return {
+      date: new Date(feedDto.data.date),
+      lang: feedDto.data.lang,
+      tfa: this.getTfaArticule(feedDto),
+      articles: this.getArticlesFromFeed(feedDto),
+    };
   }
 
   useImageAsTFA(feedDto: FeedDto) {

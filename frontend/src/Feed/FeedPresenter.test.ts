@@ -160,4 +160,86 @@ describe('FeedPresenter', () => {
     const feedVm = feedPresenter.feedVm as FeedVm;
     expect(feedVm.articles).toHaveLength(3);
   });
+
+  it('should load more articles with next day', async () => {
+    const lang = 'en';
+    const july2nd = new Date(2024, 6, 2);
+    const feedPresenter = await feedTestHarness.init(july, lang);
+    expect(feedPresenter.feedVm).toBeDefined();
+
+    // pivot
+    vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
+      GetFeedStub(july2nd, 'en'),
+    );
+
+    // action
+    await feedPresenter.loadMore();
+    // expect(feedPresenter.isLoadingMore).toBe(true);
+
+    expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
+      july2nd,
+      'en',
+    );
+
+    expect(feedPresenter.isLoadingMore).toBe(false);
+    expect(feedPresenter.feedVm?.articles).toHaveLength(3);
+    expect(feedPresenter.moreFeedsArticulesVm).toBeDefined();
+    expect(feedPresenter.moreFeedsArticulesVm).toHaveLength(4);
+    expect(feedPresenter.moreFeedsArticulesVm[0].title).toEqual(
+      'Statue of Liberty 2024-07-02',
+    );
+    expect(feedPresenter.moreFeedsArticulesVm[3].title).toEqual(
+      'NASA 2024-07-02',
+    );
+  });
+
+  it('should load more articles with next day and more days', async () => {
+    const lang = 'en';
+    const july2nd = new Date(2024, 6, 2);
+    const feedPresenter = await feedTestHarness.init(july, lang);
+    expect(feedPresenter.feedVm).toBeDefined();
+
+    // pivot
+    vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
+      GetFeedStub(july2nd, 'en'),
+    );
+
+    // action
+    await feedPresenter.loadMore();
+    // expect(feedPresenter.isLoadingMore).toBe(true);
+
+    expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
+      july2nd,
+      'en',
+    );
+    // safe guard
+    expect(feedPresenter.moreFeedsArticulesVm).toHaveLength(4);
+
+    const july3rd = new Date(2024, 6, 3);
+    // pivot
+    vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
+      GetFeedStub(july3rd, 'en'),
+    );
+
+    // action
+    await feedPresenter.loadMore();
+    expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
+      july3rd,
+      'en',
+    );
+    expect(feedPresenter.isLoadingMore).toBe(false);
+    expect(feedPresenter.moreFeedsArticulesVm).toHaveLength(8);
+    expect(feedPresenter.moreFeedsArticulesVm[0].title).toEqual(
+      'Statue of Liberty 2024-07-02',
+    );
+    expect(feedPresenter.moreFeedsArticulesVm[3].title).toEqual(
+      'NASA 2024-07-02',
+    );
+    expect(feedPresenter.moreFeedsArticulesVm[4].title).toEqual(
+      'Statue of Liberty 2024-07-03',
+    );
+    expect(feedPresenter.moreFeedsArticulesVm[7].title).toEqual(
+      'NASA 2024-07-03',
+    );
+  });
 });

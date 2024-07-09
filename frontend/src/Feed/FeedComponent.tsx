@@ -1,13 +1,24 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import FeedPresenter, { ArticuleVM } from './FeedPresenter';
 import { observer } from 'mobx-react-lite';
 
 export const FeedComponent = observer(() => {
   const { current: feedPresenter } = useRef(new FeedPresenter());
 
+  const handleScroll = useCallback(() => {
+    const bottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 100;
+    if (bottom) {
+      feedPresenter.loadMore();
+    }
+  }, [feedPresenter]);
+
   useEffect(() => {
     feedPresenter.load();
-  }, [feedPresenter]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [feedPresenter, handleScroll]);
 
   // TODO handle not loading data with error screen
 
@@ -50,6 +61,10 @@ export const Feed = observer(({ presenter }: { presenter: FeedPresenter }) => (
         presenter.feedVm?.articles.map((article, index) => (
           <Article key={index} article={article} />
         ))}
+      {presenter.moreFeedsArticulesVm?.map((article, index) => (
+        <Article key={index} article={article} />
+      ))}
+      {presenter.isLoadingMore && <ArticlesSkeleton />}
     </div>
     <div className="mt-8 text-center text-muted-foreground">
       This is the end of featured content.
@@ -138,10 +153,14 @@ const TodaysFeaturedArticle = observer(
       return <TodaysFeaturedArticleSkeleten />;
     }
     if (!presenter.feedVm) {
-      // TODO handle not loading data with loading screen
+      // TODO handle not loading data error screen
       throw new Error('Feed not loaded');
     }
     const tfa = presenter.feedVm.tfa;
+    if (!tfa) {
+      // TODO handle not loading data error screen
+      throw new Error('TFA not loaded');
+    }
     return (
       <section className="mb-8">
         <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg">
