@@ -1,13 +1,25 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import FeedPresenter, { ArticuleVM } from './FeedPresenter';
 import { observer } from 'mobx-react-lite';
 
 export const FeedComponent = observer(() => {
   const { current: feedPresenter } = useRef(new FeedPresenter());
 
+  const handleScroll = useCallback(() => {
+    const bottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 100;
+    if (bottom) {
+      console.log('bottom');
+      feedPresenter.loadMore();
+    }
+  }, [feedPresenter]);
+
   useEffect(() => {
     feedPresenter.load();
-  }, [feedPresenter]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [feedPresenter, handleScroll]);
 
   // TODO handle not loading data with error screen
 
@@ -50,6 +62,10 @@ export const Feed = observer(({ presenter }: { presenter: FeedPresenter }) => (
         presenter.feedVm?.articles.map((article, index) => (
           <Article key={index} article={article} />
         ))}
+      {presenter.isLoadingMore && <ArticlesSkeleton />}
+      {presenter.moreFeedsArticulesVm?.map((article, index) => (
+        <Article key={index} article={article} />
+      ))}
     </div>
     <div className="mt-8 text-center text-muted-foreground">
       This is the end of featured content.
