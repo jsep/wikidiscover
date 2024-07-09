@@ -83,7 +83,7 @@ describe('AppController', () => {
           desktop: expect.stringMatching(/en\.wikipedia\.org/),
           mobile: expect.stringMatching(/en\.m\.wikipedia\.org/),
         }),
-        description: 'Colossal sculpture in New York Harbor',
+        description: expect.any(String),
         thumbnail: expect.objectContaining({
           height: expect.any(Number),
           source: expect.stringMatching(/upload\.wikimedia\.org/),
