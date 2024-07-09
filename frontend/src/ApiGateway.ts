@@ -66,11 +66,11 @@ export class ApiGateway {
 
   async markArticleAsRead(id: string) {
     // use local storage to save the article as read
-    localStorage.setItem(id, 'true');
+    localStorage.setItem(id + '-read', 'true');
   }
 
   isArticleRead(id: string) {
-    return localStorage.getItem(id) === 'true';
+    return localStorage.getItem(id + '-read') === 'true';
   }
 
   public async get<T>(path: string): Promise<Result<T, ApiError>> {
