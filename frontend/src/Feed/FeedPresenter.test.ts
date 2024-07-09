@@ -2,7 +2,10 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { FeedVm } from './FeedPresenter';
 import { feedRepository } from './FeedRepository';
 import { FeedTestHarness } from '../TestTools/FeedTestHarness';
-import { GetFeedStub } from '../TestTools/stubs/get.feed.stub';
+import {
+  GetFeedStub,
+  GetFeedWithNoTFAStub,
+} from '../TestTools/stubs/get.feed.stub';
 
 describe('FeedPresenter', () => {
   let feedTestHarness: FeedTestHarness;
@@ -116,5 +119,45 @@ describe('FeedPresenter', () => {
     const feedVm = feedPresenter.feedVm as FeedVm;
     expect(feedVm.tfa.title).toBe('Estatua de la Libertad 2024-03-01');
     expect(feedVm.tfa.formattedDate).toBe('1 de marzo de 2024');
+  });
+
+  it('should get image as TFA if tfa is not defined', async () => {
+    const feedPresenter = await feedTestHarness.loadFeedWithout(july, 'en', [
+      'tfa',
+    ]);
+
+    expect(feedPresenter.feedVm).toBeDefined();
+    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedVm.tfa.title).toBe('File:Image 2024-07-01');
+  });
+
+  it('should load tfa wtih first mostRead if no image or tfa', async () => {
+    const feedPresenter = await feedTestHarness.loadFeedWithout(july, 'en', [
+      'tfa',
+      'image',
+    ]);
+    expect(feedPresenter.feedVm).toBeDefined();
+    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedVm.tfa.title).toBe('Project 2025 2024-07-01');
+  });
+
+  it('should load tfa with first onThisDay if no other is available', async () => {
+    const feedPresenter = await feedTestHarness.loadFeedWithout(july, 'en', [
+      'tfa',
+      'image',
+      'mostReadArticles',
+    ]);
+    expect(feedPresenter.feedVm).toBeDefined();
+    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedVm.tfa.title).toBe('NASA 2024-07-01');
+  });
+
+  it('should load articles, first row should feature image, most read and on this day', async () => {
+    const lang = 'en';
+    const feedPresenter = await feedTestHarness.init(july, lang);
+    expect(feedPresenter.feedVm).toBeDefined();
+
+    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedVm.articles).toHaveLength(3);
   });
 });
