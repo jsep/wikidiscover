@@ -59,10 +59,10 @@ export const Feed = observer(({ presenter }: { presenter: FeedPresenter }) => (
       {presenter.isLoading && <ArticlesSkeleton />}
       {!presenter.isLoading &&
         presenter.feedVm?.articles.map((article, index) => (
-          <Article key={index} article={article} />
+          <Article key={index} presenter={presenter} article={article} />
         ))}
       {presenter.moreFeedsArticulesVm?.map((article, index) => (
-        <Article key={index} article={article} />
+        <Article key={index} presenter={presenter} article={article} />
       ))}
       {presenter.isLoadingMore && <ArticlesSkeleton />}
     </div>
@@ -86,40 +86,54 @@ const ArticlesSkeleton = () => {
   );
 };
 
-const Article = observer(({ article }: { article: ArticuleVM }) => (
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
-    <div className="relative">
-      <img
-        src={article.thumbnailUrl}
-        alt={article.title}
-        width="400"
-        height="225"
-        className="w-full h-48 object-cover"
-        style={{ aspectRatio: '400 / 225', objectFit: 'cover' }}
-      />
-      {article.badges?.map((badge: string, index: number) => (
-        <div
-          key={index}
-          className="absolute top-2 left-2 bg-primary px-3 py-1 rounded-md text-primary-foreground text-sm font-medium"
-        >
-          {badge}
+const Article = observer(
+  ({
+    presenter,
+    article,
+  }: {
+    presenter: FeedPresenter;
+    article: ArticuleVM;
+  }) => (
+    <div
+      className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col hover:cursor-pointer"
+      style={{ opacity: article.isRead ? 0.5 : 1 }}
+      onClick={() => {
+        presenter.openArticle(article);
+      }}
+    >
+      <div className="relative">
+        <img
+          src={article.thumbnailUrl}
+          alt={article.title}
+          width="400"
+          height="225"
+          className="w-full h-48 object-cover"
+          // style={{ aspectRatio: '400 / 225', objectFit: 'cover' }}
+        />
+        {article.badges?.map((badge: string, index: number) => (
+          <div
+            key={index}
+            className="absolute top-2 left-2 bg-primary px-3 py-1 rounded-md text-primary-foreground text-sm font-medium"
+          >
+            {badge}
+          </div>
+        ))}
+      </div>
+      <div className="p-4 text-left flex flex-col justify-between flex-grow">
+        <div>
+          <h3 className="text-lg font-bold mb-2">{article.title}</h3>
+          <p className="max-h-[150px] text-sm mb-4 text-ellipsis overflow-hidden line-clamp-4">
+            {article.description}
+          </p>
         </div>
-      ))}
-    </div>
-    <div className="p-4 text-left flex flex-col justify-between flex-grow">
-      <div>
-        <h3 className="text-lg font-bold mb-2">{article.title}</h3>
-        <p className="max-h-[150px] text-sm mb-4 text-ellipsis overflow-hidden line-clamp-4">
-          {article.description}
-        </p>
-      </div>
-      <div className="flex justify-between space-x-2 text-gray-500 text-sm">
-        <span>{article.formattedDate}</span>
-        {article.views && <span>{article.views} views</span>}
+        <div className="flex justify-between space-x-2 text-gray-500 text-sm">
+          <span>{article.formattedDate}</span>
+          {article.views && <span>{article.views} views</span>}
+        </div>
       </div>
     </div>
-  </div>
-));
+  ),
+);
 
 const ArticleSkeleton = () => (
   <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col animate-pulse">
@@ -162,8 +176,12 @@ const TodaysFeaturedArticle = observer(
       throw new Error('TFA not loaded');
     }
     return (
-      <section className="mb-8">
-        <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg">
+      <section className="mb-8 hover:cursor-pointer">
+        <div
+          className="relative h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg"
+          style={{ opacity: tfa.isRead ? 0.5 : 1 }}
+          onClick={() => presenter.openArticle(tfa)}
+        >
           <div className="absolute top-2 left-2 bg-primary px-3 py-1 rounded-md text-primary-foreground text-sm font-medium">
             {tfa.badges?.join(' ')}
           </div>
@@ -172,8 +190,8 @@ const TodaysFeaturedArticle = observer(
             alt={tfa.title}
             width="1200"
             height="600"
-            className="w-full h-full object-cover"
-            style={{ aspectRatio: '1200 / 600', objectFit: 'contain' }}
+            className="w-full h-full object-contain"
+            // style={{ aspectRatio: '1200 / 600' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">

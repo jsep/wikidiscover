@@ -8,6 +8,8 @@ import {
 import { action, makeObservable, observable } from 'mobx';
 
 export interface ArticulePM {
+  id: string;
+  isRead: boolean;
   type: 'tfa' | 'image' | 'most-read' | 'on-this-day';
   title: string;
   url: {
@@ -56,6 +58,36 @@ class FeedRepository {
     this.loadingMoreFeed = value;
   }
 
+  @action
+  async openArticle(article: ArticulePM) {
+    await this.markArticleAsRead(article.id);
+
+    window.open(article.url.desktop, '_blank');
+  }
+
+  @action
+  async markArticleAsRead(id: string) {
+    // TODO refactor to use articules array for feeds that are just an array of articles, not need for tfa
+
+    if (this.currentFeedPm?.tfa?.id === id) {
+      this.currentFeedPm.tfa.isRead = true;
+    }
+
+    let article = this.currentFeedPm?.articles.find(
+      (article) => article.id === id,
+    );
+
+    if (article) {
+      article.isRead = true;
+    }
+    article = this.morefeedArticles.find((article) => article.id === id);
+    if (article) {
+      article.isRead = true;
+    }
+
+    await this.apiGateway.markArticleAsRead(id);
+  }
+
   async getMoreFeed(date: Date, lang: string) {
     this.setLoadingMoreFeed(true);
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
@@ -94,14 +126,12 @@ class FeedRepository {
     this.setCurrentFeedPm(this.mapToFeedPm(feedDto));
   }
 
-  mapToFeedPm(feedDto: FeedDto): FeedPm {
-    return {
-      date: new Date(feedDto.data.date),
-      lang: feedDto.data.lang,
-      tfa: this.getTfaArticule(feedDto),
-      articles: this.getArticlesFromFeed(feedDto),
-    };
-  }
+  mapToFeedPm = (feedDto: FeedDto): FeedPm => ({
+    date: new Date(feedDto.data.date),
+    lang: feedDto.data.lang,
+    tfa: this.getTfaArticule(feedDto),
+    articles: this.getArticlesFromFeed(feedDto),
+  });
 
   useImageAsTFA(feedDto: FeedDto) {
     return !feedDto.data.tfa && feedDto.data.image !== null;
@@ -143,25 +173,27 @@ class FeedRepository {
 
     return articules;
   }
-  mapOnThisDayToArticule(first: OnThisDayDTO): ArticulePM {
-    return {
-      type: 'on-this-day',
-      title: first.title,
-      url: {
-        desktop: first.urls.desktop,
-        mobile: first.urls.mobile,
-      },
-      thumbnailUrl: first.thumbnail?.source ?? '/placeholder.svg',
-      date: new Date(first.timestamp as string),
-      description: first.description,
-      views: null,
-    };
-  }
+  mapOnThisDayToArticule = (first: OnThisDayDTO): ArticulePM => ({
+    id: first.id,
+    isRead: this.apiGateway.isArticleRead(first.id),
+    type: 'on-this-day',
+    title: first.title,
+    url: {
+      desktop: first.urls.desktop,
+      mobile: first.urls.mobile,
+    },
+    thumbnailUrl: first.thumbnail?.source ?? '/placeholder.svg',
+    date: new Date(first.timestamp as string),
+    description: first.description,
+    views: null,
+  });
 
-  getTfaArticule(feedDto: FeedDto): ArticulePM {
+  getTfaArticule = (feedDto: FeedDto): ArticulePM => {
     const data = feedDto.data;
     if (data.tfa) {
       return {
+        id: data.tfa.id,
+        isRead: this.apiGateway.isArticleRead(data.tfa.id),
         type: 'tfa',
         title: data.tfa.title,
         url: {
@@ -186,37 +218,37 @@ class FeedRepository {
       return this.mapOnThisDayToArticule(first);
     }
     throw new Error('Failed to load TFA');
-  }
+  };
 
-  mapImageToArticule(image: ImageDTO): ArticulePM {
-    return {
-      type: 'image',
-      title: image.title,
-      url: {
-        desktop: image.urls.desktop,
-        mobile: image.urls.mobile,
-      },
-      thumbnailUrl: image.thumbnail?.source ?? '/placeholder.svg',
-      date: image.timestamp ? new Date(image.timestamp) : new Date(),
-      description: image.description,
-      views: null,
-    };
-  }
+  mapImageToArticule = (image: ImageDTO): ArticulePM => ({
+    id: image.id,
+    isRead: this.apiGateway.isArticleRead(image.id),
+    type: 'image',
+    title: image.title,
+    url: {
+      desktop: image.urls.desktop,
+      mobile: image.urls.mobile,
+    },
+    thumbnailUrl: image.thumbnail?.source ?? '/placeholder.svg',
+    date: image.timestamp ? new Date(image.timestamp) : new Date(),
+    description: image.description,
+    views: null,
+  });
 
-  mapMostReadToArticule(mostRead: MostReadArticleDTO): ArticulePM {
-    return {
-      type: 'most-read',
-      title: mostRead.title,
-      url: {
-        desktop: mostRead.urls.desktop,
-        mobile: mostRead.urls.mobile,
-      },
-      thumbnailUrl: mostRead.thumbnail?.source ?? '/placeholder.svg',
-      date: new Date(mostRead.timestamp as string),
-      description: mostRead.description,
-      views: mostRead.views ?? null,
-    };
-  }
+  mapMostReadToArticule = (mostRead: MostReadArticleDTO): ArticulePM => ({
+    id: mostRead.id,
+    isRead: this.apiGateway.isArticleRead(mostRead.id),
+    type: 'most-read',
+    title: mostRead.title,
+    url: {
+      desktop: mostRead.urls.desktop,
+      mobile: mostRead.urls.mobile,
+    },
+    thumbnailUrl: mostRead.thumbnail?.source ?? '/placeholder.svg',
+    date: new Date(mostRead.timestamp as string),
+    description: mostRead.description,
+    views: mostRead.views ?? null,
+  });
 }
 
 export const feedRepository = new FeedRepository();

@@ -16,6 +16,7 @@ primary_region = 'mia'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']
+  auto_stop_delay = 43200  # 12 hours in seconds
 
 [[vm]]
   memory = '1gb'

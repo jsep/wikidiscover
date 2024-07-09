@@ -3,8 +3,10 @@ import { ArticulePM, FeedPm, feedRepository } from './FeedRepository.ts';
 import { action, computed, makeObservable, observable } from 'mobx';
 
 export interface ArticuleVM {
+  id: string;
   title: string;
   description: string;
+  isRead: boolean;
   url: {
     desktop: string;
     mobile: string;
@@ -18,7 +20,7 @@ export interface ArticuleVM {
 export interface FeedVm {
   date: Date;
   lang: string;
-  tfa: Omit<ArticuleVM, 'views'> | null;
+  tfa: ArticuleVM | null;
   articles: ArticuleVM[];
 }
 
@@ -46,6 +48,12 @@ export default class FeedPresenter {
   async onDateSelected(newDate: Date) {
     this.setDate(newDate);
     await this.load();
+  }
+
+  openArticle(article: ArticuleVM) {
+    console.log('opening article', { article });
+    feedRepository.markArticleAsRead(article.id);
+    window.open(article.url.desktop, '_blank');
   }
 
   async onLangSelected(lang: string) {
@@ -103,8 +111,10 @@ export default class FeedPresenter {
 
   mapToArticuleVm(article: ArticulePM): ArticuleVM {
     return {
+      id: article.id,
       title: article.title,
       description: article.description,
+      isRead: article.isRead,
       url: {
         desktop: article.url.desktop,
         mobile: article.url.mobile,
@@ -122,6 +132,8 @@ export default class FeedPresenter {
     }
 
     return {
+      id: tfa.id,
+      isRead: tfa.isRead,
       title: tfa.title,
       url: {
         desktop: tfa.url.desktop,
