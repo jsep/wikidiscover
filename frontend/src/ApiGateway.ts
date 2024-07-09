@@ -10,6 +10,8 @@ import {
 
 // TODO dry interfaces
 export interface ArticleDTO {
+  // TODO id can be string or number
+  id: string;
   title: string;
   description: string;
   views?: number;
@@ -62,6 +64,15 @@ export class ApiGateway {
     }
   }
 
+  async markArticleAsRead(id: string) {
+    // use local storage to save the article as read
+    localStorage.setItem(id, 'true');
+  }
+
+  isArticleRead(id: string) {
+    return localStorage.getItem(id) === 'true';
+  }
+
   public async get<T>(path: string): Promise<Result<T, ApiError>> {
     let result = await attemptAsync(() => fetch(this.apiUrl + path));
     if (result.error) {
@@ -92,7 +103,6 @@ export class ApiGateway {
     // Change type with FeedDtoResponse
     const { error, value } = await this.get<FeedDto>(path);
 
-    console.log(value);
     if (error) {
       return err(error);
     } else if (!value || value.error) {

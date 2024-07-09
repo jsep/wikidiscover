@@ -199,14 +199,8 @@ describe('FeedPresenter', () => {
     const feedPresenter = await feedTestHarness.init(july, lang);
     expect(feedPresenter.feedVm).toBeDefined();
 
-    // pivot
-    vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
-      GetFeedStub(july2nd, 'en'),
-    );
-
     // action
-    await feedPresenter.loadMore();
-    // expect(feedPresenter.isLoadingMore).toBe(true);
+    await feedTestHarness.loadMore(feedPresenter, july2nd, 'en');
 
     expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
       july2nd,
@@ -216,13 +210,8 @@ describe('FeedPresenter', () => {
     expect(feedPresenter.moreFeedsArticulesVm).toHaveLength(4);
 
     const july3rd = new Date(2024, 6, 3);
-    // pivot
-    vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
-      GetFeedStub(july3rd, 'en'),
-    );
-
     // action
-    await feedPresenter.loadMore();
+    await feedTestHarness.loadMore(feedPresenter, july3rd, 'en');
     expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
       july3rd,
       'en',
@@ -241,5 +230,44 @@ describe('FeedPresenter', () => {
     expect(feedPresenter.moreFeedsArticulesVm[7].title).toEqual(
       'NASA 2024-07-03',
     );
+  });
+
+  it('should open a articule', async () => {
+    const lang = 'en';
+    const feedPresenter = await feedTestHarness.init(july, lang);
+    expect(feedPresenter.feedVm).toBeDefined();
+
+    await feedTestHarness.openArticle(feedPresenter.feedVm.tfa);
+    expect(feedPresenter.feedVm?.tfa?.isRead).toEqual(true);
+    expect(window.open).toHaveBeenCalledWith(
+      feedPresenter.feedVm.tfa.url.desktop,
+      '_blank',
+    );
+
+    await feedTestHarness.openArticle(feedPresenter.feedVm?.articles[0]);
+    expect(feedPresenter.feedVm?.articles[0].isRead).toEqual(true);
+    expect(window.open).toHaveBeenCalledWith(
+      feedPresenter.feedVm.articles[0].url.desktop,
+      '_blank',
+    );
+  });
+
+  it('should save the article as read', async () => {
+    const feedPresenter = await feedTestHarness.init(july, 'en');
+    expect(feedPresenter.feedVm?.tfa?.isRead).toEqual(false);
+
+    // feedRepository.apiGateway.markArticleAsRead = vi.fn();
+
+    await feedTestHarness.openArticle(feedPresenter.feedVm.tfa);
+
+    expect(feedPresenter.feedVm?.tfa?.isRead).toEqual(true);
+
+    // expect(feedRepository.apiGateway.markArticleAsRead).toHaveBeenCalledWith(
+    //   feedPresenter.feedVm?.tfa?.id,
+    // );
+
+    await feedPresenter.load();
+    expect(feedPresenter.feedVm?.tfa?.isRead).toEqual(true);
+    expect(feedPresenter.feedVm.articles[0].isRead).toEqual(false);
   });
 });

@@ -11,6 +11,7 @@ export function GetFeedStub(
       date: dateToIso(date),
       lang: lang,
       tfa: {
+        id: 'tfa' + dateToIso(date),
         title:
           (lang == 'es' ? 'Estatua de la Libertad' : 'Statue of Liberty') +
           ' ' +
@@ -31,6 +32,7 @@ export function GetFeedStub(
       },
       mostReadArticles: [
         {
+          id: 'mostread' + dateToIso(date),
           views: 442626,
           rank: 4,
           title: 'Project 2025 ' + dateToIso(date),
@@ -50,6 +52,7 @@ export function GetFeedStub(
         },
       ],
       image: {
+        id: 'image' + dateToIso(date),
         title: 'File:Image ' + dateToIso(date),
         thumbnail: {
           source:
@@ -68,6 +71,7 @@ export function GetFeedStub(
       },
       onThisDay: [
         {
+          id: 'onthisday' + dateToIso(date),
           title: 'NASA ' + dateToIso(date),
           thumbnail: {
             source:

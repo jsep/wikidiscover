@@ -8,6 +8,8 @@ import {
 import { action, makeObservable, observable } from 'mobx';
 
 export interface ArticulePM {
+  id: string;
+  isRead: boolean;
   type: 'tfa' | 'image' | 'most-read' | 'on-this-day';
   title: string;
   url: {
@@ -54,6 +56,37 @@ class FeedRepository {
   @action
   setLoadingMoreFeed(value: boolean) {
     this.loadingMoreFeed = value;
+  }
+
+  @action
+  async openArticle(article: ArticulePM) {
+    console.log('opening article', { article });
+    await this.markArticleAsRead(article.id);
+
+    window.open(article.url.desktop, '_blank');
+  }
+
+  @action
+  async markArticleAsRead(id: string) {
+    // TODO refactor to use articules array for feeds that are just an array of articles, not need for tfa
+
+    if (this.currentFeedPm?.tfa?.id === id) {
+      this.currentFeedPm.tfa.isRead = true;
+    }
+
+    let article = this.currentFeedPm?.articles.find(
+      (article) => article.id === id,
+    );
+
+    if (article) {
+      article.isRead = true;
+    }
+    article = this.morefeedArticles.find((article) => article.id === id);
+    if (article) {
+      article.isRead = true;
+    }
+
+    await this.apiGateway.markArticleAsRead(id);
   }
 
   async getMoreFeed(date: Date, lang: string) {
@@ -145,6 +178,8 @@ class FeedRepository {
   }
   mapOnThisDayToArticule(first: OnThisDayDTO): ArticulePM {
     return {
+      id: first.id,
+      isRead: false,
       type: 'on-this-day',
       title: first.title,
       url: {
@@ -162,6 +197,8 @@ class FeedRepository {
     const data = feedDto.data;
     if (data.tfa) {
       return {
+        id: data.tfa.id,
+        isRead: this.apiGateway.isArticleRead(data.tfa.id),
         type: 'tfa',
         title: data.tfa.title,
         url: {
@@ -190,6 +227,8 @@ class FeedRepository {
 
   mapImageToArticule(image: ImageDTO): ArticulePM {
     return {
+      id: image.id,
+      isRead: this.apiGateway.isArticleRead(image.id),
       type: 'image',
       title: image.title,
       url: {
@@ -203,20 +242,20 @@ class FeedRepository {
     };
   }
 
-  mapMostReadToArticule(mostRead: MostReadArticleDTO): ArticulePM {
-    return {
-      type: 'most-read',
-      title: mostRead.title,
-      url: {
-        desktop: mostRead.urls.desktop,
-        mobile: mostRead.urls.mobile,
-      },
-      thumbnailUrl: mostRead.thumbnail?.source ?? '/placeholder.svg',
-      date: new Date(mostRead.timestamp as string),
-      description: mostRead.description,
-      views: mostRead.views ?? null,
-    };
-  }
+  mapMostReadToArticule = (mostRead: MostReadArticleDTO): ArticulePM => ({
+    id: mostRead.id,
+    isRead: this.apiGateway.isArticleRead(mostRead.id),
+    type: 'most-read',
+    title: mostRead.title,
+    url: {
+      desktop: mostRead.urls.desktop,
+      mobile: mostRead.urls.mobile,
+    },
+    thumbnailUrl: mostRead.thumbnail?.source ?? '/placeholder.svg',
+    date: new Date(mostRead.timestamp as string),
+    description: mostRead.description,
+    views: mostRead.views ?? null,
+  });
 }
 
 export const feedRepository = new FeedRepository();

@@ -6,6 +6,7 @@ import { Result, attempt, attemptAsync, nonNull } from './utils';
 
 /// TODO remove duplicate interfaces
 export interface Article {
+  id: number | string;
   title: string;
   description: string;
   views?: number;
@@ -164,6 +165,7 @@ export class AppService {
     }
     const result = attempt<TFA>(() => {
       return {
+        id: response.tfa.pageid,
         title: response.tfa.normalizedtitle,
         description: response.tfa.extract,
         timestamp: response.tfa.timestamp,
@@ -199,6 +201,7 @@ export class AppService {
 
     const result = attempt<Image>(() => {
       return {
+        id: response.image.wb_entity_id,
         title: response.image.title,
         description: response.image.description.text,
         urls: {
@@ -238,6 +241,7 @@ export class AppService {
       return response.mostread.articles
         .map((article) => {
           const result = attempt(() => ({
+            id: article.pageid,
             title: article.titles.normalized,
             description: article.extract || '',
             urls: {
@@ -292,6 +296,7 @@ export class AppService {
         .map((onThisDay) => {
           const article = onThisDay.pages[0];
           const result = attempt(() => ({
+            id: article.pageid,
             title: article.titles.normalized,
             description: onThisDay.text,
             timestamp: new Date(onThisDay.year).toISOString(),
