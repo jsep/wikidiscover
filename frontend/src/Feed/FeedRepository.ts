@@ -64,8 +64,6 @@ class FeedRepository {
       throw new Error(error.message ?? 'Unknown error');
     }
 
-    // wait 1 second
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     const feedPm = this.mapToFeedPm(feedDto);
     this.addMoreFeed(feedPm);
     this.setLoadingMoreFeed(false);
