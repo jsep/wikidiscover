@@ -10,7 +10,6 @@ export const FeedComponent = observer(() => {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - 100;
     if (bottom) {
-      console.log('bottom');
       feedPresenter.loadMore();
     }
   }, [feedPresenter]);
@@ -154,10 +153,14 @@ const TodaysFeaturedArticle = observer(
       return <TodaysFeaturedArticleSkeleten />;
     }
     if (!presenter.feedVm) {
-      // TODO handle not loading data with loading screen
+      // TODO handle not loading data error screen
       throw new Error('Feed not loaded');
     }
     const tfa = presenter.feedVm.tfa;
+    if (!tfa) {
+      // TODO handle not loading data error screen
+      throw new Error('TFA not loaded');
+    }
     return (
       <section className="mb-8">
         <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-lg">
