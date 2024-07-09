@@ -77,51 +77,6 @@ function App() {
   );
 }
 
-// const DateLanguageSelector = ({
-//   onSelectionChange,
-// }: {
-//   onSelectionChange: (date: string, language: string) => void;
-// }) => {
-//   const [date, setDate] = useState<string>('');
-//   const [language, setLanguage] = useState<string>('');
-//
-//   const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-//     setDate(e.target.value);
-//     onSelectionChange(e.target.value, language);
-//   };
-//
-//   const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
-//     setLanguage(e.target.value);
-//     onSelectionChange(date, e.target.value);
-//   };
-//
-//   return (
-//     <div>
-//       <input type="date" value={date} onChange={handleDateChange} />
-//       <select value={language} onChange={handleLanguageChange}>
-//         <option value="en">English</option>
-//         <option value="es">Spanish</option>
-//         <option value="fr">French</option>
-//         {/* Add more languages as needed */}
-//       </select>
-//     </div>
-//   );
-// };
-
-// function Controls({
-//   onSelectionChange,
-// }: {
-//   onSelectionChange: (date: string, language: string) => void;
-// }) {
-//   return (
-//     <div className="flex items-center justify-between mb-6">
-//       <div className="flex items-center space-x-4">
-//         <DateLanguageSelector onSelectionChange={onSelectionChange} />
-//       </div>
-//     </div>
-//   );
-// }
-
 // function Feed({ content }: { content: Article[] }) {
 //   return (
 //     <section>

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { wikipediaLanguages } from './languages';
 import { GetFeatured } from './stubs/get.featured';
 import * as fs from 'fs';
+import { Result, attempt, attemptAsync, nonNull } from './utils';
 
 /// TODO remove duplicate interfaces
 export interface Article {
@@ -141,82 +142,6 @@ export class AppService {
         onThisDay: onThisDay.error ? [] : onThisDay.value,
       },
     };
-    // try {
-    //   return {
-    //     date: `${year}-${month}-${day}`,
-    //     lang,
-    //     tfa: {
-    //       title: response.tfa.normalizedtitle,
-    //       description: response.tfa.description,
-    //       dir: response.tfa.dir,
-    //       lang: response.tfa.lang,
-    //       timestamp: response.tfa.timestamp,
-    //       content_urls: {
-    //         desktop: response.tfa.content_urls.desktop.page,
-    //         mobile: response.tfa.content_urls.mobile.page,
-    //       },
-    //       thumbnail: {
-    //         height: response.tfa.thumbnail.height,
-    //         width: response.tfa.thumbnail.width,
-    //         source: response.tfa.thumbnail.source,
-    //       },
-    //     },
-    //     image: response.image
-    //       ? {
-    //           title: response.image.title,
-    //           content_urls: {
-    //             desktop: response.image.file_page,
-    //             mobile: response.image.file_page,
-    //           },
-    //           thumbnail: {
-    //             height: response.image.thumbnail.height,
-    //             width: response.image.thumbnail.width,
-    //             source: response.image.thumbnail.source,
-    //           },
-    //           description: response.image.description?.text || '',
-    //         }
-    //       : null,
-    //     mostRead: response.mostread.articles.map((article) => ({
-    //       title: article.title,
-    //       description: article.description || '', // Ensure description is a string
-    //       views: article.views,
-    //       rank: article.rank,
-    //       // TODO handle thumbnail to place holder
-    //       thumbnail: {
-    //         height: article.thumbnail?.height || 0,
-    //         width: article.thumbnail?.width || 0,
-    //         source: article.thumbnail?.source || '',
-    //       },
-    //       timestamp: article.timestamp,
-    //       lang: article.lang,
-    //       dir: article.dir,
-    //       content_urls: {
-    //         desktop: article.content_urls.desktop.page,
-    //         mobile: article.content_urls.mobile.page,
-    //       },
-    //     })),
-    //     onThisDay: response.onthisday.map((onThisDay) => ({
-    //       title: onThisDay.pages[0].titles.normalized,
-    //       year: onThisDay.year,
-    //       description: onThisDay.text,
-    //       timestamp: new Date(onThisDay.year).toISOString(),
-    //       lang: lang,
-    //       content_urls: {
-    //         desktop: onThisDay.pages[0].content_urls.desktop.page,
-    //         mobile: onThisDay.pages[0].content_urls.mobile.page,
-    //       },
-    //       thumbnail: {
-    //         height: onThisDay.pages[0]?.thumbnail?.height || 0,
-    //         width: onThisDay.pages[0]?.thumbnail?.width || 0,
-    //         source: onThisDay.pages[0]?.thumbnail?.source || '',
-    //       },
-    //       views: null,
-    //     })),
-    //   };
-    // } catch (error) {
-    //   console.log('error:', error);
-    //   return null;
-    // }
   }
 
   private isValidDate(year: string, month: string, day: string): boolean {
@@ -240,7 +165,7 @@ export class AppService {
     const result = attempt<TFA>(() => {
       return {
         title: response.tfa.normalizedtitle,
-        description: response.tfa.description,
+        description: response.tfa.extract,
         timestamp: response.tfa.timestamp,
         urls: {
           desktop: response.tfa.content_urls.desktop.page,
@@ -290,6 +215,7 @@ export class AppService {
     });
 
     if (result.error) {
+      console.error('Failed to get mostread. Details: ' + result.error);
       return {
         error: new Error('Failed to get image. Details: ' + result.error),
         value: null,
@@ -313,7 +239,7 @@ export class AppService {
         .map((article) => {
           const result = attempt(() => ({
             title: article.titles.normalized,
-            description: article.description || '',
+            description: article.extract || '',
             urls: {
               desktop: article.content_urls.desktop.page,
               mobile: article.content_urls.mobile.page,
@@ -321,11 +247,13 @@ export class AppService {
             views: article.views,
             rank: article.rank,
             timestamp: article.timestamp,
-            thumbnail: {
-              height: article.thumbnail?.height || 0,
-              width: article.thumbnail?.width || 0,
-              source: article.thumbnail?.source || '',
-            },
+            thumbnail: !article.thumbnail
+              ? null
+              : {
+                  height: article.thumbnail?.height || 0,
+                  width: article.thumbnail?.width || 0,
+                  source: article.thumbnail?.source || '',
+                },
           }));
           if (result.error) {
             console.error('Failed to get most read article. ', {
@@ -339,6 +267,7 @@ export class AppService {
     });
 
     if (result.error) {
+      console.error('Failed to get mostread. Details: ' + result.error);
       return {
         error: new Error('Failed to get most read. Details: ' + result.error),
         value: null,
@@ -398,45 +327,4 @@ export class AppService {
   }
 }
 
-export type Result<T, Err> =
-  | { error: null; value: T }
-  | { error: Err; value: null };
-
-async function attemptAsync<T, Err = Error>(
-  fun: () => Promise<T>,
-): Promise<Result<T, Err>> {
-  try {
-    return {
-      error: null,
-      value: await fun(),
-    };
-  } catch (error) {
-    return {
-      error: error as Err,
-      value: null,
-    };
-  }
-}
-
-function attempt<T, Err = Error>(fun: () => T): Result<T, Err> {
-  try {
-    return {
-      error: null,
-      value: fun(),
-    };
-  } catch (error) {
-    return {
-      error: error as Err,
-      value: null,
-    };
-  }
-}
-
 export class WikipediaRequestError extends Error {}
-
-function nonNull<T>(value: T | null | undefined): T {
-  if (value == null) {
-    throw new Error('Value is null or undefined');
-  }
-  return value;
-}

@@ -1,19 +1,3 @@
-// TODO dry and share utils files
-export type IsoDateString = string;
-
-export function dateToIso(date: Date): IsoDateString {
-  return date.toISOString().split('T')[0];
-}
-
-export function dateToFriendly(date: Date, lang: string): string {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
-  return date.toLocaleDateString(lang, options);
-}
-
 export type Result<T, Err> =
   | { error: null; value: T }
   | { error: Err; value: null };
@@ -55,10 +39,10 @@ export function attempt<T, Err = Error>(fun: () => T): Result<T, Err> {
   }
 }
 
-export function ok<Value, Err = Error>(value: Value): Result<Value, Err> {
+export function ok<Value, Error>(value: Value): Result<Value, Error> {
   return { value, error: null };
 }
 
-export function err<Error, Value = null>(error: Error): Result<Value, Error> {
+export function err<Value, Error>(error: Error): Result<Value, Error> {
   return { value: null, error };
 }
