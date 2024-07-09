@@ -9,7 +9,12 @@ primary_region = 'mia'
 [build]
 
 [env]
-  LT_LOAD_ONLY = 'en,es,zh,fi,he,ru'
+  #LT_LOAD_ONLY = 'en,es,zh,fi,he,ru,ar,az,bg,bn,ca,cs,da'
+  LT_LOAD_ONLY = 'ar,az,bg,bn,ca,cs,da,de,el,en,eo,es,et,fa,fi,fr,ga,he,hi,hu,id,it,ja,ko,lt,lv,ms,nb,nl,pl,pt,ro,ru,sk,sl,sq,sv,th,tl,tr,uk,ur,zh,zt'
+
+[mounts]
+  source = "libretranslate"
+  destination = "/home/libretranslate/.local"
 
 [http_service]
   internal_port = 5000
