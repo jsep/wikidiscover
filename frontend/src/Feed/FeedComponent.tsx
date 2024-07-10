@@ -61,7 +61,7 @@ export const Feed = observer(({ presenter }: { presenter: FeedPresenter }) => (
         presenter.currentDateFeedVm?.articles.map((article, index) => (
           <Article key={index} presenter={presenter} article={article} />
         ))}
-      {presenter.moreFeedsArticulesVm?.map((article, index) => (
+      {presenter.moreFeedsVM?.map((article, index) => (
         <Article key={index} presenter={presenter} article={article} />
       ))}
       {presenter.isLoadingMore && <ArticlesSkeleton />}

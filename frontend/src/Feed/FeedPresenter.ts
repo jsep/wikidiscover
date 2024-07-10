@@ -77,10 +77,8 @@ export default class FeedPresenter {
   }
 
   @computed
-  get moreFeedsArticulesVm(): ArticuleVM[] {
-    return feedRepository.moreFeedArticles.map((article) =>
-      this.mapToArticuleVm(article),
-    );
+  get moreFeedsVM(): FeedVm[] {
+    return feedRepository.moreFeedsPm.map((feedPm) => this.mapToFeedVm(feedPm));
   }
 
   @computed

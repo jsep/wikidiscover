@@ -10,6 +10,7 @@ import {
 } from '../ApiGateway';
 import { action, makeObservable, observable } from 'mobx';
 import { Result, attempt, ok } from '../utils';
+import type { ArticuleVM } from './FeedPresenter';
 
 export interface ArticulePM {
   id: string;
@@ -43,11 +44,9 @@ class FeedRepository {
   apiGateway: ApiGateway;
 
   @observable currentDateFeedPm: FeedPM | null = null;
-  @observable moreFeedPm: FeedPM[] = [];
+  @observable moreFeedsPm: FeedPM[] = [];
   @observable loadingCurrentFeed = true;
   @observable loadingMoreFeed = false;
-
-  @observable moreFeedArticles: ArticulePM[] = observable.array([]);
 
   constructor() {
     this.apiGateway = new ApiGateway();
@@ -70,7 +69,7 @@ class FeedRepository {
   }
 
   @action
-  async openArticle(article: ArticulePM) {
+  async openArticle(article: ArticuleVM) {
     await this.markArticleAsRead(article.id);
 
     window.open(article.url.desktop, '_blank');
@@ -83,7 +82,7 @@ class FeedRepository {
     );
 
     if (!article) {
-      this.moreFeedPm.forEach((feed) => {
+      this.moreFeedsPm.forEach((feed) => {
         article = feed.articles.find((article) => article.id === id);
       });
     }
@@ -110,12 +109,12 @@ class FeedRepository {
 
   @action
   addMoreFeed(feedPm: FeedPM) {
-    this.moreFeedPm.push(feedPm);
+    this.moreFeedsPm.push(feedPm);
   }
 
   async getFeed(date: Date, lang: string) {
     this.setLoadingCurrentFeed(true);
-    this.moreFeedArticles = [];
+    this.moreFeedsPm = [];
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     this.setLoadingCurrentFeed(false);
     // TODO cancel last request
@@ -149,18 +148,9 @@ class FeedRepository {
       articules.push(tfa.value);
     }
 
-    const image = this.mapImageToArticule(wikipediaResponseDTO);
+    const image = this.mapImageToArticule(feedDto);
     if (image.value) {
       articules.push(image.value);
-    }
-
-    const onThisDayArticlesResult = this.mapOnThisDayToArticules(feedDto);
-    if (
-      onThisDayArticlesResult.value &&
-      onThisDayArticlesResult.value.length > 0
-    ) {
-      const first = onThisDayArticlesResult.value.shift() as ArticulePM;
-      articules.push(first);
     }
 
     const mostReadArticlesResult =
@@ -173,6 +163,14 @@ class FeedRepository {
       articules.push(first);
     }
 
+    const onThisDayArticlesResult = this.mapOnThisDayToArticules(feedDto);
+    if (
+      onThisDayArticlesResult.value &&
+      onThisDayArticlesResult.value.length > 0
+    ) {
+      const first = onThisDayArticlesResult.value.shift() as ArticulePM;
+      articules.push(first);
+    }
     const newsArticlesResult = this.mapNewsToArticules(feedDto);
 
     const onThisDayArticles = onThisDayArticlesResult.value || [];
@@ -300,8 +298,9 @@ class FeedRepository {
   }
 
   private mapImageToArticule(
-    response: WikipediaResponseDTO,
+    feedDto: FeedDtoResponse,
   ): Result<ArticulePM, Error> {
+    const response = feedDto?.value?.wikipediaResponse;
     if (!response.image) {
       return {
         error: new Error('Missing image in response'),
@@ -321,7 +320,7 @@ class FeedRepository {
           mobile: response.image.file_page,
         },
         thumbnailUrl: response.image.thumbnail.source,
-        date: new Date(), // or appropriate date conversion
+        date: new Date(feedDto.value.date),
         views: null,
       };
     });
