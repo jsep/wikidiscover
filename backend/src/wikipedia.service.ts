@@ -3,6 +3,7 @@ import { wikipediaLanguages } from './languages';
 import { GetFeatured } from './stubs/get.featured';
 import * as fs from 'fs';
 import { Result, attempt, attemptAsync, nonNull } from './utils';
+import { WikipediaApiError } from './errors';
 
 /// TODO remove duplicate interfaces
 export interface Article {
@@ -37,10 +38,10 @@ export interface FeedResponse {
   onThisDay: OnThisDay[];
 }
 
-export type WikipediaResponse = ReturnType<typeof GetFeatured>;
+export type WikipediaFeaturedContentResponse = ReturnType<typeof GetFeatured>;
 
 @Injectable()
-export class AppService {
+export class WikipediaService {
   supportedLanguages: string[];
   constructor() {
     this.supportedLanguages = wikipediaLanguages.map(
@@ -57,14 +58,14 @@ export class AppService {
     year: string,
     month: string,
     day: string,
-  ): Promise<Result<WikipediaResponse, Error>> {
+  ): Promise<Result<WikipediaFeaturedContentResponse, WikipediaApiError>> {
     //    api.wikimedia.org/feed/v1/wikipedia/en/featured/2024/07/04
     const url = `https://api.wikimedia.org/feed/v1/wikipedia/${lang}/featured/${year}/${month}/${day}`;
 
     let result = await attemptAsync(() => fetch(url));
     if (result.error) {
       return {
-        error: new WikipediaRequestError(
+        error: new WikipediaApiError(
           `Failed to fetch Wikipedia feed. Details: ${result.error}`,
         ),
         value: null,
@@ -75,7 +76,7 @@ export class AppService {
     result = await attemptAsync(async () => await nonNull(result.value).json());
     if (result.error) {
       return {
-        error: new WikipediaRequestError(
+        error: new WikipediaApiError(
           `Failed to parse Wikipedia feed. Details: ${result.error}`,
         ),
         value: null,
@@ -87,10 +88,24 @@ export class AppService {
     );
     return {
       error: null,
-      value: result.value as unknown as WikipediaResponse,
+      value: result.value as unknown as WikipediaFeaturedContentResponse,
     };
   }
 
+  async getFeaturedContent(
+    lang: string,
+    year: string,
+    month: string,
+    day: string,
+  ): Promise<Result<WikipediaFeaturedContentResponse, WikipediaApiError>> {
+    return this.wikipediaRequest(lang, year, month, day);
+  }
+
+  /**
+   * Returns featured content from Wikipedia for a given date.
+   * Depending on language availability, the response can include the daily featured article, featured image or media file, list of most read articles, latest news stories, and events from that day in history.
+   * https://api.wikimedia.org/wiki/Feed_API/Reference/Featured_content
+   */
   async getFeed({
     year,
     month,
@@ -155,7 +170,9 @@ export class AppService {
     );
   }
 
-  private getTFA(response: WikipediaResponse): Result<TFA, Error> {
+  private getTFA(
+    response: WikipediaFeaturedContentResponse,
+  ): Result<TFA, Error> {
     if (!response.tfa) {
       return {
         // this is an expected error, not all responses contain TFA
@@ -191,7 +208,9 @@ export class AppService {
     return result;
   }
 
-  private getImage(response: WikipediaResponse): Result<Image, Error> {
+  private getImage(
+    response: WikipediaFeaturedContentResponse,
+  ): Result<Image, Error> {
     if (!response.image) {
       return {
         error: new Error('Missing image in response'),
@@ -229,7 +248,7 @@ export class AppService {
   }
 
   private getMostReadArticles(
-    response: WikipediaResponse,
+    response: WikipediaFeaturedContentResponse,
   ): Result<MostReadArticle[], Error> {
     if (!response.mostread) {
       return {
@@ -282,7 +301,7 @@ export class AppService {
   }
 
   private getOnThisDay(
-    response: WikipediaResponse,
+    response: WikipediaFeaturedContentResponse,
   ): Result<OnThisDay[], Error> {
     if (!response.onthisday) {
       return {
@@ -331,5 +350,3 @@ export class AppService {
     return result;
   }
 }
-
-export class WikipediaRequestError extends Error {}

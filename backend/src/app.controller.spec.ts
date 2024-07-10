@@ -1,21 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { WikipediaService } from './wikipedia.service';
 import { GetFeatured } from './stubs/get.featured';
 import { url } from 'inspector';
+import { TranslateService } from './translate.service';
+import { ConfigModule } from '@nestjs/config';
 
 describe('AppController', () => {
   let appController: AppController;
-  let appService: AppService;
+  let appService: WikipediaService;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
+      imports: [ConfigModule.forRoot()],
       controllers: [AppController],
-      providers: [AppService],
+      providers: [WikipediaService, TranslateService],
     }).compile();
 
     appController = app.get<AppController>(AppController);
-    appService = app.get<AppService>(AppService);
+    appService = app.get<WikipediaService>(WikipediaService);
     fetchMock.resetMocks();
 
     fetchMock.mockResponse(JSON.stringify(GetFeatured()));
