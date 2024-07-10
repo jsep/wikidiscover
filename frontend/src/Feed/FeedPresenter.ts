@@ -14,7 +14,7 @@ export interface ArticuleVM {
   };
   thumbnailUrl: string;
   formattedDate: string;
-  views: number | null;
+  views: string | null;
   badges: string[];
 }
 
@@ -152,7 +152,7 @@ export default class FeedPresenter {
       },
       thumbnailUrl: article.thumbnailUrl,
       formattedDate: dateToFriendly(article.date, this.selectedLanguage),
-      views: article.views,
+      views: article.views?.toLocaleString(feedPm.lang),
       badges: this.articuleBadges(article, feedPm),
     };
   }
