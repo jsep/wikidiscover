@@ -1,8 +1,8 @@
-import { ArticulePM, feedRepository } from '../Feed/FeedRepository';
+import { feedRepository } from '../Feed/FeedRepository';
 import { vi } from 'vitest';
-import FeedPresenter, { ArticuleVM } from '../Feed/FeedPresenter.ts';
-import { GetFeedDtoStub, GetFeedWithout } from './stubs/get.feed.stub.ts';
-import { FeedDtoResponse as FeedDTOResponse } from '../ApiGateway.ts';
+import FeedPresenter, { ArticuleVM } from '../Feed/FeedPresenter';
+import { GetFeedDtoStub, GetFeedWithout } from './stubs/get.feed.stub';
+import { FeedDtoResponse as FeedDTOResponse } from '../ApiGateway';
 
 export class FeedTestHarness {
   async init(date: Date, lang: string) {

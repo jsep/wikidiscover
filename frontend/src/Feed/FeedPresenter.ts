@@ -1,6 +1,7 @@
 import { dateToFriendly, dateToIso } from '../utils.ts';
 import { ArticulePM, FeedPM, feedRepository } from './FeedRepository.ts';
-import { action, computed, makeObservable, observable } from 'mobx';
+import { action, computed, makeObservable, observable, toJS } from 'mobx';
+import { languages } from './languages.ts';
 
 export interface ArticuleVM {
   id: string;
@@ -37,6 +38,10 @@ export default class FeedPresenter {
     this.selectedLanguage = 'en';
   }
 
+  @computed get showErrorScreen() {
+    return feedRepository.showErrorScreen;
+  }
+
   @computed
   get selectedDateString() {
     return dateToIso(this.selectedDate);
@@ -65,11 +70,21 @@ export default class FeedPresenter {
   }
 
   @computed
+  get languages() {
+    return languages;
+  }
+
+  @computed
   get isLoadingMore() {
     return feedRepository.loadingMoreFeed;
   }
 
   async loadMore() {
+    if (this.isLoadingMore || this.isLoading) {
+      console.log('Already loading more feed');
+      return;
+    }
+
     const date = this.loadMoreDate ?? new Date(this.selectedDate);
     const nextDate = new Date(date);
     nextDate.setDate(nextDate.getDate() + 1);
@@ -86,11 +101,15 @@ export default class FeedPresenter {
   @computed
   get currentDateFeedVm(): FeedVM {
     let feedPm = feedRepository.currentDateFeedPm;
+    console.log('Current date feed', toJS(feedPm));
     if (!feedPm) {
+      console.log('returning empty feed');
       return this.emptyFeedVm();
     }
 
-    return this.mapToFeedVm(feedPm);
+    const feedVm = this.mapToFeedVm(feedPm);
+    console.log('Current date feed vm', toJS(feedVm));
+    return feedVm;
   }
 
   mapToFeedVm(feedPm: FeedPM): FeedVM {

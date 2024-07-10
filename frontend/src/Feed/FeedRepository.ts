@@ -45,6 +45,7 @@ class FeedRepository {
   @observable moreFeedsPm: FeedPM[] = [];
   @observable loadingCurrentFeed = true;
   @observable loadingMoreFeed = false;
+  @observable showErrorScreen = false;
 
   constructor() {
     this.apiGateway = new ApiGateway();
@@ -52,7 +53,7 @@ class FeedRepository {
   }
 
   @action
-  setCurrentFeedPm(feedPm: FeedPM) {
+  setCurrentFeedPm(feedPm: FeedPM | null) {
     this.currentDateFeedPm = feedPm;
   }
 
@@ -92,20 +93,51 @@ class FeedRepository {
     await this.apiGateway.markArticleAsRead(id);
   }
 
+  async requestFeed(date: Date, lang: string) {
+    this.showErrorScreen = false;
+
+    const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
+    this.setLoadingCurrentFeed(false);
+
+    if (error || !feedDto) {
+      console.error('Error trying to get feed', { error, feedDto });
+      this.setLoadingCurrentFeed(false);
+      this.setLoadingMoreFeed(false);
+      this.moreFeedsPm = [];
+      this.showErrorScreen = true;
+      this.currentDateFeedPm = null;
+      return null;
+    }
+
+    console.log('Feed loaded', feedDto);
+
+    return feedDto;
+  }
+
   async getMoreFeed(date: Date, lang: string) {
+    console.log('Getting more feed', { date, lang });
     if (this.loadingMoreFeed) {
+      console.log('Already loading more feed');
       return;
     }
 
     this.setLoadingMoreFeed(true);
-    const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
-    if (error) {
-      // TODO handle error loading more
-      throw new Error(error.message ?? 'Unknown error');
+
+    const feedDto = await this.requestFeed(date, lang);
+
+    if (!feedDto) {
+      this.setLoadingMoreFeed(false);
+      console.error('Error trying to get more feed', { feedDto });
+      return;
     }
 
     const feedPm = this.mapToFeedPm(feedDto);
+    const before = this.moreFeedsPm.length;
     this.addMoreFeed(feedPm);
+
+    const after = this.moreFeedsPm.length;
+    console.log('More feed loaded', { feedPm, before, after });
+
     this.setLoadingMoreFeed(false);
   }
 
@@ -115,19 +147,21 @@ class FeedRepository {
   }
 
   async getFeed(date: Date, lang: string) {
-    this.setLoadingCurrentFeed(true);
     this.moreFeedsPm = [];
-    const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
-    this.setLoadingCurrentFeed(false);
-    // TODO cancel last request
-    if (error) {
-      // TODO handle error
-      throw new Error(error.message ?? 'Unknown error');
+    this.setLoadingCurrentFeed(true);
+    this.setCurrentFeedPm(null);
+
+    const feedDto = await this.requestFeed(date, lang);
+    if (!feedDto) {
+      console.error('Error trying to get feed', feedDto);
+      return;
     }
 
-    // TODO fix date issues, make sure to use UTC
     const feedPm = this.mapToFeedPm(feedDto);
+    console.log('Feed loaded', { feedPm });
+
     this.setCurrentFeedPm(feedPm);
+    this.setLoadingCurrentFeed(false);
   }
 
   mapToFeedPm = (feedDto: FeedDtoResponse): FeedPM => ({
@@ -280,7 +314,7 @@ class FeedRepository {
           desktop: response.tfa.content_urls.desktop.page,
           mobile: response.tfa.content_urls.mobile.page,
         },
-        thumbnailUrl: response.tfa.thumbnail.source,
+        thumbnailUrl: response.tfa.thumbnail?.source ?? '/placeholder.svg',
         views: null,
       };
     });
@@ -322,7 +356,7 @@ class FeedRepository {
           desktop: response.image.file_page,
           mobile: response.image.file_page,
         },
-        thumbnailUrl: response.image.thumbnail.source,
+        thumbnailUrl: response.image.thumbnail?.source ?? '/placeholder.svg',
         date: new Date(feedDto.value.date),
         views: null,
       };
@@ -442,9 +476,7 @@ class FeedRepository {
       views: article.views,
       rank: article.rank,
       date: new Date(article.timestamp),
-      thumbnailUrl: !article.thumbnail
-        ? '/placeholder.svg'
-        : article.thumbnail.source,
+      thumbnailUrl: article.thumbnail?.source ?? '/placeholder.svg',
     }));
     if (result.error) {
       console.error('Failed to get most read article. ', {

@@ -2,10 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ArticuleVM, FeedVM } from './FeedPresenter';
 import { feedRepository } from './FeedRepository';
 import { FeedTestHarness } from '../TestTools/FeedTestHarness';
-import {
-  GetFeedDtoStub,
-  GetFeedWithout,
-} from '../TestTools/stubs/get.feed.stub';
+import { GetFeedDtoStub } from '../TestTools/stubs/get.feed.stub';
 import { dateToIso } from '../utils';
 
 describe('FeedPresenter', () => {
