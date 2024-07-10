@@ -20,6 +20,7 @@ export interface ArticuleVM {
 export interface FeedVm {
   date: Date;
   lang: string;
+  featuredContentLabel: string;
   tfa: ArticuleVM | null;
   articles: ArticuleVM[];
 }
@@ -100,8 +101,11 @@ export default class FeedPresenter {
     return {
       date: new Date(feedPm.date),
       lang: feedPm.lang,
-      tfa: this.mapToArticuleVm(tfa),
-      articles: articles.map((article) => this.mapToArticuleVm(article)),
+      featuredContentLabel: feedPm.featuredContentLabel,
+      tfa: this.mapToArticuleVm(tfa, feedPm),
+      articles: articles.map((article) =>
+        this.mapToArticuleVm(article, feedPm),
+      ),
     };
   }
 
@@ -114,7 +118,7 @@ export default class FeedPresenter {
     };
   }
 
-  mapToArticuleVm(article: ArticulePM): ArticuleVM {
+  mapToArticuleVm(article: ArticulePM, feedPm: FeedPM): ArticuleVM {
     return {
       id: article.id,
       title: article.title,
@@ -127,7 +131,7 @@ export default class FeedPresenter {
       thumbnailUrl: article.thumbnailUrl,
       formattedDate: dateToFriendly(article.date, this.selectedLanguage),
       views: article.views,
-      badges: this.articuleBadges(article),
+      badges: this.articuleBadges(article, feedPm),
     };
   }
 
@@ -152,19 +156,13 @@ export default class FeedPresenter {
     };
   }
 
-  articuleBadges(article: ArticulePM) {
-    switch (article.type) {
-      case 'tfa':
-        return ['Featured'];
-      case 'image':
-        return ['Image'];
-      case 'most-read':
-        return ['Most Read'];
-      case 'on-this-day':
-        return ['On This Day'];
-      default:
-        return [];
-    }
+  articuleBadges(article: ArticulePM, feedPm: FeedPM) {
+    return (
+      feedPm.badges
+        .filter((badge) => badge.type === article.type)
+        // TODO change to badge.label
+        .map((badge) => badge.badge)
+    );
   }
 
   @action

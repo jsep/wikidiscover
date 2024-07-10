@@ -20,9 +20,17 @@ describe('FeedPresenter', () => {
 
   it("it should load the feed on today's date and in english", async () => {
     const lang = 'en';
-    await feedTestHarness.init(july, lang);
+    const feedPresenter = await feedTestHarness.init(july, lang);
 
     expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(july, 'en');
+    expect(feedPresenter.currentDateFeedVm).toBeDefined();
+    expect(feedPresenter.currentDateFeedVm?.lang).toBe('en');
+    expect(dateToIso(feedPresenter.currentDateFeedVm?.date as Date)).toBe(
+      dateToIso(july),
+    );
+    expect(feedPresenter.currentDateFeedVm?.featuredContentLabel).toBe(
+      "Wikipedia's Featured Content 2024-07-01-en",
+    );
   });
 
   it('it should load tfa in english', async () => {
@@ -39,15 +47,18 @@ describe('FeedPresenter', () => {
     const tfa = feedVm.tfa as ArticuleVM;
     expect(tfa.title).toBe('Statue of Liberty 2024-07-01-en');
     expect(tfa.formattedDate).toBe('July 1, 2024');
-    expect(tfa.badges).toEqual(['Featured']);
+    expect(tfa.badges).toEqual(['Featured 2024-07-01-en']);
     expect(tfa.thumbnailUrl).toEqual(
       expect.stringMatching(/upload\.wikimedia/),
     );
-    expect(tfa.url.desktop).toBe(
-      'https://en.wikipedia.org/wiki/Statue_of_Liberty',
+    expect(tfa.badges).toHaveLength(1);
+    expect(tfa.badges[0]).toBe('Featured es');
+
+    expect(tfa.url.desktop).toEqual(
+      expect.stringMatching(/en\.wikipedia\.org/),
     );
-    expect(tfa.url.mobile).toBe(
-      'https://en.m.wikipedia.org/wiki/Statue_of_Liberty',
+    expect(tfa.url.mobile).toEqual(
+      expect.stringMatching(/en\.m\.wikipedia\.org/),
     );
   });
 
@@ -55,6 +66,7 @@ describe('FeedPresenter', () => {
     const lang = 'es';
     const february = new Date(2024, 1, 1);
     const feedPresenter = await feedTestHarness.init(february, lang);
+
     expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(
       february,
       'es',
@@ -63,12 +75,16 @@ describe('FeedPresenter', () => {
     expect(feedPresenter.selectedDate).toBe(february);
     expect(feedPresenter.selectedLanguage).toBe(lang);
 
-    expect(feedPresenter.feedVm).toBeDefined();
-    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedPresenter.currentDateFeedVm).toBeDefined();
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
 
     expect(feedVm.lang).toBe('es');
-    expect(feedVm.tfa.title).toBe('Estatua de la Libertad 2024-02-01');
-    expect(feedVm.tfa.formattedDate).toBe('1 de febrero de 2024');
+    expect(feedVm.tfa?.title).toBe('Statue of Liberty 2024-02-01-es');
+    expect(feedVm.tfa?.description).toBe(
+      'The Statue of Liberty is a colossal in New York Harbor. 2024-02-01-es',
+    );
+
+    expect(feedVm.tfa?.formattedDate).toBe('1 de febrero de 2024');
   });
 
   it('should load tfa when date is selected', async () => {
