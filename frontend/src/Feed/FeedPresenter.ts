@@ -152,7 +152,7 @@ export default class FeedPresenter {
       },
       thumbnailUrl: article.thumbnailUrl,
       formattedDate: dateToFriendly(article.date, this.selectedLanguage),
-      views: article.views?.toLocaleString(feedPm.lang),
+      views: article.views?.toLocaleString(feedPm.lang) ?? null,
       badges: this.articuleBadges(article, feedPm),
     };
   }
