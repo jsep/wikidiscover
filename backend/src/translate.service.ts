@@ -5,8 +5,8 @@ import { Result, attempt, attemptAsync, err, nonNull, ok } from './utils';
 import { ConfigService } from '@nestjs/config';
 import { WikipediaFeaturedContentResponse } from './wikipedia.service';
 import { Language } from './languages.service';
-import * as getProp from 'lodash.get';
-import * as setProp from 'lodash.set';
+import getProp from 'lodash.get';
+import setProp from 'lodash.set';
 import { TranslationApiError } from './errors';
 import { Badge } from './app.controller';
 
@@ -328,7 +328,7 @@ export class TranslateService {
     if (translatedProperties.some((prop) => prop.translation.error)) {
       console.error(`Failed to translate properties`, {
         source,
-        translatedProperties,
+        translatedProperties: JSON.stringify(translatedProperties),
       });
       return err(
         new TranslationApiError(

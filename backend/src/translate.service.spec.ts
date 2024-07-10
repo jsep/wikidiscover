@@ -8,7 +8,7 @@ import {
 import { ConfigModule } from '@nestjs/config';
 import { PostTranslate } from './stubs/post.translate';
 import {
-  GetFeaturedContent as GetWikipediaFeatured,
+  GetFeaturedRawContent as GetWikipediaFeatured,
   GetFeaturedContentWithout,
 } from './stubs/get.featured';
 

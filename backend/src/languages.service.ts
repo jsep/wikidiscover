@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { wikipediaLanguages } from './languages';
-import { GetFeaturedContent } from './stubs/get.featured';
+import { GetFeaturedRawContent } from './stubs/get.featured';
 import * as fs from 'fs';
 import { Result, attempt, attemptAsync, err, nonNull, ok } from './utils';
 import { ConfigService } from '@nestjs/config';

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { wikipediaLanguages } from './languages';
-import { GetFeaturedContent } from './stubs/get.featured';
+import { GetFeaturedRawContent } from './stubs/get.featured';
 import * as fs from 'fs';
 import { Result, attempt, attemptAsync, nonNull } from './utils';
 import { WikipediaApiError } from './errors';
@@ -39,7 +39,7 @@ export interface FeedResponse {
 }
 
 export type WikipediaFeaturedContentResponse = ReturnType<
-  typeof GetFeaturedContent
+  typeof GetFeaturedRawContent
 >;
 
 @Injectable()

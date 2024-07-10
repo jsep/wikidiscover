@@ -78,7 +78,7 @@ export const Feed = observer(
     feedVm,
     isLoading,
   }: {
-    feedVm: FeedVM;
+    feedVm: FeedVM | null;
     presenter: FeedPresenter;
     isLoading: boolean;
   }) => {
@@ -106,7 +106,7 @@ export const FeedArticle = observer(
     isLoading,
   }: {
     presenter: FeedPresenter;
-    feedVm: FeedVM;
+    feedVm: FeedVM | null;
     isLoading: boolean;
   }) => (
     <section>
@@ -115,13 +115,13 @@ export const FeedArticle = observer(
       )}
       {!isLoading && (
         <h2 className="text-left text-2xl font-bold mb-4">
-          {feedVm.featuredContentLabel}
+          {feedVm?.featuredContentLabel}
         </h2>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {isLoading && <ArticlesSkeleton />}
         {!isLoading &&
-          feedVm.articles.map((article, index) => (
+          feedVm?.articles.map((article, index) => (
             <Article key={index} presenter={presenter} article={article} />
           ))}
       </div>

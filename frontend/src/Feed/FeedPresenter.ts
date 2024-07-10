@@ -53,7 +53,6 @@ export default class FeedPresenter {
   }
 
   openArticle(article: ArticuleVM) {
-    console.log('opening article', { article });
     feedRepository.markArticleAsRead(article.id);
     window.open(article.url.desktop, '_blank');
   }
@@ -96,8 +95,6 @@ export default class FeedPresenter {
     const tfa = feedPm.articles[0] || null;
     const articles = feedPm.articles.filter((_, index) => index > 0);
     const date = new Date(feedPm.date);
-    const formattedDate = dateToFriendly(date, feedPm.lang);
-    console.log('formattedDate', { formattedDate });
 
     return {
       date: date,
@@ -115,6 +112,7 @@ export default class FeedPresenter {
     return {
       date: new Date(),
       lang: 'en',
+      formattedDate: '',
       featuredContentLabel: 'Featured',
       tfa: null,
       articles: [],

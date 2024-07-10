@@ -14,6 +14,10 @@ export function dateToFriendly(date: Date, lang: string): string {
   return date.toLocaleDateString(lang, options);
 }
 
+export function numberToLocaleString(number: number, lang: string): string {
+  return number.toLocaleString(lang);
+}
+
 export type Result<T, Err> =
   | { error: null; value: T }
   | { error: Err; value: null };

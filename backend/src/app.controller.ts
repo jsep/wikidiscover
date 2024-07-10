@@ -106,7 +106,7 @@ export class AppController {
     day: string,
   ): Promise<Result<WikipediaFeaturedContentResponse, ApiError>> {
     if (targetLanResult.error) {
-      console.log('Failed to get featured content', {
+      console.error('Failed to get featured content', {
         lang,
         year,
         month,

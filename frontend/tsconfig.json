@@ -28,6 +28,13 @@
     "types": ["vitest/globals"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx", "src/TestTools"],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stub.tsx",
+    "**/*.stub.ts",
+    "src/TestTools/**"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,7 +1,16 @@
 import * as data from './data.json';
 import type { WikipediaFeaturedContentResponse } from '../wikipedia.service';
-export function GetFeaturedContent() {
+import { ok, Result } from '../utils';
+import { ApiError } from '../errors';
+export function GetFeaturedRawContent() {
   return { ...data };
+}
+
+export function GetFeaturedContent(): Result<
+  WikipediaFeaturedContentResponse,
+  ApiError
+> {
+  return ok({ ...data });
 }
 
 export function GetFeaturedContentWithout(

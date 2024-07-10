@@ -1,15 +1,13 @@
 import {
   ApiGateway,
   FeedDtoResponse,
-  ImageDTO,
   MostReadArticleDTO,
   NewsDTO,
   OnThisDayDTO,
-  TfaDTO,
   WikipediaResponseDto as WikipediaResponseDTO,
 } from '../ApiGateway';
 import { action, makeObservable, observable } from 'mobx';
-import { Result, attempt, dateToFriendly, ok } from '../utils';
+import { Result, attempt, ok } from '../utils';
 import type { ArticuleVM } from './FeedPresenter';
 
 export interface ArticulePM {
@@ -117,7 +115,6 @@ class FeedRepository {
     this.moreFeedsPm = [];
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     this.setLoadingCurrentFeed(false);
-    console.log('feedDto', feedDto);
     // TODO cancel last request
     if (error) {
       // TODO handle error
@@ -126,7 +123,6 @@ class FeedRepository {
 
     // TODO fix date issues, make sure to use UTC
     const feedPm = this.mapToFeedPm(feedDto);
-    console.log('feedPm', feedPm);
     this.setCurrentFeedPm(feedPm);
   }
 
