@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { wikipediaLanguages } from './languages';
-import { GetFeatured } from './stubs/get.featured';
+import { GetFeaturedContent } from './stubs/get.featured';
 import * as fs from 'fs';
 import { Result, attempt, attemptAsync, nonNull } from './utils';
 import { WikipediaApiError } from './errors';
 
 /// TODO remove duplicate interfaces
 export interface Article {
-  id: number | string;
+  id: string;
   title: string;
   description: string;
   views?: number;
@@ -38,7 +38,9 @@ export interface FeedResponse {
   onThisDay: OnThisDay[];
 }
 
-export type WikipediaFeaturedContentResponse = ReturnType<typeof GetFeatured>;
+export type WikipediaFeaturedContentResponse = ReturnType<
+  typeof GetFeaturedContent
+>;
 
 @Injectable()
 export class WikipediaService {
@@ -182,7 +184,7 @@ export class WikipediaService {
     }
     const result = attempt<TFA>(() => {
       return {
-        id: response.tfa.pageid,
+        id: response.tfa.pageid + '',
         title: response.tfa.normalizedtitle,
         description: response.tfa.extract,
         timestamp: response.tfa.timestamp,
@@ -260,7 +262,7 @@ export class WikipediaService {
       return response.mostread.articles
         .map((article) => {
           const result = attempt(() => ({
-            id: article.pageid,
+            id: article.pageid + '',
             title: article.titles.normalized,
             description: article.extract || '',
             urls: {
@@ -315,7 +317,7 @@ export class WikipediaService {
         .map((onThisDay) => {
           const article = onThisDay.pages[0];
           const result = attempt(() => ({
-            id: article.pageid,
+            id: article.pageid + '',
             title: article.titles.normalized,
             description: onThisDay.text,
             timestamp: new Date(onThisDay.year).toISOString(),

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { WikipediaService } from './wikipedia.service';
-import { GetFeatured } from './stubs/get.featured';
+import { GetFeaturedContent } from './stubs/get.featured';
 import { url } from 'inspector';
 import { TranslateService } from './translate.service';
 import { ConfigModule } from '@nestjs/config';
@@ -21,11 +21,11 @@ describe('AppController', () => {
     appService = app.get<WikipediaService>(WikipediaService);
     fetchMock.resetMocks();
 
-    fetchMock.mockResponse(JSON.stringify(GetFeatured()));
+    fetchMock.mockResponse(JSON.stringify(GetFeaturedContent()));
 
     // jest.spyOn(appService, 'wikipediaRequest').mockResolvedValue({
     //   error: null,
-    //   value: GetFeatured(),
+    //   value: GetFeaturedContent(),
     // });
   });
 

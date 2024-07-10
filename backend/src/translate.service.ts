@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { wikipediaLanguages } from './languages';
-import { GetFeatured } from './stubs/get.featured';
+import { GetFeaturedContent } from './stubs/get.featured';
 import * as fs from 'fs';
 import { Result, attempt, attemptAsync, err, nonNull, ok } from './utils';
 import { ConfigService } from '@nestjs/config';
 import { WikipediaFeaturedContentResponse } from './wikipedia.service';
+import { Language } from './languages.service';
+import * as getProp from 'lodash.get';
+import * as setProp from 'lodash.set';
+import { TranslationApiError } from './errors';
 
 export interface TranslateResponse {
   alternatives: string[];
@@ -17,42 +21,31 @@ export interface TranslateResponse {
 
 @Injectable()
 export class TranslateService {
-  supportedLanguages: string[];
-  constructor(private configService: ConfigService) {
-    this.supportedLanguages = wikipediaLanguages.map(
-      (language) => language.code,
-    );
-  }
+  // TODO add all from deployed server
+  supportedLanguages: Language[] = [
+    { localName: 'English', name: 'English', code: 'en' },
+    { localName: 'Español', name: 'Spanish', code: 'es' },
+    { localName: '中文', name: 'Chinese', code: 'zh' },
+    { localName: 'Suomi', name: 'Finnish', code: 'fi' },
+    { localName: 'עברית', name: 'Hebrew', code: 'he' },
+    { localName: 'Русский', name: 'Russian', code: 'ru' },
+    { localName: 'العربية', name: 'Arabic', code: 'ar' },
+    { localName: 'Azərbaycanca', name: 'Azerbaijani', code: 'az' },
+    { localName: 'Български', name: 'Bulgarian', code: 'bg' },
+    { localName: 'বাংলা', name: 'Bengali', code: 'bn' },
+    { localName: 'Català', name: 'Catalan', code: 'ca' },
+    { localName: 'Čeština', name: 'Czech', code: 'cs' },
+    { localName: 'Dansk', name: 'Danish', code: 'da' },
+  ];
+
+  constructor(private configService: ConfigService) {}
 
   getSupportedLanguages() {
     return wikipediaLanguages;
   }
 
-  async translateWikipediaResponse(
-    targetLangResponse: WikipediaFeaturedContentResponse,
-    enResponse: WikipediaFeaturedContentResponse,
-    targetLang: string,
-  ) {
-    return targetLangResponse;
-  }
-
-  async translateTfa(
-    tfa: WikipediaFeaturedContentResponse['tfa'],
-    lang: string,
-  ) {
-    return tfa;
-  }
-
-  async translate({
-    text,
-    from,
-    to,
-  }: {
-    text: string;
-    from: string;
-    to: string;
-  }): Promise<Result<string, Error>> {
-    return this.translateRequest({ text: text, source: from, target: to });
+  isSupportedLanguage(lang: string): boolean {
+    return this.supportedLanguages.some((language) => language.code === lang);
   }
 
   async translateRequest({
@@ -67,7 +60,7 @@ export class TranslateService {
     const url = this.configService.get<string>('TRANSLATE_API_URL');
 
     if (!url) {
-      return err(new TranslateRequestError('TRANSLATE_API_URL is not set'));
+      return err(new TranslationApiError('TRANSLATE_API_URL is not set'));
     }
 
     const formData = new FormData();
@@ -88,7 +81,7 @@ export class TranslateService {
     if (response.error) {
       console.error('Translate response.error', response.error);
       return err(
-        new TranslateRequestError(
+        new TranslationApiError(
           `Failed to translate. Details: ${response.error}`,
         ),
       );
@@ -96,7 +89,7 @@ export class TranslateService {
 
     if (response.value.status !== 200) {
       return err(
-        new TranslateRequestError(
+        new TranslationApiError(
           `Failed to translate. Details: ${response.value.statusText}(${response.value.status})`,
         ),
       );
@@ -106,7 +99,7 @@ export class TranslateService {
 
     if (json.error) {
       return err(
-        new TranslateRequestError(
+        new TranslationApiError(
           `Failed to parse translate response. Details: ${json.error}`,
         ),
       );
@@ -114,6 +107,283 @@ export class TranslateService {
 
     return ok(json.value.translatedText);
   }
-}
 
-export class TranslateRequestError extends Error {}
+  async translate({
+    text,
+    from,
+    to,
+  }: {
+    text: string;
+    from: string;
+    to: string;
+  }): Promise<Result<string, Error>> {
+    return this.translateRequest({ text: text, source: from, target: to });
+  }
+
+  async translateContentProperties(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    targetLang: string,
+    contentProperty: keyof WikipediaFeaturedContentResponse,
+    propertiesToTranslate: string[],
+  ): Promise<Result<any | null, Error>> {
+    if (getProp(targetLangResponse, contentProperty)) {
+      return ok(getProp(targetLangResponse, contentProperty));
+    }
+
+    if (
+      !getProp(enResponse, contentProperty) ||
+      !this.isSupportedLanguage(targetLang)
+    ) {
+      return ok(null);
+    }
+
+    return await this.translatePropertiesFromEn(
+      enResponse[contentProperty],
+      propertiesToTranslate,
+      targetLang,
+    );
+  }
+
+  async translateImage(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    targetLang: string,
+  ): Promise<Result<WikipediaFeaturedContentResponse['image'] | null, Error>> {
+    return this.translateContentProperties(
+      targetLangResponse,
+      enResponse,
+      targetLang,
+      'image',
+      ['description.text'],
+    );
+  }
+
+  async translateTfa(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    targetLang: string,
+  ): Promise<Result<WikipediaFeaturedContentResponse['tfa'] | null, Error>> {
+    return this.translateContentProperties(
+      targetLangResponse,
+      enResponse,
+      targetLang,
+      'tfa',
+      ['titles.normalized', 'normalizedtitle', 'extract', 'description'],
+    );
+  }
+
+  async translateWikipediaResponse(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    targetLang: string,
+  ): Promise<Result<WikipediaFeaturedContentResponse, TranslationApiError>> {
+    const translatedResults = await Promise.all([
+      this.translateImage(targetLangResponse, enResponse, targetLang),
+      this.translateTfa(targetLangResponse, enResponse, targetLang),
+      this.translateMostRead(targetLangResponse, enResponse, targetLang),
+      this.translateOnThisDay(targetLangResponse, enResponse, targetLang),
+    ]);
+    if (translatedResults.some((result) => result.error)) {
+      console.error(`Failed to translate wikipedia response`);
+      fs.writeFileSync(
+        `./failed-translate-${targetLang}.json`,
+        JSON.stringify(
+          {
+            targetLangResponse,
+            enResponse,
+            targetLang,
+            translatedResults,
+          },
+          null,
+          2,
+        ),
+      );
+      // return err(
+      //   new TranslateRequestError(
+      //     `Failed to translate wikipedia response. Details: ` +
+      //       translatedResults.map((result) => result.error).join(', '),
+      //   ),
+      // );
+    }
+    const translatedImage = translatedResults[0];
+    const translatedTfa = translatedResults[1];
+    const translatedMostRead = translatedResults[2];
+    const translatedOnThisDay = translatedResults[3];
+
+    return ok({
+      ...targetLangResponse,
+      tfa: translatedTfa.error ? null : translatedTfa.value,
+      image: translatedImage.error ? null : translatedImage.value,
+      mostread: translatedMostRead.error ? null : translatedMostRead.value,
+      onthisday: translatedOnThisDay.error ? null : translatedOnThisDay.value,
+    });
+  }
+
+  async translateMostRead(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    lang: string,
+  ): Promise<
+    Result<
+      WikipediaFeaturedContentResponse['mostread'] | null,
+      TranslationApiError
+    >
+  > {
+    if (
+      targetLangResponse.mostread &&
+      targetLangResponse.mostread?.articles.length > 0
+    ) {
+      return ok(targetLangResponse.mostread);
+    }
+
+    if (
+      !enResponse.mostread ||
+      enResponse.mostread?.articles?.length === 0 ||
+      !this.isSupportedLanguage(lang)
+    ) {
+      return ok(null);
+    }
+
+    const translatedArticles = await Promise.all(
+      enResponse.mostread.articles.map((article) =>
+        this.translateMostReadArticle(article, lang),
+      ),
+    );
+
+    if (translatedArticles.some((article) => article.error)) {
+      return err(
+        new TranslationApiError(
+          `Failed to translate most read articles. Details: ` +
+            translatedArticles.map((article) => article.error).join(', '),
+        ),
+      );
+    }
+
+    return ok({
+      ...enResponse.mostread,
+      articles: translatedArticles.map((article) => article.value),
+    });
+  }
+
+  async translatePropertiesFromEn(
+    source: any,
+    properties: string[],
+    to: string,
+  ): Promise<Result<any, Error>> {
+    const translatedProperties = await Promise.all(
+      properties.map(async (prop) => {
+        return {
+          prop,
+          translation: await this.translate({
+            text: getProp(source, prop),
+            from: 'en',
+            to,
+          }),
+        };
+      }),
+    );
+
+    console.log('translatedProperties', translatedProperties);
+
+    if (translatedProperties.some((prop) => prop.translation.error)) {
+      console.error(`Failed to translate properties`, {
+        source,
+        translatedProperties,
+      });
+      return err(
+        new TranslationApiError(
+          `Failed to translate properties. Details: ` +
+            translatedProperties
+              .map((prop) => prop.translation.error)
+              .join(', '),
+        ),
+      );
+    }
+
+    translatedProperties.forEach((prop) => {
+      setProp(source, prop.prop, prop.translation.value) + 'jacobo';
+    });
+
+    return ok(source);
+  }
+
+  translateMostReadArticle = async (
+    article: WikipediaFeaturedContentResponse['mostread']['articles'][0],
+    lang: string,
+  ) => {
+    const propertiesToTranslate = [
+      'titles.normalized',
+      'description',
+      'extract',
+    ];
+
+    const result = await this.translatePropertiesFromEn(
+      article,
+      propertiesToTranslate,
+      lang,
+    );
+
+    if (result.error) {
+      return result;
+    }
+
+    return ok(article);
+  };
+
+  async translateOnThisDay(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    lang: string,
+  ): Promise<
+    Result<WikipediaFeaturedContentResponse['onthisday'] | null, Error>
+  > {
+    if (
+      targetLangResponse.onthisday &&
+      targetLangResponse.onthisday.length > 0
+    ) {
+      return ok(targetLangResponse.onthisday);
+    }
+
+    if (
+      !enResponse.onthisday ||
+      enResponse.onthisday.length === 0 ||
+      !this.isSupportedLanguage(lang)
+    ) {
+      return ok(null);
+    }
+
+    const translatedEvents = await Promise.all(
+      enResponse.onthisday.map((event) =>
+        this.translateOnThisDayEvent(event, lang),
+      ),
+    );
+
+    if (translatedEvents.some((event) => event.error)) {
+      return err(
+        new TranslationApiError(
+          `Failed to translate on this day events. Details: ` +
+            translatedEvents.map((event) => event.error).join(', '),
+        ),
+      );
+    }
+
+    return ok(translatedEvents.map((event) => event.value));
+  }
+
+  async translateOnThisDayEvent(
+    event: WikipediaFeaturedContentResponse['onthisday'][0],
+    lang: string,
+  ) {
+    return this.translatePropertiesFromEn(
+      event,
+      [
+        'text',
+        'pages[0].titles.normalized',
+        // 'pages[0].extract',
+        // 'pages[0].description',
+      ],
+      lang,
+    );
+  }
+}

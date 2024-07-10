@@ -73,7 +73,15 @@ export class AppController {
   ): Promise<
     Result<FeaturedContentResponse, { message: string; code: string }>
   > {
-    const result = await this.wikipediaService.getFeaturedContent(
+    let result = await this.wikipediaService.getFeaturedContent(
+      lang,
+      year,
+      month,
+      day,
+    );
+
+    result = await this.getTranslatedResponseIfNeeded(
+      result,
       lang,
       year,
       month,
@@ -93,6 +101,76 @@ export class AppController {
       badges: this.getBadges(lang),
       wikipediaResponse: result.value,
     } as FeaturedContentResponse);
+  }
+
+  private shouldTranslate(lang: string) {
+    return lang != 'en';
+  }
+
+  private async getTranslatedResponseIfNeeded(
+    targetLanResult: Result<WikipediaFeaturedContentResponse, ApiError>,
+    lang: string,
+    year: string,
+    month: string,
+    day: string,
+  ): Promise<Result<WikipediaFeaturedContentResponse, ApiError>> {
+    if (targetLanResult.error) {
+      console.log('Failed to get featured content', {
+        lang,
+        year,
+        month,
+        day,
+        result: targetLanResult,
+      });
+
+      return targetLanResult;
+    }
+
+    if (!this.shouldTranslate(lang)) {
+      return ok(targetLanResult.value);
+    }
+
+    const enResult = await this.wikipediaService.getFeaturedContent(
+      'en',
+      year,
+      month,
+      day,
+    );
+
+    if (enResult.error) {
+      console.error('Failed to get featured content for en', {
+        lang,
+        year,
+        month,
+        day,
+        enResult,
+      });
+
+      // fallback to original result
+      return targetLanResult;
+    }
+
+    const translatedResult =
+      await this.translateService.translateWikipediaResponse(
+        targetLanResult.value,
+        enResult.value,
+        lang,
+      );
+
+    if (translatedResult.error) {
+      console.error('Failed to get featured content translated for lang', {
+        lang,
+        year,
+        month,
+        day,
+        translatedResult,
+      });
+
+      // fallback to original result
+      return targetLanResult;
+    }
+
+    return translatedResult;
   }
 
   private getBadges(lang: string) {

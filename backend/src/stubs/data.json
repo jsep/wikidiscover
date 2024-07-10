@@ -49,7 +49,7 @@
         "talk": "https://en.m.wikipedia.org/wiki/Talk:Statue_of_Liberty"
       }
     },
-    "extract": "The Statue of Liberty is a colossal neoclassical sculpture on Liberty Island in New York Harbor, within New York City. The copper-clad statue, a gift to the United States from the people of France, was designed by French sculptor Frédéric Auguste Bartholdi and its metal framework was built by Gustave Eiffel. The statue was dedicated on October 28, 1886.",
+    "extract": "The Statue of Liberty is a colossal.",
     "extract_html": "<p>The <b>Statue of Liberty</b> is a colossal neoclassical sculpture on Liberty Island in New York Harbor, within New York City. The copper-clad statue, a gift to the United States from the people of France, was designed by French sculptor Frédéric Auguste Bartholdi and its metal framework was built by Gustave Eiffel. The statue was dedicated on October 28, 1886.</p>",
     "normalizedtitle": "Statue of Liberty"
   },
@@ -126,7 +126,7 @@
             "talk": "https://en.m.wikipedia.org/wiki/Talk:Project_2025"
           }
         },
-        "extract": "Project 2025 is a collection of conservative and right-wing policy proposals from the Heritage Foundation to reshape the United States federal government and consolidate executive power should the Republican nominee win the 2024 presidential election. It proposes reclassifying tens of thousands of federal civil service workers as political appointees in order to replace them with people more willing to enact the next Republican president's proposals. It asserts that the president has absolute power over the executive branch. Project 2025's critics have characterized it as an authoritarian, Christian nationalist plan to transform the U.S. into an autocracy. Many legal experts have said it would undermine the rule of law, the separation of powers, the separation of church and state, and civil liberties.",
+        "extract": "Project 2025 is a collection of conservative and right-wing.",
         "extract_html": "<p><b>Project 2025</b> is a collection of conservative and right-wing policy proposals from the Heritage Foundation to reshape the United States federal government and consolidate executive power should the Republican nominee win the 2024 presidential election. It proposes reclassifying tens of thousands of federal civil service workers as political appointees in order to replace them with people more willing to enact the next Republican president's proposals. It asserts that the president has absolute power over the executive branch. Project 2025's critics have characterized it as an authoritarian, Christian nationalist plan to transform the U.S. into an autocracy. Many legal experts have said it would undermine the rule of law, the separation of powers, the separation of church and state, and civil liberties.</p>",
         "normalizedtitle": "Project 2025"
       },
@@ -3117,7 +3117,7 @@
   },
   "onthisday": [
     {
-      "text": "The impactor of the NASA space probe Deep Impact collided with the comet Tempel 1, excavating interior material to study its composition.",
+      "text": "The impactor of the NASA space probe Deep Impact.",
       "pages": [
         {
           "type": "standard",
