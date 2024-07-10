@@ -100,6 +100,7 @@ export class ApiGateway {
         new ApiError('Unsuccessful response from server', result.value),
       );
     }
+    console.log('Api.getFeed', { result, path });
 
     return ok(result.value);
   }

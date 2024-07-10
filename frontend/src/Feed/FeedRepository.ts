@@ -9,13 +9,13 @@ import {
   WikipediaResponseDto as WikipediaResponseDTO,
 } from '../ApiGateway';
 import { action, makeObservable, observable } from 'mobx';
-import { Result, attempt, ok } from '../utils';
+import { Result, attempt, dateToFriendly, ok } from '../utils';
 import type { ArticuleVM } from './FeedPresenter';
 
 export interface ArticulePM {
   id: string;
   isRead: boolean;
-  type: 'tfa' | 'image' | 'most-read' | 'on-this-day' | 'news';
+  type: 'tfa' | 'image' | 'mostread' | 'onthisday' | 'news';
   title: string;
   url: {
     desktop: string;
@@ -117,6 +117,7 @@ class FeedRepository {
     this.moreFeedsPm = [];
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     this.setLoadingCurrentFeed(false);
+    console.log('feedDto', feedDto);
     // TODO cancel last request
     if (error) {
       // TODO handle error
@@ -124,7 +125,9 @@ class FeedRepository {
     }
 
     // TODO fix date issues, make sure to use UTC
-    this.setCurrentFeedPm(this.mapToFeedPm(feedDto));
+    const feedPm = this.mapToFeedPm(feedDto);
+    console.log('feedPm', feedPm);
+    this.setCurrentFeedPm(feedPm);
   }
 
   mapToFeedPm = (feedDto: FeedDtoResponse): FeedPM => ({
@@ -236,7 +239,7 @@ class FeedRepository {
         title: article.titles.normalized,
         description: onThisDay.text,
         isRead: this.apiGateway.isArticleRead(article.pageid + ''),
-        type: 'on-this-day',
+        type: 'onthisday',
         date: new Date(onThisDay.year, date.getUTCMonth(), date.getUTCDate()),
         views: null,
         url: {
@@ -431,7 +434,7 @@ class FeedRepository {
       title: article.titles.normalized,
       description: article.extract || '',
       isRead: this.apiGateway.isArticleRead(article.pageid + ''),
-      type: 'most-read',
+      type: 'mostread',
       url: {
         desktop: article.content_urls.desktop.page,
         mobile: article.content_urls.mobile.page,

@@ -33,26 +33,26 @@ export class AppController {
     return await this.wikipediaService.supportedLanguages;
   }
 
-  @Get('feed/:lang/featured/:year/:month/:day')
-  async getFeed(
-    @Param('lang') lang: string,
-    @Param('year') year: string,
-    @Param('month') month: string,
-    @Param('day') day: string,
-  ): Promise<{ error: string | null; data: any }> {
-    const result = await this.wikipediaService.getFeaturedContent(
-      lang,
-      year,
-      month,
-      day,
-    );
-    return {
-      error: result.error ? result.error.message : null,
-      data: result.value,
-    };
-  }
+  // @Get('feed/:lang/featured/:year/:month/:day')
+  // async getFeed(
+  //   @Param('lang') lang: string,
+  //   @Param('year') year: string,
+  //   @Param('month') month: string,
+  //   @Param('day') day: string,
+  // ): Promise<{ error: string | null; data: any }> {
+  //   const result = await this.wikipediaService.getFeaturedContent(
+  //     lang,
+  //     year,
+  //     month,
+  //     day,
+  //   );
+  //   return {
+  //     error: result.error ? result.error.message : null,
+  //     data: result.value,
+  //   };
+  // }
 
-  @Get('feed2/:lang/featured/:year/:month/:day')
+  @Get('feed/:lang/featured/:year/:month/:day')
   async getFeaturedContent(
     @Param('lang') lang: string,
     @Param('year') year: string,
@@ -82,6 +82,8 @@ export class AppController {
         code: result.error.code,
       });
     }
+    // wait for 2 seconds
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
 
     return ok({
       date: `${year}-${month}-${day}`,

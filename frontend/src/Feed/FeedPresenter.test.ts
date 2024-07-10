@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ArticuleVM, FeedVm } from './FeedPresenter';
+import { ArticuleVM, FeedVM } from './FeedPresenter';
 import { feedRepository } from './FeedRepository';
 import { FeedTestHarness } from '../TestTools/FeedTestHarness';
 import {
@@ -39,7 +39,7 @@ describe('FeedPresenter', () => {
 
     expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(july, 'en');
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
 
     expect(dateToIso(feedVm.date)).toBe(dateToIso(july));
     expect(feedVm.lang).toBe('en');
@@ -74,7 +74,7 @@ describe('FeedPresenter', () => {
     expect(feedPresenter.selectedLanguage).toBe(lang);
 
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
 
     expect(feedVm.lang).toBe('es');
     expect(feedVm.tfa?.title).toBe('Statue of Liberty 2024-02-01-es');
@@ -105,7 +105,7 @@ describe('FeedPresenter', () => {
     );
 
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.tfa?.title).toBe('Statue of Liberty 2024-02-01-en');
     expect(feedVm.tfa?.formattedDate).toBe('February 1, 2024');
   });
@@ -131,7 +131,7 @@ describe('FeedPresenter', () => {
     );
 
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.tfa?.title).toBe('Statue of Liberty 2024-03-01-es');
     expect(feedVm.tfa?.formattedDate).toBe('1 de marzo de 2024');
   });
@@ -142,7 +142,7 @@ describe('FeedPresenter', () => {
     ]);
 
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.tfa?.title).toBe(
       'File:TR Yedigöller asv2021-10 img16.jpg 2024-07-01-en',
     );
@@ -157,7 +157,7 @@ describe('FeedPresenter', () => {
       'image',
     ]);
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.tfa?.title).toBe('Project 2025 2024-07-01-en');
   });
 
@@ -168,7 +168,7 @@ describe('FeedPresenter', () => {
       'mostread',
     ]);
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.tfa?.title).toBe('NASA 2024-07-01-en');
   });
 
@@ -180,7 +180,7 @@ describe('FeedPresenter', () => {
       'onthisday',
     ]);
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.tfa?.title).toBe(
       '2024 French legislative election 2024-07-01-en',
     );
@@ -191,7 +191,7 @@ describe('FeedPresenter', () => {
     const feedPresenter = await feedTestHarness.init(july, lang);
     expect(feedPresenter.currentDateFeedVm).toBeDefined();
 
-    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVM;
     expect(feedVm.articles).toHaveLength(4);
     expect(feedVm.tfa?.title).toBe('Statue of Liberty 2024-07-01-en');
     expect(feedVm.articles[0].title).toBe(
@@ -322,8 +322,6 @@ describe('FeedPresenter', () => {
   it('should save the article as read', async () => {
     const feedPresenter = await feedTestHarness.init(july, 'en');
     expect(feedPresenter.currentDateFeedVm?.tfa?.isRead).toEqual(false);
-
-    // feedRepository.apiGateway.markArticleAsRead = vi.fn();
 
     await feedTestHarness.openArticle(
       feedPresenter.currentDateFeedVm?.tfa as ArticuleVM,

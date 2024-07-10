@@ -17,9 +17,10 @@ export interface ArticuleVM {
   badges: string[];
 }
 
-export interface FeedVm {
+export interface FeedVM {
   date: Date;
   lang: string;
+  formattedDate: string;
   featuredContentLabel: string;
   tfa: ArticuleVM | null;
   articles: ArticuleVM[];
@@ -77,27 +78,30 @@ export default class FeedPresenter {
   }
 
   @computed
-  get moreFeedsVM(): FeedVm[] {
+  get moreFeedsVM(): FeedVM[] {
     return feedRepository.moreFeedsPm.map((feedPm) => this.mapToFeedVm(feedPm));
   }
 
   @computed
-  get currentDateFeedVm(): FeedVm | null {
+  get currentDateFeedVm(): FeedVM {
     let feedPm = feedRepository.currentDateFeedPm;
-    // TODO handle errors
     if (!feedPm) {
-      return null;
+      return this.emptyFeedVm();
     }
 
     return this.mapToFeedVm(feedPm);
   }
 
-  mapToFeedVm(feedPm: FeedPM): FeedVm {
+  mapToFeedVm(feedPm: FeedPM): FeedVM {
     const tfa = feedPm.articles[0] || null;
     const articles = feedPm.articles.filter((_, index) => index > 0);
+    const date = new Date(feedPm.date);
+    const formattedDate = dateToFriendly(date, feedPm.lang);
+    console.log('formattedDate', { formattedDate });
 
     return {
-      date: new Date(feedPm.date),
+      date: date,
+      formattedDate: dateToFriendly(date, feedPm.lang),
       lang: feedPm.lang,
       featuredContentLabel: feedPm.featuredContentLabel,
       tfa: this.mapToArticuleVm(tfa, feedPm),
@@ -107,10 +111,11 @@ export default class FeedPresenter {
     };
   }
 
-  emptyFeedVm(feedPm: FeedPM): FeedVm {
+  emptyFeedVm(): FeedVM {
     return {
-      date: new Date(feedPm.date),
-      lang: feedPm.lang,
+      date: new Date(),
+      lang: 'en',
+      featuredContentLabel: 'Featured',
       tfa: null,
       articles: [],
     };
@@ -130,27 +135,6 @@ export default class FeedPresenter {
       formattedDate: dateToFriendly(article.date, this.selectedLanguage),
       views: article.views,
       badges: this.articuleBadges(article, feedPm),
-    };
-  }
-
-  mapTFAToArticuleVm(tfa: FeedPM['tfa']): ArticuleVM | null {
-    if (!tfa) {
-      return null;
-    }
-
-    return {
-      id: tfa.id,
-      isRead: tfa.isRead,
-      title: tfa.title,
-      url: {
-        desktop: tfa.url.desktop,
-        mobile: tfa.url.mobile,
-      },
-      formattedDate: dateToFriendly(tfa.date, this.selectedLanguage),
-      badges: this.articuleBadges(tfa),
-      description: tfa.description,
-      thumbnailUrl: tfa.thumbnailUrl,
-      views: tfa.views,
     };
   }
 
