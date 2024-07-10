@@ -1,5 +1,56 @@
-import { ApiError, FeedDto } from '../../ApiGateway.ts';
+import { ApiError, FeedDtoResponse } from '../../ApiGateway.ts';
 import { dateToIso, ok, Result } from '../../utils.ts';
+import rawResponse from './data.json';
+import getProp from 'lodash.get';
+import setProp from 'lodash.set';
+import cloneDeep from 'lodash.clonedeep';
+import { Badge } from '../../Feed/FeedRepository.ts';
+import { observer } from 'mobx-react-lite';
+
+export function GetFeedRawResponse(date: Date, lang: string) {
+  const response = cloneDeep(rawResponse);
+  const basePath = 'value.wikipediaResponse';
+  const dateAndLang = ' ' + dateToIso(date) + '-' + lang;
+
+  setProp(response, 'value.date', dateToIso(date));
+  setProp(response, 'value.lang', lang);
+  const featureContentLabelPath = basePath + '.featureContentLabel';
+  const featureContentLabel = getProp(response, featureContentLabelPath);
+
+  setProp(response, featureContentLabelPath, featureContentLabel + dateAndLang);
+
+  const badgesPath = 'value.badges';
+  const badges: Badge[] = getProp(response, badgesPath);
+  setProp(
+    response,
+    badgesPath,
+    badges.map((badge) => ({
+      ...badge,
+      badge: badge.badge + dateAndLang,
+    })),
+  );
+
+  const tfaPath = basePath + '.tfa';
+  const tfa = getProp(response, tfaPath);
+  setProp(response, tfaPath + '.timestamp', date.toUTCString());
+
+  const tfaPropertiesToUpdate = [
+    'titles.normalized',
+    'normalizedtitle',
+    'extract',
+    'description',
+  ];
+
+  tfaPropertiesToUpdate.forEach((property) => {
+    setProp(response, tfaPath + '.' + property, tfa[property] + dateAndLang);
+  });
+
+  return response;
+}
+
+export function GetFeedDtoStub(date: Date, lang: string): FeedDtoResponse {
+  return GetFeedRawResponse(date, lang);
+}
 
 export function GetFeedStub(
   date: Date,

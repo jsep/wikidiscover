@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { wikipediaLanguages } from './languages';
-import { GetFeaturedContent } from './stubs/get.featured';
 import * as fs from 'fs';
 import { Result, attempt, attemptAsync, err, nonNull, ok } from './utils';
 import { ConfigService } from '@nestjs/config';
@@ -9,6 +8,7 @@ import { Language } from './languages.service';
 import * as getProp from 'lodash.get';
 import * as setProp from 'lodash.set';
 import { TranslationApiError } from './errors';
+import { Badge } from './app.controller';
 
 export interface TranslateResponse {
   alternatives: string[];
@@ -39,6 +39,44 @@ export class TranslateService {
   ];
 
   constructor(private configService: ConfigService) {}
+
+  async translateBadges(
+    badges: Badge[],
+    lang: string,
+  ): Promise<Result<Badge[], TranslationApiError>> {
+    if (!this.isSupportedLanguage(lang)) {
+      return ok(badges);
+    }
+    const translatedBadges = await Promise.all(
+      badges.map((badge) => this.translateBadge(badge, lang)),
+    );
+
+    return ok(translatedBadges.map((badge) => badge.value));
+  }
+
+  async translateBadge(
+    badge: Badge,
+    lang: string,
+  ): Promise<Result<Badge, TranslationApiError>> {
+    if (!this.isSupportedLanguage(lang)) {
+      return ok(badge);
+    }
+    const translation = await this.translate({
+      text: badge.badge,
+      from: 'en',
+      to: lang,
+    });
+    if (translation.error) {
+      console.error('Failed to translate badge', {
+        badge,
+        lang,
+        translation,
+      });
+
+      return ok(badge);
+    }
+    return ok({ ...badge, badge: translation.value });
+  }
 
   getSupportedLanguages() {
     return wikipediaLanguages;
@@ -183,6 +221,7 @@ export class TranslateService {
       this.translateTfa(targetLangResponse, enResponse, targetLang),
       this.translateMostRead(targetLangResponse, enResponse, targetLang),
       this.translateOnThisDay(targetLangResponse, enResponse, targetLang),
+      this.translateNews(targetLangResponse, enResponse, targetLang),
     ]);
     if (translatedResults.some((result) => result.error)) {
       console.error(`Failed to translate wikipedia response`);
@@ -210,6 +249,7 @@ export class TranslateService {
     const translatedTfa = translatedResults[1];
     const translatedMostRead = translatedResults[2];
     const translatedOnThisDay = translatedResults[3];
+    const translatedNews = translatedResults[4];
 
     return ok({
       ...targetLangResponse,
@@ -217,6 +257,7 @@ export class TranslateService {
       image: translatedImage.error ? null : translatedImage.value,
       mostread: translatedMostRead.error ? null : translatedMostRead.value,
       onthisday: translatedOnThisDay.error ? null : translatedOnThisDay.value,
+      news: translatedNews.error ? null : translatedNews.value,
     });
   }
 
@@ -283,8 +324,6 @@ export class TranslateService {
         };
       }),
     );
-
-    console.log('translatedProperties', translatedProperties);
 
     if (translatedProperties.some((prop) => prop.translation.error)) {
       console.error(`Failed to translate properties`, {
@@ -382,6 +421,58 @@ export class TranslateService {
         'pages[0].titles.normalized',
         // 'pages[0].extract',
         // 'pages[0].description',
+      ],
+      lang,
+    );
+  }
+
+  async translateNews(
+    targetLangResponse: WikipediaFeaturedContentResponse,
+    enResponse: WikipediaFeaturedContentResponse,
+    lang: string,
+  ): Promise<
+    Result<WikipediaFeaturedContentResponse['news'] | null, TranslationApiError>
+  > {
+    if (targetLangResponse.news && targetLangResponse.news.length > 0) {
+      return ok(targetLangResponse.news);
+    }
+
+    if (
+      !enResponse.news ||
+      enResponse.news.length === 0 ||
+      !this.isSupportedLanguage(lang)
+    ) {
+      return ok(null);
+    }
+
+    const translatedNews = await Promise.all(
+      enResponse.news.map((article) =>
+        this.translateNewsArticle(article, lang),
+      ),
+    );
+
+    if (translatedNews.some((article) => article.error)) {
+      return err(
+        new TranslationApiError(
+          `Failed to translate news articles. Details: ` +
+            translatedNews.map((article) => article.error).join(', '),
+        ),
+      );
+    }
+
+    return ok(translatedNews.map((article) => article.value));
+  }
+
+  async translateNewsArticle(
+    newsArticle: WikipediaFeaturedContentResponse['news'][0],
+    lang: string,
+  ) {
+    return this.translatePropertiesFromEn(
+      newsArticle,
+      [
+        'links[0].normalizedtitle',
+        'links[0].titles.normalized',
+        'links[0].extract',
       ],
       lang,
     );

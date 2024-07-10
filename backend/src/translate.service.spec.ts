@@ -148,4 +148,24 @@ describe('TranslateService', () => {
     );
     expect(result.value[0].pages[0].titles.normalized).toEqual('NASA-es');
   });
+
+  it('should translate news articles', async () => {
+    const targetLangResponse = GetFeaturedContentWithout(['news']);
+    const result = await translateService.translateNews(
+      targetLangResponse,
+      enResponse,
+      'es',
+    );
+    expect(result.error).toBeNull();
+    expect(result.value).toHaveLength(enResponse.news.length);
+    expect(result.value[0].links[0].titles.normalized).toEqual(
+      '2024 French legislative election-es',
+    );
+    expect(result.value[0].links[0].normalizedtitle).toEqual(
+      '2024 French legislative election-es',
+    );
+    expect(result.value[0].links[0].extract).toEqual(
+      'A legislative election was held in France on 30 June 2024-es',
+    );
+  });
 });

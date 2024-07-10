@@ -1,5 +1,5 @@
 import { dateToFriendly, dateToIso } from '../utils.ts';
-import { ArticulePM, FeedPm, feedRepository } from './FeedRepository.ts';
+import { ArticulePM, FeedPM, feedRepository } from './FeedRepository.ts';
 import { action, computed, makeObservable, observable } from 'mobx';
 
 export interface ArticuleVM {
@@ -77,35 +77,40 @@ export default class FeedPresenter {
 
   @computed
   get moreFeedsArticulesVm(): ArticuleVM[] {
-    return feedRepository.morefeedArticles.map((article) =>
+    return feedRepository.moreFeedArticles.map((article) =>
       this.mapToArticuleVm(article),
     );
   }
 
   @computed
-  get feedVm(): FeedVm | null {
-    let feedPm = feedRepository.currentFeedPm;
+  get currentDateFeedVm(): FeedVm | null {
+    let feedPm = feedRepository.currentDateFeedPm;
     // TODO handle errors
     if (!feedPm) {
       return null;
     }
-    let tfa = feedPm.tfa;
-    // first row should feature image, most read and on this day
+
+    return this.mapToFeedVm(feedPm);
+  }
+
+  mapToFeedVm(feedPm: FeedPM): FeedVm {
+    const tfa = feedPm.articles[0] || null;
+    const articles = feedPm.articles.filter((_, index) => index > 0);
 
     return {
-      date: this.selectedDate,
-      lang: this.selectedLanguage,
-      tfa: this.mapTFAToArticuleVm(tfa),
-      articles: feedPm.articles.map((article) => this.mapToArticuleVm(article)),
+      date: new Date(feedPm.date),
+      lang: feedPm.lang,
+      tfa: this.mapToArticuleVm(tfa),
+      articles: articles.map((article) => this.mapToArticuleVm(article)),
     };
   }
 
-  mapToFeedVm(feedPm: FeedPm): FeedVm {
+  emptyFeedVm(feedPm: FeedPM): FeedVm {
     return {
-      date: feedPm.date,
+      date: new Date(feedPm.date),
       lang: feedPm.lang,
-      tfa: this.mapTFAToArticuleVm(feedPm.tfa),
-      articles: feedPm.articles.map((article) => this.mapToArticuleVm(article)),
+      tfa: null,
+      articles: [],
     };
   }
 
@@ -126,7 +131,7 @@ export default class FeedPresenter {
     };
   }
 
-  mapTFAToArticuleVm(tfa: FeedPm['tfa']): ArticuleVM | null {
+  mapTFAToArticuleVm(tfa: FeedPM['tfa']): ArticuleVM | null {
     if (!tfa) {
       return null;
     }

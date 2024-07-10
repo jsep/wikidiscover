@@ -58,7 +58,7 @@ export const Feed = observer(({ presenter }: { presenter: FeedPresenter }) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {presenter.isLoading && <ArticlesSkeleton />}
       {!presenter.isLoading &&
-        presenter.feedVm?.articles.map((article, index) => (
+        presenter.currentDateFeedVm?.articles.map((article, index) => (
           <Article key={index} presenter={presenter} article={article} />
         ))}
       {presenter.moreFeedsArticulesVm?.map((article, index) => (
@@ -166,11 +166,11 @@ const TodaysFeaturedArticle = observer(
     if (presenter.isLoading) {
       return <TodaysFeaturedArticleSkeleten />;
     }
-    if (!presenter.feedVm) {
+    if (!presenter.currentDateFeedVm) {
       // TODO handle not loading data error screen
       throw new Error('Feed not loaded');
     }
-    const tfa = presenter.feedVm.tfa;
+    const tfa = presenter.currentDateFeedVm.tfa;
     if (!tfa) {
       // TODO handle not loading data error screen
       throw new Error('TFA not loaded');

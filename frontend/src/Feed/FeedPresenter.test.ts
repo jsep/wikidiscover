@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { FeedVm } from './FeedPresenter';
+import { ArticuleVM, FeedVm } from './FeedPresenter';
 import { feedRepository } from './FeedRepository';
 import { FeedTestHarness } from '../TestTools/FeedTestHarness';
 import {
   GetFeedStub,
   GetFeedWithNoTFAStub,
 } from '../TestTools/stubs/get.feed.stub';
+import { dateToIso } from '../utils';
 
 describe('FeedPresenter', () => {
   let feedTestHarness: FeedTestHarness;
@@ -29,18 +30,18 @@ describe('FeedPresenter', () => {
     const feedPresenter = await feedTestHarness.init(july, lang);
 
     expect(feedRepository.apiGateway.getFeed).toHaveBeenCalledWith(july, 'en');
-    expect(feedPresenter.feedVm).toBeDefined();
-    const feedVm = feedPresenter.feedVm as FeedVm;
+    expect(feedPresenter.currentDateFeedVm).toBeDefined();
+    const feedVm = feedPresenter.currentDateFeedVm as FeedVm;
 
-    expect(feedVm.date).toBe(july);
+    expect(dateToIso(feedVm.date)).toBe(dateToIso(july));
     expect(feedVm.lang).toBe('en');
 
-    const tfa = feedVm.tfa;
-    expect(tfa.title).toBe('Statue of Liberty 2024-07-01');
+    const tfa = feedVm.tfa as ArticuleVM;
+    expect(tfa.title).toBe('Statue of Liberty 2024-07-01-en');
     expect(tfa.formattedDate).toBe('July 1, 2024');
     expect(tfa.badges).toEqual(['Featured']);
-    expect(tfa.thumbnailUrl).toBe(
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg/640px-Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg',
+    expect(tfa.thumbnailUrl).toEqual(
+      expect.stringMatching(/upload\.wikimedia/),
     );
     expect(tfa.url.desktop).toBe(
       'https://en.wikipedia.org/wiki/Statue_of_Liberty',

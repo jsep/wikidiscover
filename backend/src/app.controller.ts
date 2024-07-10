@@ -7,15 +7,17 @@ import { TranslateService } from './translate.service';
 import { Result, err, ok } from './utils';
 import { ApiError } from './errors';
 
-export type Badges = {
-  type: 'tfa' | 'image' | 'mostread' | 'onthisday';
+// TODO dry
+export type Badge = {
+  type: 'tfa' | 'image' | 'mostread' | 'onthisday' | 'news';
   badge: string;
 };
 
 export interface FeaturedContentResponse {
   lang: string;
   date: string;
-  badges: Badges[];
+  featureContentLabel: string;
+  badges: Badge[];
   wikipediaResponse: WikipediaFeaturedContentResponse;
 }
 
@@ -29,20 +31,6 @@ export class AppController {
   @Get('languages')
   async getLanguages(): Promise<string[]> {
     return await this.wikipediaService.supportedLanguages;
-  }
-
-  @Get('translate')
-  async getTranslate(): Promise<string> {
-    const result = await this.translateService.translate({
-      text: 'Hello, world!',
-      from: 'en',
-      to: 'es',
-    });
-    console.log('translate');
-    if (result.error) {
-      throw new Error(result.error.message);
-    }
-    return result.value;
   }
 
   @Get('feed/:lang/featured/:year/:month/:day')
@@ -98,7 +86,8 @@ export class AppController {
     return ok({
       date: `${year}-${month}-${day}`,
       lang: lang,
-      badges: this.getBadges(lang),
+      featureContentLabel: await this.getFeaturedContentLabel(lang),
+      badges: await this.getBadges(lang),
       wikipediaResponse: result.value,
     } as FeaturedContentResponse);
   }
@@ -173,8 +162,8 @@ export class AppController {
     return translatedResult;
   }
 
-  private getBadges(lang: string) {
-    return [
+  private async getBadges(lang: string) {
+    const badges: Badge[] = [
       {
         type: 'tfa',
         badge: 'Featured',
@@ -191,6 +180,54 @@ export class AppController {
         type: 'onthisday',
         badge: 'On this day',
       },
+      {
+        type: 'news',
+        badge: 'News',
+      },
     ];
+
+    if (!this.shouldTranslate(lang)) {
+      return badges;
+    }
+
+    const translatedBadges = await this.translateService.translateBadges(
+      badges,
+      lang,
+    );
+
+    if (translatedBadges.error) {
+      console.error('Failed to translate badges', {
+        lang,
+        badges,
+        translatedBadges,
+      });
+      return badges;
+    }
+
+    return translatedBadges.value;
+  }
+
+  async getFeaturedContentLabel(lang: string): Promise<string> {
+    const label = "Wikipedia's Featured Content";
+    if (!this.shouldTranslate(lang)) {
+      return label;
+    }
+
+    const translatedLabel = await this.translateService.translate({
+      text: label,
+      from: 'en',
+      to: lang,
+    });
+
+    if (translatedLabel.error) {
+      console.error('Failed to translate label', {
+        lang,
+        label,
+        translatedLabel,
+      });
+      return label;
+    }
+
+    return translatedLabel.value;
   }
 }

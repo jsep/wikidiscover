@@ -2,10 +2,12 @@ import { ArticulePM, feedRepository } from '../Feed/FeedRepository';
 import { vi } from 'vitest';
 import FeedPresenter, { ArticuleVM } from '../Feed/FeedPresenter.ts';
 import {
+  GetFeedDtoStub,
   GetFeedStub,
   GetFeedWithNoTFAStub as GetFeedWithOut,
 } from './stubs/get.feed.stub.ts';
 import { FeedDto } from '../ApiGateway.ts';
+import { ok } from '../utils.ts';
 
 export class FeedTestHarness {
   async init(date: Date, lang: string) {
@@ -13,7 +15,7 @@ export class FeedTestHarness {
     global.localStorage = new FakeLocalStorage();
 
     vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
-      GetFeedStub(date, lang),
+      ok(GetFeedDtoStub(date, lang)),
     );
 
     vi.spyOn(feedRepository.apiGateway, 'markArticleAsRead');
