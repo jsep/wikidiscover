@@ -49,6 +49,7 @@ export default class FeedPresenter {
 
   async onDateSelected(newDate: Date) {
     this.setDate(newDate);
+    this.loadMoreDate = null;
     await this.load();
   }
 
@@ -59,6 +60,7 @@ export default class FeedPresenter {
 
   async onLangSelected(lang: string) {
     this.setLanguage(lang);
+    this.loadMoreDate = null;
     await this.load();
   }
 
@@ -148,6 +150,7 @@ export default class FeedPresenter {
   @action
   setDate(date: Date) {
     this.selectedDate = date;
+    this.loadMoreDate = null;
   }
 
   @action

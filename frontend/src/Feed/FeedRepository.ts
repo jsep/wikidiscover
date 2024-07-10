@@ -93,6 +93,10 @@ class FeedRepository {
   }
 
   async getMoreFeed(date: Date, lang: string) {
+    if (this.loadingMoreFeed) {
+      return;
+    }
+
     this.setLoadingMoreFeed(true);
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     if (error) {
