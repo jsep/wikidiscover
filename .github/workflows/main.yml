@@ -5,6 +5,12 @@ on:
     branches:
       - '**' # This will trigger the workflow on push to any branch
 
+env:
+  NODE_ENV: production
+  VITE_API_URL: ${{ secrets.VITE_API_URL }}
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  TRANSLATE_API_URL: ${{ secrets.TRANSLATE_API_URL }}
+
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
@@ -32,7 +38,6 @@ jobs:
         run: npm run test:frontend
         env:
           NODE_ENV: test
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Run backend tests
         run: npm run test:backend
@@ -41,14 +46,9 @@ jobs:
 
       - name: Build frontend
         run: npm run build:frontend
-        env:
-          NODE_ENV: production
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Build backend
         run: npm run build:backend
-        env:
-          NODE_ENV: production
 
   deploy:
     if: github.ref == 'refs/heads/main' # This will trigger the deploy job only on the main branch
@@ -72,14 +72,7 @@ jobs:
           echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
 
       - name: Deploy frontend to Fly.io
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-          NODE_ENV: production
         run: npm run deploy:frontend
 
       - name: Deploy backend to Fly.io
-        env:
-          TRANSLATE_API_URL: ${{ secrets.TRANSLATE_API_URL }}
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-          NODE_ENV: production
         run: npm run deploy:backend
