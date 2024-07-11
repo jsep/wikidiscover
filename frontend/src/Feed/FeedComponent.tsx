@@ -2,7 +2,6 @@ import { useEffect, useRef, useCallback } from 'react';
 import FeedPresenter, { ArticuleVM, FeedVM as FeedVM } from './FeedPresenter';
 import { observer } from 'mobx-react-lite';
 import ErrorScreen from '../Error/ErrorScreen.tsx';
-import { debounce } from '../utils.ts';
 
 export const FeedComponent = observer(() => {
   const { current: feedPresenter } = useRef(new FeedPresenter());
