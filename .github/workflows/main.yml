@@ -73,27 +73,37 @@ jobs:
       - name: Set up Fly.io CLI
         uses: superfly/flyctl-actions/setup-flyctl@master
 
+      - name: Print environment variable names
+        run: printenv
+
       - name: Create .env file for frontend
         run: |
-          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
+          echo "VITE_API_URL=$VITE_API_URL" >> frontend/.env
 
       - name: Deploy PROD frontend to Fly.io
         run: npm run deploy:frontend
         if: github.ref == 'refs/heads/main'
 
       - name: Deploy PREVIEW frontend to Fly.io
-        run: npm run deploy:frontend
+        id: deploy
+        uses: superfly/fly-pr-review-apps@1.0.0
+        with:
+          path: frontend
+          name: pr-${{ github.event.number }}-frontend-wikidiscover
         if: github.event_name == 'pull_request'
 
       - name: Create .env file for backend
         run: |
-          echo "REDIS_URL=${{ secrets.REDIS_URL }}" >> backend/.env
-          echo "TRANSLATE_API_URL=${{ secrets.TRANSLATE_API_URL }}" >> backend/.env
+          echo "REDIS_URL=$REDIS_URL" >> backend/.env
+          echo "TRANSLATE_API_URL=$TRANSLATE_API_URL" >> backend/.env
 
       - name: Deploy PROD backend to Fly.io
         run: npm run deploy:backend
         if: github.ref == 'refs/heads/main'
 
       - name: Deploy PREVIEW backend to Fly.io
-        run: npm run deploy:backend
+        uses: superfly/fly-pr-review-apps@1.0.0
+        with:
+          path: backend
+          name: pr-${{ github.event.number }}-backend-wikidiscover
         if: github.event_name == 'pull_request'
