@@ -36,13 +36,15 @@ jobs:
           npm run install:backend
 
       - name: Create .env file for frontend
-        run: |
-          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
+        run: npm run env:frontend
 
       - name: Run frontend tests
         run: npm run test:frontend
         env:
           NODE_ENV: test
+
+      - name: Create .env file for backend
+        run: npm run env:backend
 
       - name: Run backend tests
         run: npm run test:backend
@@ -73,29 +75,8 @@ jobs:
       - name: Set up Fly.io CLI
         uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Print environment variable names
-        run: printenv
-
-      - name: Create .env file for frontend
-        run: |
-          echo "VITE_API_URL=$VITE_API_URL" >> frontend/.env
-
-      - name: Deploy PROD frontend to Fly.io
-        run: npm run deploy:frontend
-        if: github.ref == 'refs/heads/main'
-
-      - name: Deploy PREVIEW frontend to Fly.io
-        id: deploy
-        uses: superfly/fly-pr-review-apps@1.0.0
-        with:
-          path: frontend
-          name: pr-${{ github.event.number }}-frontend-wikidiscover
-        if: github.event_name == 'pull_request'
-
       - name: Create .env file for backend
-        run: |
-          echo "REDIS_URL=$REDIS_URL" >> backend/.env
-          echo "TRANSLATE_API_URL=$TRANSLATE_API_URL" >> backend/.env
+        run: npm run env:backend
 
       - name: Deploy PROD backend to Fly.io
         run: npm run deploy:backend
@@ -106,4 +87,25 @@ jobs:
         with:
           path: backend
           name: pr-${{ github.event.number }}-backend-wikidiscover
+        if: github.event_name == 'pull_request'
+
+      - name: Create .env file for frontend
+        run: npm run env:frontend
+
+      - name: Deploy PROD frontend to Fly.io
+        run: npm run deploy:frontend
+        if: github.ref == 'refs/heads/main'
+
+      - name: Create frontend .env with preview API URL
+        run: npm run env:frontend
+        env:
+          VITE_API_URL: https://pr-${{ github.event.number }}-backend-wikidiscover.fly.dev
+        if: github.event_name == 'pull_request'
+
+      - name: Deploy PREVIEW frontend to Fly.io
+        id: deploy
+        uses: superfly/fly-pr-review-apps@1.0.0
+        with:
+          path: frontend
+          name: pr-${{ github.event.number }}-frontend-wikidiscover
         if: github.event_name == 'pull_request'

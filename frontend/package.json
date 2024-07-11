@@ -12,7 +12,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest --run",
-    "deploy": "flyctl deploy"
+    "deploy": "flyctl deploy",
+    "generate-env": "node scripts/generateEnv.cjs"
   },
   "dependencies": {
     "@vitejs/plugin-react-swc": "3.7.0",
