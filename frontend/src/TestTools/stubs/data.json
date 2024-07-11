@@ -1,0 +1,266 @@
+{
+  "value": {
+    "date": "2024-07-04",
+    "lang": "en",
+    "featureContentLabel": "Wikipedia's Featured Content",
+    "badges": [
+      { "type": "tfa", "badge": "Featured" },
+      { "type": "image", "badge": "Image" },
+      { "type": "mostread", "badge": "Most read" },
+      { "type": "onthisday", "badge": "On this day" }
+    ],
+    "wikipediaResponse": {
+      "tfa": {
+        "type": "standard",
+        "title": "Statue_of_Liberty",
+        "displaytitle": "<span class=\"mw-page-title-main\">Statue of Liberty</span>",
+        "namespace": { "id": 0, "text": "" },
+        "wikibase_item": "Q9202",
+        "titles": {
+          "canonical": "Statue_of_Liberty",
+          "normalized": "Statue of Liberty",
+          "display": "<span class=\"mw-page-title-main\">Statue of Liberty</span>"
+        },
+        "pageid": 28617,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg/640px-Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg",
+          "width": 640,
+          "height": 1407
+        },
+        "originalimage": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg",
+          "width": 2498,
+          "height": 5492
+        },
+        "lang": "en",
+        "dir": "ltr",
+        "revision": "1232946141",
+        "tid": "7673b3f5-3b9c-11ef-b7b8-748123c7fa1c",
+        "timestamp": "2024-07-06T13:34:26Z",
+        "description": "Colossal sculpture in New York Harbor",
+        "description_source": "local",
+        "coordinates": { "lat": 40.68916667, "lon": -74.04444444 },
+        "content_urls": {
+          "desktop": {
+            "page": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+            "revisions": "https://en.wikipedia.org/wiki/Statue_of_Liberty?action=history",
+            "edit": "https://en.wikipedia.org/wiki/Statue_of_Liberty?action=edit",
+            "talk": "https://en.wikipedia.org/wiki/Talk:Statue_of_Liberty"
+          },
+          "mobile": {
+            "page": "https://en.m.wikipedia.org/wiki/Statue_of_Liberty",
+            "revisions": "https://en.m.wikipedia.org/wiki/Special:History/Statue_of_Liberty",
+            "edit": "https://en.m.wikipedia.org/wiki/Statue_of_Liberty?action=edit",
+            "talk": "https://en.m.wikipedia.org/wiki/Talk:Statue_of_Liberty"
+          }
+        },
+        "extract": "The Statue of Liberty is a colossal in New York Harbor.",
+        "extract_html": "<p>The <b>Statue of Liberty</b> is a colossal neoclassical sculpture on Liberty Island in New York Harbor, within New York City. The copper-clad statue, a gift to the United States from the people of France, was designed by French sculptor Frédéric Auguste Bartholdi and its metal framework was built by Gustave Eiffel. The statue was dedicated on October 28, 1886.</p>",
+        "normalizedtitle": "Statue of Liberty"
+      },
+      "mostread": {
+        "date": "2024-07-03Z",
+        "articles": [
+          {
+            "views": 442626,
+            "rank": 4,
+            "view_history": [
+              { "date": "2024-06-29Z", "views": 162238 },
+              { "date": "2024-06-30Z", "views": 140018 },
+              { "date": "2024-07-01Z", "views": 238994 },
+              { "date": "2024-07-02Z", "views": 311291 },
+              { "date": "2024-07-03Z", "views": 442626 }
+            ],
+            "type": "standard",
+            "title": "Project_2025",
+            "displaytitle": "<span class=\"mw-page-title-main\">Project 2025</span>",
+            "namespace": { "id": 0, "text": "" },
+            "wikibase_item": "Q122382481",
+            "titles": {
+              "canonical": "Project_2025",
+              "normalized": "Project 2025",
+              "display": "<span class=\"mw-page-title-main\">Project 2025</span>"
+            },
+            "pageid": 74699486,
+            "lang": "en",
+            "dir": "ltr",
+            "revision": "1233633695",
+            "tid": "30a12d66-3e6d-11ef-959c-98c255371c0a",
+            "timestamp": "2024-07-10T03:33:36Z",
+            "description": "US conservative political plan",
+            "description_source": "local",
+            "content_urls": {
+              "desktop": {
+                "page": "https://en.wikipedia.org/wiki/Project_2025",
+                "revisions": "https://en.wikipedia.org/wiki/Project_2025?action=history",
+                "edit": "https://en.wikipedia.org/wiki/Project_2025?action=edit",
+                "talk": "https://en.wikipedia.org/wiki/Talk:Project_2025"
+              },
+              "mobile": {
+                "page": "https://en.m.wikipedia.org/wiki/Project_2025",
+                "revisions": "https://en.m.wikipedia.org/wiki/Special:History/Project_2025",
+                "edit": "https://en.m.wikipedia.org/wiki/Project_2025?action=edit",
+                "talk": "https://en.m.wikipedia.org/wiki/Talk:Project_2025"
+              }
+            },
+            "thumbnail": {
+              "source": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kalki_2898_AD.jpg",
+              "width": 255,
+              "height": 393
+            },
+            "extract": "Project 2025 is a collection of conservative and right-wing policy proposals from the Heritage Foundation to reshape the United States federal government and consolidate executive power should the Republican nominee, presumably Donald Trump, win the 2024 presidential election. The Project asserts that the entire executive branch is under the direct control of the president under Article II of the U.S. Constitution and unitary executive theory. It proposes reclassifying tens of thousands of federal civil service workers as political appointees in order to replace them with loyalists more willing to enable the next Republican president's policies. The Project seeks to infuse the government and society with Christian values. Proponents have framed the plan as a means to dismantle what they view as a vast, unaccountable government bureaucracy. Critics have characterized Project 2025 as an authoritarian, Christian nationalist plan to transform the U.S. into an autocracy. Many legal experts have said it would undermine the rule of law, the separation of powers, the separation of church and state, and civil liberties, including the civil rights of women, persons of color, and the LGBTQ community.",
+            "extract_html": "<p><b>Project 2025</b> is a collection of conservative and right-wing policy proposals from the Heritage Foundation to reshape the United States federal government and consolidate executive power should the Republican nominee, presumably Donald Trump, win the 2024 presidential election. The Project asserts that the entire executive branch is under the direct control of the president under Article II of the U.S. Constitution and unitary executive theory. It proposes reclassifying tens of thousands of federal civil service workers as political appointees in order to replace them with loyalists more willing to enable the next Republican president's policies. The Project seeks to infuse the government and society with Christian values. Proponents have framed the plan as a means to dismantle what they view as a vast, unaccountable government bureaucracy. Critics have characterized Project 2025 as an authoritarian, Christian nationalist plan to transform the U.S. into an autocracy. Many legal experts have said it would undermine the rule of law, the separation of powers, the separation of church and state, and civil liberties, including the civil rights of women, persons of color, and the LGBTQ community.</p>",
+            "normalizedtitle": "Project 2025"
+          }
+        ]
+      },
+      "image": {
+        "title": "File:TR Yedigöller asv2021-10 img16.jpg",
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/TR_Yedig%C3%B6ller_asv2021-10_img16.jpg/640px-TR_Yedig%C3%B6ller_asv2021-10_img16.jpg",
+          "width": 640,
+          "height": 400
+        },
+        "image": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/4/46/TR_Yedig%C3%B6ller_asv2021-10_img16.jpg",
+          "width": 7680,
+          "height": 4800
+        },
+        "file_page": "https://commons.wikimedia.org/wiki/File:TR_Yedig%C3%B6ller_asv2021-10_img16.jpg",
+        "artist": {
+          "html": "<b><span class=\"plainlinks\"><a class=\"external text\" href=\"https://commons.wikimedia.org/wiki/User:A.Savin\">A.Savin</a></span></b>",
+          "text": "A.Savin"
+        },
+        "credit": {
+          "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+          "text": "Own work"
+        },
+        "license": {
+          "type": "FAL",
+          "url": "http://artlibre.org/licence/lal/en"
+        },
+        "description": {
+          "html": "The Seven Lakes' valley of <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Yedigöller%20National%20Park\" title=\"w:Yedigöller National Park\" class=\"extiw\">Yedigöller National Park</a>, <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Turkey\" title=\"w:Turkey\" class=\"extiw\">Turkey</a>. Photo shows Büyükgöl (Big Lake)",
+          "text": "The Seven Lakes' valley of Yedigöller National Park, Turkey. Photo shows Büyükgöl (Big Lake)",
+          "lang": "en"
+        },
+        "wb_entity_id": "M114092958",
+        "structured": { "captions": {} }
+      },
+      "onthisday": [
+        {
+          "text": "The impactor of the NASA space probe Deep Impact collided with the comet Tempel 1, excavating interior material to study its composition.",
+          "pages": [
+            {
+              "type": "standard",
+              "title": "NASA",
+              "displaytitle": "<span class=\"mw-page-title-main\">NASA</span>",
+              "namespace": { "id": 0, "text": "" },
+              "wikibase_item": "Q23548",
+              "titles": {
+                "canonical": "NASA",
+                "normalized": "NASA",
+                "display": "<span class=\"mw-page-title-main\">NASA</span>"
+              },
+              "pageid": 18426568,
+              "thumbnail": {
+                "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/320px-NASA_logo.svg.png",
+                "width": 320,
+                "height": 268
+              },
+              "originalimage": {
+                "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/110px-NASA_logo.svg.png",
+                "width": 110,
+                "height": 92
+              },
+              "lang": "en",
+              "dir": "ltr",
+              "revision": "1232345806",
+              "tid": "8a58baa8-3913-11ef-a2b4-715f8ac04498",
+              "timestamp": "2024-07-03T08:09:16Z",
+              "description": "American space and aeronautics agency",
+              "description_source": "local",
+              "content_urls": {
+                "desktop": {
+                  "page": "https://en.wikipedia.org/wiki/NASA",
+                  "revisions": "https://en.wikipedia.org/wiki/NASA?action=history",
+                  "edit": "https://en.wikipedia.org/wiki/NASA?action=edit",
+                  "talk": "https://en.wikipedia.org/wiki/Talk:NASA"
+                },
+                "mobile": {
+                  "page": "https://en.m.wikipedia.org/wiki/NASA",
+                  "revisions": "https://en.m.wikipedia.org/wiki/Special:History/NASA",
+                  "edit": "https://en.m.wikipedia.org/wiki/NASA?action=edit",
+                  "talk": "https://en.m.wikipedia.org/wiki/Talk:NASA"
+                }
+              },
+              "extract": "The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civil space program, aeronautics research, and space research. Established in 1958, it succeeded the National Advisory Committee for Aeronautics (NACA) to give the U.S. space development effort a distinct civilian orientation, emphasizing peaceful applications in space science. It has since led most of America's space exploration programs, including Project Mercury, Project Gemini, the 1968–1972 Apollo Moon landing missions, the Skylab space station, and the Space Shuttle. Currently, NASA supports the International Space Station (ISS) along with the Commercial Crew Program, and oversees the development of the Orion spacecraft and the Space Launch System for the lunar Artemis program.",
+              "extract_html": "<p>The <b>National Aeronautics and Space Administration</b> is an independent agency of the U.S. federal government responsible for the civil space program, aeronautics research, and space research. Established in 1958, it succeeded the National Advisory Committee for Aeronautics (NACA) to give the U.S. space development effort a distinct civilian orientation, emphasizing peaceful applications in space science. It has since led most of America's space exploration programs, including Project Mercury, Project Gemini, the 1968–1972 Apollo Moon landing missions, the Skylab space station, and the Space Shuttle. Currently, NASA supports the International Space Station (ISS) along with the Commercial Crew Program, and oversees the development of the Orion spacecraft and the Space Launch System for the lunar Artemis program.</p>",
+              "normalizedtitle": "NASA"
+            }
+          ],
+          "year": 2005
+        }
+      ],
+      "news": [
+        {
+          "links": [
+            {
+              "type": "standard",
+              "title": "2024_French_legislative_election",
+              "displaytitle": "<span class=\"mw-page-title-main\">2024 French legislative election</span>",
+              "namespace": {
+                "id": 0,
+                "text": ""
+              },
+              "wikibase_item": "Q126469235",
+              "titles": {
+                "canonical": "2024_French_legislative_election",
+                "normalized": "2024 French legislative election",
+                "display": "<span class=\"mw-page-title-main\">2024 French legislative election</span>"
+              },
+              "pageid": 72558031,
+              "thumbnail": {
+                "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/2024_French_Legislative_Election_Results_Map_First_Round.svg/320px-2024_French_Legislative_Election_Results_Map_First_Round.svg.png",
+                "width": 320,
+                "height": 244
+              },
+              "originalimage": {
+                "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/2024_French_Legislative_Election_Results_Map_First_Round.svg/2100px-2024_French_Legislative_Election_Results_Map_First_Round.svg.png",
+                "width": 2100,
+                "height": 1600
+              },
+              "lang": "en",
+              "dir": "ltr",
+              "revision": "1233685643",
+              "tid": "87794897-3eaa-11ef-bc2e-2043f81a7275",
+              "timestamp": "2024-07-10T10:52:41Z",
+              "content_urls": {
+                "desktop": {
+                  "page": "https://en.wikipedia.org/wiki/2024_French_legislative_election",
+                  "revisions": "https://en.wikipedia.org/wiki/2024_French_legislative_election?action=history",
+                  "edit": "https://en.wikipedia.org/wiki/2024_French_legislative_election?action=edit",
+                  "talk": "https://en.wikipedia.org/wiki/Talk:2024_French_legislative_election"
+                },
+                "mobile": {
+                  "page": "https://en.m.wikipedia.org/wiki/2024_French_legislative_election",
+                  "revisions": "https://en.m.wikipedia.org/wiki/Special:History/2024_French_legislative_election",
+                  "edit": "https://en.m.wikipedia.org/wiki/2024_French_legislative_election?action=edit",
+                  "talk": "https://en.m.wikipedia.org/wiki/Talk:2024_French_legislative_election"
+                }
+              },
+              "extract": "A legislative election was held in France on 30 June 2024",
+              "extract_html": "<p>A legislative election was held in France on 30 June 2024, with a second round held on 7 July, to elect all 577 members of the 17th National Assembly of the Fifth French Republic. The election followed the dissolution of the National Assembly by President Emmanuel Macron, who decided to call a snap election in the aftermath of the 2024 European Parliament election in France in which the National Rally (RN) made substantial gains against his <i>Besoin d'Europe</i> electoral list. The latter lost a considerable number of seats compared to the 2019 European Parliament election.</p>",
+              "normalizedtitle": "2024 French legislative election"
+            }
+          ],
+          "story": "<!--Jul 07-->The <a rel=\"mw:WikiLink\" href=\"./New_Popular_Front\" title=\"New Popular Front\" id=\"mwBg\">New Popular Front</a> wins the most seats in the <a rel=\"mw:WikiLink\" href=\"./National_Assembly_(France)\" title=\"National Assembly (France)\" id=\"mwBw\">National Assembly</a> in <b id=\"mwCA\"><a rel=\"mw:WikiLink\" href=\"./2024_French_legislative_election\" title=\"2024 French legislative election\" id=\"mwCQ\">the French legislative election</a></b> but does not achieve a <a rel=\"mw:WikiLink\" href=\"./Majority_government\" title=\"Majority government\" id=\"mwCg\">majority</a>."
+        }
+      ]
+    }
+  },
+  "error": {
+    "code": "ERROR",
+    "message": "Error"
+  }
+}

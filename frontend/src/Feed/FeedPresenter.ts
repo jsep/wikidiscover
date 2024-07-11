@@ -1,5 +1,5 @@
 import { dateToFriendly, dateToIso } from '../utils.ts';
-import { ArticulePM, FeedPm, feedRepository } from './FeedRepository.ts';
+import { ArticulePM, FeedPM, feedRepository } from './FeedRepository.ts';
 import { action, computed, makeObservable, observable } from 'mobx';
 
 export interface ArticuleVM {
@@ -17,9 +17,11 @@ export interface ArticuleVM {
   badges: string[];
 }
 
-export interface FeedVm {
+export interface FeedVM {
   date: Date;
   lang: string;
+  formattedDate: string;
+  featuredContentLabel: string;
   tfa: ArticuleVM | null;
   articles: ArticuleVM[];
 }
@@ -47,17 +49,18 @@ export default class FeedPresenter {
 
   async onDateSelected(newDate: Date) {
     this.setDate(newDate);
+    this.loadMoreDate = null;
     await this.load();
   }
 
   openArticle(article: ArticuleVM) {
-    console.log('opening article', { article });
     feedRepository.markArticleAsRead(article.id);
     window.open(article.url.desktop, '_blank');
   }
 
   async onLangSelected(lang: string) {
     this.setLanguage(lang);
+    this.loadMoreDate = null;
     await this.load();
   }
 
@@ -76,40 +79,49 @@ export default class FeedPresenter {
   }
 
   @computed
-  get moreFeedsArticulesVm(): ArticuleVM[] {
-    return feedRepository.morefeedArticles.map((article) =>
-      this.mapToArticuleVm(article),
-    );
+  get moreFeedsVM(): FeedVM[] {
+    return feedRepository.moreFeedsPm.map((feedPm) => this.mapToFeedVm(feedPm));
   }
 
   @computed
-  get feedVm(): FeedVm | null {
-    let feedPm = feedRepository.currentFeedPm;
-    // TODO handle errors
+  get currentDateFeedVm(): FeedVM {
+    let feedPm = feedRepository.currentDateFeedPm;
     if (!feedPm) {
-      return null;
+      return this.emptyFeedVm();
     }
-    let tfa = feedPm.tfa;
-    // first row should feature image, most read and on this day
 
-    return {
-      date: this.selectedDate,
-      lang: this.selectedLanguage,
-      tfa: this.mapTFAToArticuleVm(tfa),
-      articles: feedPm.articles.map((article) => this.mapToArticuleVm(article)),
-    };
+    return this.mapToFeedVm(feedPm);
   }
 
-  mapToFeedVm(feedPm: FeedPm): FeedVm {
+  mapToFeedVm(feedPm: FeedPM): FeedVM {
+    const tfa = feedPm.articles[0] || null;
+    const articles = feedPm.articles.filter((_, index) => index > 0);
+    const date = new Date(feedPm.date);
+
     return {
-      date: feedPm.date,
+      date: date,
+      formattedDate: dateToFriendly(date, feedPm.lang),
       lang: feedPm.lang,
-      tfa: this.mapTFAToArticuleVm(feedPm.tfa),
-      articles: feedPm.articles.map((article) => this.mapToArticuleVm(article)),
+      featuredContentLabel: feedPm.featuredContentLabel,
+      tfa: this.mapToArticuleVm(tfa, feedPm),
+      articles: articles.map((article) =>
+        this.mapToArticuleVm(article, feedPm),
+      ),
     };
   }
 
-  mapToArticuleVm(article: ArticulePM): ArticuleVM {
+  emptyFeedVm(): FeedVM {
+    return {
+      date: new Date(),
+      lang: 'en',
+      formattedDate: '',
+      featuredContentLabel: 'Featured',
+      tfa: null,
+      articles: [],
+    };
+  }
+
+  mapToArticuleVm(article: ArticulePM, feedPm: FeedPM): ArticuleVM {
     return {
       id: article.id,
       title: article.title,
@@ -122,49 +134,23 @@ export default class FeedPresenter {
       thumbnailUrl: article.thumbnailUrl,
       formattedDate: dateToFriendly(article.date, this.selectedLanguage),
       views: article.views,
-      badges: this.articuleBadges(article),
+      badges: this.articuleBadges(article, feedPm),
     };
   }
 
-  mapTFAToArticuleVm(tfa: FeedPm['tfa']): ArticuleVM | null {
-    if (!tfa) {
-      return null;
-    }
-
-    return {
-      id: tfa.id,
-      isRead: tfa.isRead,
-      title: tfa.title,
-      url: {
-        desktop: tfa.url.desktop,
-        mobile: tfa.url.mobile,
-      },
-      formattedDate: dateToFriendly(tfa.date, this.selectedLanguage),
-      badges: this.articuleBadges(tfa),
-      description: tfa.description,
-      thumbnailUrl: tfa.thumbnailUrl,
-      views: tfa.views,
-    };
-  }
-
-  articuleBadges(article: ArticulePM) {
-    switch (article.type) {
-      case 'tfa':
-        return ['Featured'];
-      case 'image':
-        return ['Image'];
-      case 'most-read':
-        return ['Most Read'];
-      case 'on-this-day':
-        return ['On This Day'];
-      default:
-        return [];
-    }
+  articuleBadges(article: ArticulePM, feedPm: FeedPM) {
+    return (
+      feedPm.badges
+        .filter((badge) => badge.type === article.type)
+        // TODO change to badge.label
+        .map((badge) => badge.badge)
+    );
   }
 
   @action
   setDate(date: Date) {
     this.selectedDate = date;
+    this.loadMoreDate = null;
   }
 
   @action

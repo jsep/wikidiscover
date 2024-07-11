@@ -1,11 +1,8 @@
 import { ArticulePM, feedRepository } from '../Feed/FeedRepository';
 import { vi } from 'vitest';
 import FeedPresenter, { ArticuleVM } from '../Feed/FeedPresenter.ts';
-import {
-  GetFeedStub,
-  GetFeedWithNoTFAStub as GetFeedWithOut,
-} from './stubs/get.feed.stub.ts';
-import { FeedDto } from '../ApiGateway.ts';
+import { GetFeedDtoStub, GetFeedWithout } from './stubs/get.feed.stub.ts';
+import { FeedDtoResponse as FeedDTOResponse } from '../ApiGateway.ts';
 
 export class FeedTestHarness {
   async init(date: Date, lang: string) {
@@ -13,7 +10,7 @@ export class FeedTestHarness {
     global.localStorage = new FakeLocalStorage();
 
     vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
-      GetFeedStub(date, lang),
+      GetFeedDtoStub(date, lang),
     );
 
     vi.spyOn(feedRepository.apiGateway, 'markArticleAsRead');
@@ -30,10 +27,10 @@ export class FeedTestHarness {
   async loadFeedWithout(
     date: Date,
     lang: string,
-    without: Array<keyof FeedDto['data']>,
+    without: Array<keyof FeedDTOResponse['value']['wikipediaResponse']>,
   ) {
     vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
-      GetFeedWithOut(date, lang, without),
+      GetFeedWithout(date, lang, without),
     );
 
     const feedPresenter = new FeedPresenter();
@@ -46,12 +43,12 @@ export class FeedTestHarness {
 
   async loadMore(presenter: FeedPresenter, date: Date, lang: string) {
     vi.spyOn(feedRepository.apiGateway, 'getFeed').mockResolvedValue(
-      GetFeedStub(date, lang),
+      GetFeedDtoStub(date, lang),
     );
     await presenter.loadMore();
   }
 
-  async openArticle(article: ArticulePM) {
+  async openArticle(article: ArticuleVM) {
     await feedRepository.openArticle(article);
   }
 }

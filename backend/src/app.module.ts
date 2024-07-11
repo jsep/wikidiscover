@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { WikipediaService } from './wikipedia.service';
+import { TranslateService } from './translate.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
+  imports: [ConfigModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [WikipediaService, TranslateService],
 })
 export class AppModule {}

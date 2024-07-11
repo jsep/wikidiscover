@@ -1,12 +1,19 @@
-import {
-  attemptAsync,
-  dateToIso,
-  err,
-  IsoDateString,
-  nonNull,
-  ok,
-  Result,
-} from './utils';
+import { attemptAsync, dateToIso, err, nonNull, ok, Result } from './utils';
+import { GetFeedRawResponse } from './TestTools/stubs/get.feed.stub';
+
+// TODO dry
+export type RawApiResponse = ReturnType<typeof GetFeedRawResponse>;
+export type FeedDtoResponse = {
+  error: { code: string; message: string } | null;
+  value: RawApiResponse['value'];
+};
+export type WikipediaResponseDto = RawApiResponse['value']['wikipediaResponse'];
+export type TfaDTO = WikipediaResponseDto['tfa'];
+export type ImageDTO = WikipediaResponseDto['image'];
+export type MostReadArticleDTO =
+  WikipediaResponseDto['mostread']['articles'][0];
+export type OnThisDayDTO = WikipediaResponseDto['onthisday'][0];
+export type NewsDTO = WikipediaResponseDto['news'][0];
 
 // TODO dry interfaces
 export interface ArticleDTO {
@@ -26,23 +33,6 @@ export interface ArticleDTO {
     mobile: string;
   };
   timestamp?: string;
-}
-
-export interface ImageDTO extends ArticleDTO {}
-export interface MostReadArticleDTO extends ArticleDTO {}
-export interface OnThisDayDTO extends ArticleDTO {}
-export interface TFADTO extends ArticleDTO {}
-
-export interface FeedDto {
-  error: string | null;
-  data: {
-    tfa: TFADTO;
-    image: ImageDTO;
-    mostReadArticles: MostReadArticleDTO[];
-    onThisDay: OnThisDayDTO[];
-    lang: string;
-    date: IsoDateString;
-  };
 }
 
 export class ApiError extends Error {
@@ -97,18 +87,20 @@ export class ApiGateway {
   public async getFeed(
     date: Date,
     lang: string,
-  ): Promise<Result<FeedDto, ApiError>> {
+  ): Promise<Result<FeedDtoResponse, ApiError>> {
     const formattedDate = dateToIso(date).split('-').join('/');
     const path = `/feed/${lang}/featured/${formattedDate}`;
-    // Change type with FeedDtoResponse
-    const { error, value } = await this.get<FeedDto>(path);
+    const result = await this.get<FeedDtoResponse>(path);
 
-    if (error) {
-      return err(error);
-    } else if (!value || value.error) {
-      return err(new ApiError('Unsuccessful response from server', value));
+    if (result.error) {
+      return result;
+    } else if (result.value.error) {
+      console.error('Unsuccessful response from server', { result, path });
+      return err(
+        new ApiError('Unsuccessful response from server', result.value),
+      );
     }
 
-    return ok(value);
+    return ok(result.value);
   }
 }

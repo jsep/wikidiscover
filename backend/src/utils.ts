@@ -39,10 +39,10 @@ export function attempt<T, Err = Error>(fun: () => T): Result<T, Err> {
   }
 }
 
-export function ok<Value, Error>(value: Value): Result<Value, Error> {
+export function ok<Value>(value: Value): Result<Value, null> {
   return { value, error: null };
 }
 
-export function err<Value, Error>(error: Error): Result<Value, Error> {
+export function err<Err = Error>(error: Err): Result<null, Err> {
   return { value: null, error };
 }

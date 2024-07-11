@@ -11,7 +11,12 @@ export function dateToFriendly(date: Date, lang: string): string {
     month: 'long',
     day: 'numeric',
   };
-  return date.toLocaleDateString(lang, options);
+  const utcDate = date.toUTCString();
+  return new Date(utcDate).toLocaleDateString(lang, options);
+}
+
+export function numberToLocaleString(number: number, lang: string): string {
+  return number.toLocaleString(lang);
 }
 
 export type Result<T, Err> =

@@ -49,7 +49,7 @@
         "talk": "https://en.m.wikipedia.org/wiki/Talk:Statue_of_Liberty"
       }
     },
-    "extract": "The Statue of Liberty is a colossal neoclassical sculpture on Liberty Island in New York Harbor, within New York City. The copper-clad statue, a gift to the United States from the people of France, was designed by French sculptor Frédéric Auguste Bartholdi and its metal framework was built by Gustave Eiffel. The statue was dedicated on October 28, 1886.",
+    "extract": "The Statue of Liberty is a colossal.",
     "extract_html": "<p>The <b>Statue of Liberty</b> is a colossal neoclassical sculpture on Liberty Island in New York Harbor, within New York City. The copper-clad statue, a gift to the United States from the people of France, was designed by French sculptor Frédéric Auguste Bartholdi and its metal framework was built by Gustave Eiffel. The statue was dedicated on October 28, 1886.</p>",
     "normalizedtitle": "Statue of Liberty"
   },
@@ -126,7 +126,7 @@
             "talk": "https://en.m.wikipedia.org/wiki/Talk:Project_2025"
           }
         },
-        "extract": "Project 2025 is a collection of conservative and right-wing policy proposals from the Heritage Foundation to reshape the United States federal government and consolidate executive power should the Republican nominee win the 2024 presidential election. It proposes reclassifying tens of thousands of federal civil service workers as political appointees in order to replace them with people more willing to enact the next Republican president's proposals. It asserts that the president has absolute power over the executive branch. Project 2025's critics have characterized it as an authoritarian, Christian nationalist plan to transform the U.S. into an autocracy. Many legal experts have said it would undermine the rule of law, the separation of powers, the separation of church and state, and civil liberties.",
+        "extract": "Project 2025 is a collection of conservative and right-wing.",
         "extract_html": "<p><b>Project 2025</b> is a collection of conservative and right-wing policy proposals from the Heritage Foundation to reshape the United States federal government and consolidate executive power should the Republican nominee win the 2024 presidential election. It proposes reclassifying tens of thousands of federal civil service workers as political appointees in order to replace them with people more willing to enact the next Republican president's proposals. It asserts that the president has absolute power over the executive branch. Project 2025's critics have characterized it as an authoritarian, Christian nationalist plan to transform the U.S. into an autocracy. Many legal experts have said it would undermine the rule of law, the separation of powers, the separation of church and state, and civil liberties.</p>",
         "normalizedtitle": "Project 2025"
       },
@@ -3117,7 +3117,7 @@
   },
   "onthisday": [
     {
-      "text": "The impactor of the NASA space probe Deep Impact collided with the comet Tempel 1, excavating interior material to study its composition.",
+      "text": "The impactor of the NASA space probe Deep Impact.",
       "pages": [
         {
           "type": "standard",
@@ -7519,6 +7519,61 @@
         }
       ],
       "year": 414
+    }
+  ],
+  "news": [
+    {
+      "links": [
+        {
+          "type": "standard",
+          "title": "2024_French_legislative_election",
+          "displaytitle": "<span class=\"mw-page-title-main\">2024 French legislative election</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q126469235",
+          "titles": {
+            "canonical": "2024_French_legislative_election",
+            "normalized": "2024 French legislative election",
+            "display": "<span class=\"mw-page-title-main\">2024 French legislative election</span>"
+          },
+          "pageid": 72558031,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/2024_French_Legislative_Election_Results_Map_First_Round.svg/320px-2024_French_Legislative_Election_Results_Map_First_Round.svg.png",
+            "width": 320,
+            "height": 244
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/2024_French_Legislative_Election_Results_Map_First_Round.svg/2100px-2024_French_Legislative_Election_Results_Map_First_Round.svg.png",
+            "width": 2100,
+            "height": 1600
+          },
+          "lang": "en",
+          "dir": "ltr",
+          "revision": "1233685643",
+          "tid": "87794897-3eaa-11ef-bc2e-2043f81a7275",
+          "timestamp": "2024-07-10T10:52:41Z",
+          "content_urls": {
+            "desktop": {
+              "page": "https://en.wikipedia.org/wiki/2024_French_legislative_election",
+              "revisions": "https://en.wikipedia.org/wiki/2024_French_legislative_election?action=history",
+              "edit": "https://en.wikipedia.org/wiki/2024_French_legislative_election?action=edit",
+              "talk": "https://en.wikipedia.org/wiki/Talk:2024_French_legislative_election"
+            },
+            "mobile": {
+              "page": "https://en.m.wikipedia.org/wiki/2024_French_legislative_election",
+              "revisions": "https://en.m.wikipedia.org/wiki/Special:History/2024_French_legislative_election",
+              "edit": "https://en.m.wikipedia.org/wiki/2024_French_legislative_election?action=edit",
+              "talk": "https://en.m.wikipedia.org/wiki/Talk:2024_French_legislative_election"
+            }
+          },
+          "extract": "A legislative election was held in France on 30 June 2024",
+          "extract_html": "<p>A legislative election was held in France on 30 June 2024, with a second round held on 7 July, to elect all 577 members of the 17th National Assembly of the Fifth French Republic. The election followed the dissolution of the National Assembly by President Emmanuel Macron, who decided to call a snap election in the aftermath of the 2024 European Parliament election in France in which the National Rally (RN) made substantial gains against his <i>Besoin d'Europe</i> electoral list. The latter lost a considerable number of seats compared to the 2019 European Parliament election.</p>",
+          "normalizedtitle": "2024 French legislative election"
+        }
+      ],
+      "story": "<!--Jul 07-->The <a rel=\"mw:WikiLink\" href=\"./New_Popular_Front\" title=\"New Popular Front\" id=\"mwBg\">New Popular Front</a> wins the most seats in the <a rel=\"mw:WikiLink\" href=\"./National_Assembly_(France)\" title=\"National Assembly (France)\" id=\"mwBw\">National Assembly</a> in <b id=\"mwCA\"><a rel=\"mw:WikiLink\" href=\"./2024_French_legislative_election\" title=\"2024 French legislative election\" id=\"mwCQ\">the French legislative election</a></b> but does not achieve a <a rel=\"mw:WikiLink\" href=\"./Majority_government\" title=\"Majority government\" id=\"mwCg\">majority</a>."
     }
   ]
 }
