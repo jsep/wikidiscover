@@ -6,7 +6,7 @@ import {
   OnThisDayDTO,
   WikipediaResponseDto as WikipediaResponseDTO,
 } from '../ApiGateway';
-import { action, makeObservable, observable } from 'mobx';
+import { action, makeObservable, observable, runInAction } from 'mobx';
 import { Result, attempt, ok } from '../utils';
 import type { ArticuleVM } from './FeedPresenter';
 
@@ -99,13 +99,17 @@ class FeedRepository {
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     this.setLoadingCurrentFeed(false);
 
+    console.log('Feed loaded', { error, feedDto });
+
     if (error || !feedDto) {
-      console.error('Error trying to get feed', { error, feedDto });
-      this.setLoadingCurrentFeed(false);
-      this.setLoadingMoreFeed(false);
-      this.moreFeedsPm = [];
-      this.showErrorScreen = true;
-      this.currentDateFeedPm = null;
+      console.error('Error trasding to get feed', { error, feedDto });
+      runInAction(() => {
+        this.setLoadingCurrentFeed(false);
+        this.setLoadingMoreFeed(false);
+        this.moreFeedsPm = [];
+        this.showErrorScreen = true;
+        this.currentDateFeedPm = null;
+      });
       return null;
     }
 
