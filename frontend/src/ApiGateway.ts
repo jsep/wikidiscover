@@ -71,6 +71,12 @@ export class ApiGateway {
       );
     }
 
+    if (!result.value.ok) {
+      return err(
+        new ApiError('Error fetching data for path ' + path, result.value),
+      );
+    }
+
     const jsonResult = await attemptAsync(async () => {
       return nonNull(result.value).json() as T;
     });
