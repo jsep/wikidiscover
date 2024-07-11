@@ -95,9 +95,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
       - name: Create frontend .env with preview API URL
-        run: |
-          npm run env:frontend
-          cat frontend/.env
+        run: npm run env:frontend
         env:
           VITE_API_URL: https://pr-${{ github.event.number }}-backend-wikidiscover.fly.dev
         if: github.event_name == 'pull_request'

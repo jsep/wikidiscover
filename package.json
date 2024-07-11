@@ -16,7 +16,7 @@
     "deploy:frontend": "cd frontend && npm run deploy",
     "deploy:backend": "cd backend && npm run deploy",
     "env:backend": "cd backend && npm run generate-env",
-    "env:frontend": "cd backend && npm run generate-env"
+    "env:frontend": "cd frontend && npm run generate-env"
   },
   "dependencies": {
     "prettier": "3.3.2"
