@@ -76,5 +76,10 @@ jobs:
       - name: Deploy frontend to Fly.io
         run: npm run deploy:frontend
 
+      - name: Create .env file for backend
+        run: |
+          echo "REDIS_URL=${{ secrets.REDIS_URL }}" >> backend/.env
+          echo "TRANSLATE_API_URL=${{ secrets.TRANSLATE_API_URL }}" >> backend/.env
+
       - name: Deploy backend to Fly.io
         run: npm run deploy:backend
