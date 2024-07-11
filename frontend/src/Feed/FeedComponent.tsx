@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import FeedPresenter, { ArticuleVM, FeedVM as FeedVM } from './FeedPresenter';
 import { observer } from 'mobx-react-lite';
+import ErrorScreen from '../Error/ErrorScreen.tsx';
 
 export const FeedComponent = observer(() => {
   const { current: feedPresenter } = useRef(new FeedPresenter());
@@ -11,6 +12,7 @@ export const FeedComponent = observer(() => {
       document.documentElement.scrollHeight - 100;
     if (bottom) {
       feedPresenter.loadMore();
+      // debounce(() => feedPresenter.loadMore(), 1000)();
     }
   }, [feedPresenter]);
 
@@ -21,6 +23,10 @@ export const FeedComponent = observer(() => {
   }, [feedPresenter, handleScroll]);
 
   // TODO handle not loading data with error screen
+
+  if (feedPresenter.showErrorScreen) {
+    return <ErrorScreen />;
+  }
 
   return (
     <div>
@@ -37,13 +43,14 @@ export const FeedComponent = observer(() => {
           value={feedPresenter.selectedLanguage}
           onChange={(event) => feedPresenter.onLangSelected(event.target.value)}
         >
-          <option value="en">English</option>
-          <option value="es">Spanish</option>
-          <option value="fr">French</option>
-          <option value="de">German</option>
-          {/* Add more languages as needed */}
+          {feedPresenter.languages.map((language) => (
+            <option key={language.code} value={language.code}>
+              {language.localName} - {language.name}
+            </option>
+          ))}
         </select>
       </div>
+      {/* <FeedSkeleton /> */}
       <Feed
         presenter={feedPresenter}
         feedVm={feedPresenter.currentDateFeedVm}
@@ -54,23 +61,38 @@ export const FeedComponent = observer(() => {
           <h3 className="text-xl font-bold mb-4 text-center bg-gray-700 rounded text-white">
             {feedVm.formattedDate}
           </h3>
-          <Feed
-            presenter={feedPresenter}
-            feedVm={feedVm}
-            isLoading={feedPresenter.isLoadingMore}
-          />
+          <Feed presenter={feedPresenter} feedVm={feedVm} isLoading={false} />
         </div>
       ))}
-      {feedPresenter.isLoadingMore && (
-        <Feed
-          presenter={feedPresenter}
-          feedVm={null}
-          isLoading={feedPresenter.isLoadingMore}
-        />
-      )}
+      {feedPresenter.isLoadingMore && <FeedSkeleton />}
     </div>
   );
 });
+
+export const FeedSkeleton = () => {
+  return (
+    <section>
+      <TodaysFeaturedArticleSkeleten />;
+      <FeedArticleSkeleton />
+    </section>
+  );
+};
+
+export const FeedArticleSkeleton = () => {
+  return (
+    <section>
+      <div className="h-[32px] bg-gray-300 rounded-md mb-4 w-1/3 animate-pulse"></div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <ArticleSkeleton />
+        <ArticleSkeleton />
+        <ArticleSkeleton />
+        <ArticleSkeleton />
+        <ArticleSkeleton />
+        <ArticleSkeleton />
+      </div>
+    </section>
+  );
+};
 
 export const Feed = observer(
   ({
@@ -82,18 +104,14 @@ export const Feed = observer(
     presenter: FeedPresenter;
     isLoading: boolean;
   }) => {
+    if (isLoading || !feedVm || !feedVm.tfa || feedVm.articles.length === 0) {
+      return <FeedSkeleton />;
+    }
+
     return (
       <section>
-        <TodaysFeaturedArticle
-          presenter={presenter}
-          feedVm={feedVm}
-          isLoading={isLoading}
-        />
-        <FeedArticle
-          presenter={presenter}
-          feedVm={feedVm}
-          isLoading={isLoading}
-        />
+        <TodaysFeaturedArticle presenter={presenter} feedVm={feedVm} />
+        <FeedArticle presenter={presenter} feedVm={feedVm} />
       </section>
     );
   },
@@ -103,45 +121,22 @@ export const FeedArticle = observer(
   ({
     presenter,
     feedVm,
-    isLoading,
   }: {
     presenter: FeedPresenter;
     feedVm: FeedVM | null;
-    isLoading: boolean;
   }) => (
     <section>
-      {isLoading && (
-        <div className="h-[32px] bg-gray-300 rounded-md mb-4 w-1/3 animate-pulse"></div>
-      )}
-      {!isLoading && (
-        <h2 className="text-left text-2xl font-bold mb-4">
-          {feedVm?.featuredContentLabel}
-        </h2>
-      )}
+      <h2 className="text-left text-2xl font-bold mb-4">
+        {feedVm?.featuredContentLabel}
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {isLoading && <ArticlesSkeleton />}
-        {!isLoading &&
-          feedVm?.articles.map((article, index) => (
-            <Article key={index} presenter={presenter} article={article} />
-          ))}
+        {feedVm?.articles.map((article, index) => (
+          <Article key={index} presenter={presenter} article={article} />
+        ))}
       </div>
     </section>
   ),
 );
-
-const ArticlesSkeleton = () => {
-  return (
-    <>
-      <ArticleSkeleton />
-      <ArticleSkeleton />
-      <ArticleSkeleton /> <ArticleSkeleton />
-      <ArticleSkeleton />
-      <ArticleSkeleton /> <ArticleSkeleton />
-      <ArticleSkeleton />
-      <ArticleSkeleton />
-    </>
-  );
-};
 
 const Article = observer(
   ({
@@ -219,19 +214,8 @@ const ArticleSkeleton = () => (
 );
 
 const TodaysFeaturedArticle = observer(
-  ({
-    presenter,
-    feedVm,
-    isLoading,
-  }: {
-    presenter: FeedPresenter;
-    feedVm: FeedVM | null;
-    isLoading: boolean;
-  }) => {
-    if (isLoading) {
-      return <TodaysFeaturedArticleSkeleten />;
-    }
-    if (!feedVm && !isLoading) {
+  ({ presenter, feedVm }: { presenter: FeedPresenter; feedVm: FeedVM }) => {
+    if (!feedVm) {
       // TODO handle not loading data error screen
       throw new Error('Feed not loaded');
     }
