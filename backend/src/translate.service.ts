@@ -22,20 +22,51 @@ export interface TranslateResponse {
 @Injectable()
 export class TranslateService {
   // TODO add all from deployed server
-  supportedLanguages: Language[] = [
-    { localName: 'English', name: 'English', code: 'en' },
-    { localName: 'Español', name: 'Spanish', code: 'es' },
-    { localName: '中文', name: 'Chinese', code: 'zh' },
-    { localName: 'Suomi', name: 'Finnish', code: 'fi' },
-    { localName: 'עברית', name: 'Hebrew', code: 'he' },
-    { localName: 'Русский', name: 'Russian', code: 'ru' },
-    { localName: 'العربية', name: 'Arabic', code: 'ar' },
-    { localName: 'Azərbaycanca', name: 'Azerbaijani', code: 'az' },
-    { localName: 'Български', name: 'Bulgarian', code: 'bg' },
-    { localName: 'বাংলা', name: 'Bengali', code: 'bn' },
-    { localName: 'Català', name: 'Catalan', code: 'ca' },
-    { localName: 'Čeština', name: 'Czech', code: 'cs' },
-    { localName: 'Dansk', name: 'Danish', code: 'da' },
+  supportedLanguages = [
+    'ar',
+    'az',
+    'bg',
+    'bn',
+    'ca',
+    'cs',
+    'da',
+    'de',
+    'el',
+    'en',
+    'eo',
+    'es',
+    'et',
+    'fa',
+    'fi',
+    'fr',
+    'ga',
+    'he',
+    'hi',
+    'hu',
+    'id',
+    'it',
+    'ja',
+    'ko',
+    'lt',
+    'lv',
+    'ms',
+    'nb',
+    'nl',
+    'pl',
+    'pt',
+    'ro',
+    'ru',
+    'sk',
+    'sl',
+    'sq',
+    'sv',
+    'th',
+    'tl',
+    'tr',
+    'uk',
+    'ur',
+    'zh',
+    'zt',
   ];
 
   constructor(private configService: ConfigService) {}
@@ -83,7 +114,7 @@ export class TranslateService {
   }
 
   isSupportedLanguage(lang: string): boolean {
-    return this.supportedLanguages.some((language) => language.code === lang);
+    return this.supportedLanguages.includes(lang);
   }
 
   async translateRequest({

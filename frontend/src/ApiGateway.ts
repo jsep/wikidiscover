@@ -49,8 +49,9 @@ export class ApiGateway {
 
   constructor() {
     this.apiUrl = import.meta.env.VITE_API_URL;
+    console.log('this.apiUrl', this.apiUrl);
     if (!this.apiUrl) {
-      throw new Error('VITE_API_URL is not set');
+      console.error('VITE_API_URL is not set');
     }
   }
 
@@ -64,16 +65,15 @@ export class ApiGateway {
   }
 
   public async get<T>(path: string): Promise<Result<T, ApiError>> {
+    if (!this.apiUrl) {
+      console.error('VITE_API_URL is not set');
+      return err(new ApiError('VITE_API_URL is not set', {}));
+    }
+
     let result = await attemptAsync(() => fetch(this.apiUrl + path));
     if (result.error) {
       return err(
         new ApiError('Error fetching data for path ' + path, result.error),
-      );
-    }
-
-    if (!result.value.ok) {
-      return err(
-        new ApiError('Error fetching data for path ' + path, result.value),
       );
     }
 
