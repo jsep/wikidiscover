@@ -17,6 +17,9 @@ console.log(envContentFile);
 const flyTomlPath = path.join(__dirname, '../fly.toml');
 let flyTomlContent = fs.readFileSync(flyTomlPath, 'utf8');
 
+// Remove existing [env] section
+flyTomlContent = flyTomlContent.replace(/\[env\][\s\S]*?(?=\n\[|$)/, '');
+
 const updatedFlyTomlContent = `${flyTomlContent}\n[env]\n${envVars.map((envVar) => `  ${envVar}="${process.env[envVar] || ''}"`).join('\n')}`;
 fs.writeFileSync(flyTomlPath, updatedFlyTomlContent, 'utf8');
 
