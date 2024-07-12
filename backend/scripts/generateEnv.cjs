@@ -15,9 +15,10 @@ console.log(`.env file generated at ${envFilePath}`);
 console.log(envContentFile);
 
 const flyTomlPath = path.join(__dirname, '../fly.toml');
-const flyTomlContent = fs.readFileSync(flyTomlPath, 'utf8');
+let flyTomlContent = fs.readFileSync(flyTomlPath, 'utf8');
 
 const updatedFlyTomlContent = `${flyTomlContent}\n[env]\n${envVars.map((envVar) => `  ${envVar}="${process.env[envVar] || ''}"`).join('\n')}`;
 fs.writeFileSync(flyTomlPath, updatedFlyTomlContent, 'utf8');
 
-console.log(`fly.toml file updated at ${flyTomlPath}`);
+flyTomlContent = fs.readFileSync(flyTomlPath, 'utf8');
+console.log(`fly.toml file updated at ${flyTomlPath}`, flyTomlContent);
