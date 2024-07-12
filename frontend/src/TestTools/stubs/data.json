@@ -3,6 +3,7 @@
     "date": "2024-07-04",
     "lang": "en",
     "featureContentLabel": "Wikipedia's Featured Content",
+    "noMoreContentLabel": "No more content",
     "badges": [
       { "type": "tfa", "badge": "Featured" },
       { "type": "image", "badge": "Image" },

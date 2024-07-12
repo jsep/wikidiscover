@@ -35,6 +35,7 @@ export interface FeedPM {
   lang: string;
   badges: Badge[];
   featuredContentLabel: string;
+  noMoreContentLabel: string;
   articles: ArticulePM[];
 }
 
@@ -99,8 +100,6 @@ class FeedRepository {
     const { error, value: feedDto } = await this.apiGateway.getFeed(date, lang);
     this.setLoadingCurrentFeed(false);
 
-    console.log('Feed loaded', { error, feedDto });
-
     if (error || !feedDto) {
       console.error('Error trasding to get feed', { error, feedDto });
       runInAction(() => {
@@ -113,15 +112,11 @@ class FeedRepository {
       return null;
     }
 
-    console.log('Feed loaded', feedDto);
-
     return feedDto;
   }
 
   async getMoreFeed(date: Date, lang: string) {
-    console.log('Getting more feed', { date, lang });
     if (this.loadingMoreFeed) {
-      console.log('Already loading more feed');
       return;
     }
 
@@ -140,7 +135,6 @@ class FeedRepository {
     this.addMoreFeed(feedPm);
 
     const after = this.moreFeedsPm.length;
-    console.log('More feed loaded', { feedPm, before, after });
 
     this.setLoadingMoreFeed(false);
   }
@@ -162,7 +156,6 @@ class FeedRepository {
     }
 
     const feedPm = this.mapToFeedPm(feedDto);
-    console.log('Feed loaded', { feedPm });
 
     this.setCurrentFeedPm(feedPm);
     this.setLoadingCurrentFeed(false);
@@ -176,7 +169,7 @@ class FeedRepository {
       type: badge.type as Badge['type'],
       badge: badge.badge,
     })),
-
+    noMoreContentLabel: feedDto.value.noMoreContentLabel,
     articles: this.getArticlesFromFeed(feedDto),
   });
 

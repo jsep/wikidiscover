@@ -9,7 +9,7 @@ export const FeedArticles = observer(
     presenter: FeedPresenter;
     feedVm: FeedVM | null;
   }) => (
-    <section>
+    <section className={feedVm?.articles.length == 0 ? 'hidden' : ''}>
       <h2 className="text-left text-2xl font-bold mb-4">
         {feedVm?.featuredContentLabel}
       </h2>

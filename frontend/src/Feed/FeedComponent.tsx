@@ -62,7 +62,7 @@ export const Feed = observer(
     presenter: FeedPresenter;
     isLoading: boolean;
   }) => {
-    if (isLoading || !feedVm || !feedVm.tfa || feedVm.articles.length === 0) {
+    if (isLoading || !feedVm || (!feedVm.tfa && feedVm.articles.length === 0)) {
       return <FeedSkeleton />;
     }
 

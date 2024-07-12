@@ -23,6 +23,7 @@ export interface FeedVM {
   lang: string;
   formattedDate: string;
   featuredContentLabel: string;
+  noMoreContentLabel: string;
   tfa: ArticuleVM | null;
   articles: ArticuleVM[];
 }
@@ -81,7 +82,6 @@ export default class FeedPresenter {
 
   async loadMore() {
     if (this.isLoadingMore || this.isLoading) {
-      console.log('Already loading more feed');
       return;
     }
 
@@ -101,14 +101,11 @@ export default class FeedPresenter {
   @computed
   get currentDateFeedVm(): FeedVM {
     let feedPm = feedRepository.currentDateFeedPm;
-    console.log('Current date feed', toJS(feedPm));
     if (!feedPm) {
-      console.log('returning empty feed');
       return this.emptyFeedVm();
     }
 
     const feedVm = this.mapToFeedVm(feedPm);
-    console.log('Current date feed vm', toJS(feedVm));
     return feedVm;
   }
 
@@ -122,6 +119,7 @@ export default class FeedPresenter {
       formattedDate: dateToFriendly(date, feedPm.lang),
       lang: feedPm.lang,
       featuredContentLabel: feedPm.featuredContentLabel,
+      noMoreContentLabel: feedPm.noMoreContentLabel,
       tfa: this.mapToArticuleVm(tfa, feedPm),
       articles: articles.map((article) =>
         this.mapToArticuleVm(article, feedPm),

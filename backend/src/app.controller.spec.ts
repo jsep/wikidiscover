@@ -8,22 +8,36 @@ import {
 import { url } from 'inspector';
 import { TranslateService } from './translate.service';
 import { ConfigModule } from '@nestjs/config';
+import { CacheService } from './cache.service';
 
 describe('AppController', () => {
   let appController: AppController;
   let appService: WikipediaService;
+  let cacheService: CacheService;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule.forRoot()],
       controllers: [AppController],
-      providers: [WikipediaService, TranslateService],
+      providers: [
+        WikipediaService,
+        TranslateService,
+        {
+          provide: CacheService,
+          useValue: {
+            get: jest.fn().mockResolvedValue(null),
+            set: jest.fn().mockResolvedValue(undefined),
+            getJson: jest.fn().mockResolvedValue(null),
+            setJson: jest.fn().mockResolvedValue(undefined),
+          },
+        },
+      ],
     }).compile();
 
     appController = app.get<AppController>(AppController);
     appService = app.get<WikipediaService>(WikipediaService);
-    fetchMock.resetMocks();
 
+    fetchMock.resetMocks();
     fetchMock.mockResponse(JSON.stringify(GetFeaturedContent()));
 
     // jest.spyOn(appService, 'wikipediaRequest').mockResolvedValue({
