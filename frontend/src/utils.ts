@@ -5,17 +5,6 @@ export function dateToIso(date: Date): IsoDateString {
   return date.toISOString().split('T')[0];
 }
 
-export function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  timeout: number,
-): T {
-  let timer: number;
-  return function (this: any, ...args: any[]) {
-    clearTimeout(timer);
-    timer = setTimeout(() => func.apply(this, args), timeout);
-  } as T;
-}
-
 export function dateToFriendly(date: Date, lang: string): string {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',

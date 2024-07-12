@@ -130,6 +130,8 @@ It is a Capacitor app that uses the same codebase as the web app. It is compatib
 
 - [x] Tested the app on iOS
 
+![Mobile App](images/ios.png)
+
 ## Missing features
 
 - [] Persists logs using SQLite
