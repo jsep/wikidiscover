@@ -60,7 +60,7 @@ export class ApiGateway {
   }
 
   isArticleRead(id: string) {
-    return localStorage.getItem(id + '-read') === 'true'c;
+    return localStorage.getItem(id + '-read') === 'true';
   }
 
   public async get<T>(path: string): Promise<Result<T, ApiError>> {
