@@ -68,6 +68,43 @@ All the labels in the app are translated to the selected language. If LibreTrans
 
 The app loads more content as you scroll down the page.
 
+### Frontend Architecture
+
+#### Cornerstone Data Models
+
+![Data Models](./images/cornestone_data_models.png)
+
+#### Data Transfer Objects (DTO)
+
+We are not in control of the data that comes from the outside world.
+Theses are straight data objects that we get from the API, and we don't have control over.
+
+#### Programmers Model (PM)
+
+Here we process the data from the DTOs and prepare it for the view and/or business logic.
+
+#### View Model (VM)
+
+We use the objects we control (PM) to extract just enough data for the view and nothing more, and we pass it to the component
+
+#### Respository
+
+Repository comunicates with the gateways and creates the PMs
+
+#### Gateways
+
+Gatesways are anythig that communicates with the outside world, like the API, the local storage, etc.
+
+#### Presenters
+
+Presentres are responsible for the view logic, like infinite scroll, pagination, they use the repositories to get the PMs and generte the VMs for the components.
+
+#### Components
+
+Only display the data, they don't have any logic.
+
+![Architecture](./images/architecture.png)
+
 #### User Interface
 
 - [x] UI elements for date selection
