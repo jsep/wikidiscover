@@ -6,6 +6,7 @@ import {
 import { TranslateService } from './translate.service';
 import { Result, err, ok } from './utils';
 import { ApiError } from './errors';
+import { CacheService } from './cache.service';
 
 // TODO dry
 export type Badge = {
@@ -26,31 +27,13 @@ export class AppController {
   constructor(
     private readonly wikipediaService: WikipediaService,
     private readonly translateService: TranslateService,
+    private readonly cacheService: CacheService,
   ) {}
 
   @Get('languages')
   async getLanguages(): Promise<string[]> {
     return await this.wikipediaService.supportedLanguages;
   }
-
-  // @Get('feed/:lang/featured/:year/:month/:day')
-  // async getFeed(
-  //   @Param('lang') lang: string,
-  //   @Param('year') year: string,
-  //   @Param('month') month: string,
-  //   @Param('day') day: string,
-  // ): Promise<{ error: string | null; data: any }> {
-  //   const result = await this.wikipediaService.getFeaturedContent(
-  //     lang,
-  //     year,
-  //     month,
-  //     day,
-  //   );
-  //   return {
-  //     error: result.error ? result.error.message : null,
-  //     data: result.value,
-  //   };
-  // }
 
   @Get('feed/:lang/featured/:year/:month/:day')
   async getFeaturedContent(
@@ -61,7 +44,15 @@ export class AppController {
   ): Promise<
     Result<FeaturedContentResponse, { message: string; code: string }>
   > {
-    let result = await this.wikipediaService.getFeaturedContent(
+    let result = await this.cacheService.getJson(
+      `featured-content-${lang}-${year}-${month}-${day}`,
+    );
+
+    if (result) {
+      return ok(result);
+    }
+
+    result = await this.wikipediaService.getFeaturedContent(
       lang,
       year,
       month,
@@ -84,14 +75,31 @@ export class AppController {
     }
     // wait for 2 seconds
     // await new Promise((resolve) => setTimeout(resolve, 2000));
+    // save result to cache
 
-    return ok({
+    const responses = await Promise.all([
+      this.translateLabel("Wikipedia's Featured Content", lang),
+      this.translateLabel('No more content', lang),
+      this.getBadges(lang),
+    ]);
+
+    const [featureContentLabel, noMoreContentLabel, badges] = responses;
+
+    const response = {
       date: `${year}-${month}-${day}`,
       lang: lang,
-      featureContentLabel: await this.getFeaturedContentLabel(lang),
-      badges: await this.getBadges(lang),
+      noMoreContentLabel: noMoreContentLabel,
+      featureContentLabel: featureContentLabel,
+      badges: badges,
       wikipediaResponse: result.value,
-    } as FeaturedContentResponse);
+    } as FeaturedContentResponse;
+
+    await this.cacheService.setJson(
+      `featured-content-${lang}-${year}-${month}-${day}`,
+      response,
+    );
+
+    return ok(response);
   }
 
   private shouldTranslate(lang: string) {
@@ -209,6 +217,35 @@ export class AppController {
     return translatedBadges.value;
   }
 
+  async translateLabel(label: string, lang: string): Promise<string> {
+    if (!this.shouldTranslate(lang)) {
+      return label;
+    }
+
+    const translatedLabel = await this.translateService.translate({
+      text: label,
+      from: 'en',
+      to: lang,
+    });
+
+    if (translatedLabel.error) {
+      console.error('Failed to translate label', {
+        lang,
+        label,
+        translatedLabel,
+      });
+      return label;
+    }
+
+    return translatedLabel.value;
+  }
+
+  async translateNoMoreContentLabel(lang: string): Promise<string> {
+    const label = 'No more content';
+    if (!this.shouldTranslate(lang)) {
+      return label;
+    }
+  }
   async getFeaturedContentLabel(lang: string): Promise<string> {
     const label = "Wikipedia's Featured Content";
     if (!this.shouldTranslate(lang)) {

@@ -25,6 +25,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - TRANSLATE_API_URL=http://libretranslate:5000
+      - REDIS_URL=redis://redis:6379
     depends_on:
       - libretranslate
 
@@ -34,11 +35,15 @@ services:
       - '5050:5000'
     environment:
       - LT_UPDATE_MODELS=true
-      # LT_LOAD_ONLY = 'en,es,zh,fi,he,ru,ar,az,bg,bn,ca,cs,da'
       - LT_LOAD_ONLY=en,es,zh,fi,he,ru,ar,az,bg,bn,ca,cs,da
     volumes:
       - lt-local:/home/libretranslate/.local
       - lt-db:/app/db
+
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
 
 volumes:
   lt-local:

@@ -1,6 +1,6 @@
 import { dateToFriendly, dateToIso } from '../utils.ts';
 import { ArticulePM, FeedPM, feedRepository } from './FeedRepository.ts';
-import { action, computed, makeObservable, observable, toJS } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 import { languages } from './languages.ts';
 
 export interface ArticuleVM {
@@ -81,7 +81,6 @@ export default class FeedPresenter {
 
   async loadMore() {
     if (this.isLoadingMore || this.isLoading) {
-      console.log('Already loading more feed');
       return;
     }
 
@@ -101,14 +100,11 @@ export default class FeedPresenter {
   @computed
   get currentDateFeedVm(): FeedVM {
     let feedPm = feedRepository.currentDateFeedPm;
-    console.log('Current date feed', toJS(feedPm));
     if (!feedPm) {
-      console.log('returning empty feed');
       return this.emptyFeedVm();
     }
 
     const feedVm = this.mapToFeedVm(feedPm);
-    console.log('Current date feed vm', toJS(feedVm));
     return feedVm;
   }
 
