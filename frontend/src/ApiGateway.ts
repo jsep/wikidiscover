@@ -49,7 +49,6 @@ export class ApiGateway {
 
   constructor() {
     this.apiUrl = import.meta.env.VITE_API_URL;
-    console.log('this.apiUrl', this.apiUrl);
     if (!this.apiUrl) {
       console.error('VITE_API_URL is not set');
     }
@@ -61,7 +60,7 @@ export class ApiGateway {
   }
 
   isArticleRead(id: string) {
-    return localStorage.getItem(id + '-read') === 'true';
+    return localStorage.getItem(id + '-read') === 'true'c;
   }
 
   public async get<T>(path: string): Promise<Result<T, ApiError>> {
