@@ -1,7 +1,7 @@
 export const FeedSkeleton = () => {
   return (
     <section>
-      <FeaturedArticleSkeleton />;
+      <FeaturedArticleSkeleton />
       <FeedArticleSkeleton />
     </section>
   );

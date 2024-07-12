@@ -12,3 +12,4 @@ const envContent = envVars
 
 fs.writeFileSync(envFilePath, envContent, 'utf8');
 console.log(`.env file generated at ${envFilePath}`);
+console.log(envContent);

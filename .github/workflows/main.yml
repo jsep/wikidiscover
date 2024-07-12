@@ -8,6 +8,9 @@ on:
     branches:
       - '**'
 
+permissions:
+  pull-requests: 'write'
+
 env:
   VITE_API_URL: ${{ secrets.VITE_API_URL }}
   TRANSLATE_API_URL: ${{ secrets.TRANSLATE_API_URL }}
