@@ -107,3 +107,19 @@ jobs:
           path: frontend
           name: pr-${{ github.event.number }}-frontend-wikidiscover
         if: github.event_name == 'pull_request'
+
+      - name: Add a message to PR with preview URLs
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            const frontendUrl = `https://pr-${prNumber}-frontend-wikidiscover.fly.dev/`;
+            const backendUrl = `https://pr-${prNumber}-backend-wikidiscover.fly.dev`;
+            const message = `[Preview Frontend](${frontendUrl})\n[Preview Backend](${backendUrl})`;
+            github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            });
