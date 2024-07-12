@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const envFilePath = path.join(__dirname, '../.env');
-const envVars = ['TRANSLATE_API_URL', 'REDIS_URL'];
+const envVars = ['VITE_API_URL'];
 
 const envContent = envVars
   .map((envVar) => {
