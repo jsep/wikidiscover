@@ -1,6 +1,6 @@
 import { dateToFriendly, dateToIso } from '../utils.ts';
 import { ArticulePM, FeedPM, feedRepository } from './FeedRepository.ts';
-import { action, computed, makeObservable, observable, toJS } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 import { languages } from './languages.ts';
 
 export interface ArticuleVM {
@@ -23,7 +23,6 @@ export interface FeedVM {
   lang: string;
   formattedDate: string;
   featuredContentLabel: string;
-  noMoreContentLabel: string;
   tfa: ArticuleVM | null;
   articles: ArticuleVM[];
 }
@@ -119,7 +118,6 @@ export default class FeedPresenter {
       formattedDate: dateToFriendly(date, feedPm.lang),
       lang: feedPm.lang,
       featuredContentLabel: feedPm.featuredContentLabel,
-      noMoreContentLabel: feedPm.noMoreContentLabel,
       tfa: this.mapToArticuleVm(tfa, feedPm),
       articles: articles.map((article) =>
         this.mapToArticuleVm(article, feedPm),

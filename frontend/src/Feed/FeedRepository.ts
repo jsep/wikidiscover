@@ -131,10 +131,7 @@ class FeedRepository {
     }
 
     const feedPm = this.mapToFeedPm(feedDto);
-    const before = this.moreFeedsPm.length;
     this.addMoreFeed(feedPm);
-
-    const after = this.moreFeedsPm.length;
 
     this.setLoadingMoreFeed(false);
   }
